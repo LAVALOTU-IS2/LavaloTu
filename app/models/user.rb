@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, omniauth_providers: [:twitter]
+         :omniauthable, omniauth_providers: [:twitter, :facebook]
  
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
@@ -16,7 +16,13 @@ class User < ActiveRecord::Base
       # Create the user if it's a new registration
       if user.nil?
         password = Devise.friendly_token[0,20]
-        if auth.provider == 'twitter'
+        if auth.provider == 'facebook'
+          user = User.new(
+            email: email ? email : "#{auth.uid}@change-me.com",
+            password: password,
+            password_confirmation: password
+          )
+        elsif auth.provider == 'twitter'
           user = User.new(
             email: "#{auth.uid}@change-me.com",
             password: password,
