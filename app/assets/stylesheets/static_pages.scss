@@ -1,35 +1,55 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.page{
+	background-color: #F9FCFF;
+}
 
 .wrapper{
 	overflow-x: hidden;
+	font-family: "Times New Roman", "Lucida Console";
+	font-size: 150%;
 	padding: 30px 0;
 	width: 70%;
-	.superior{
-		height: 500px;
-		background-color: #6699ff;
+	.wrapper-logo{
+		text-align: center;
+		.logo{
+			width : 130px;
+			margin: 0 auto;
+		}
 	}
 	.wrapper-head{
+		padding-top: 20px;
 		.title{
 			margin: 0;
 			padding: 0 15px 30px;
 		}
 		.intro{
-			/*padding-top: 20px;*/
+
 			.text{
 				text-justify: inter-word;
 			}
 		}
 		.imagen{
-			padding-top: 4px;
+			padding-top: 25px;
 		}	
 	}
 
 	.wrapper-body{
 		padding-top: 20px;
 		.accordion{
-			padding-top: 25px;
+			font-family: "Times New Roman", "Lucida Console";
+			font-size: 110%;
+			width: 60%;
+			margin: 0 auto;
+			padding-top: 20px;
+			.panel-heading{
+				background-color: #b3ccff;
+				text-align: center;
+			}
+			.panel-collapse{
+				background-color: #e6eeff;
+			}
 		}
 	}
 }

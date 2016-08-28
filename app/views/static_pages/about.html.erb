@@ -1,141 +1,143 @@
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<META HTTP-EQUIV="Expires" CONTENT="-1">
+<body class="page">
+	<div class ="wrapper container">
 
-<div class ="wrapper container">
+		<div class="wrapper-logo row">
+			<%= image_tag('logo.png', :class => "logo img-responsive img-circle") %>
+		</div>
 
-	<div class="wrapper-head row">
-		<h1 class="title">Acerca de nosotros</h1>
-		<div class="intro col-md-8 col-xs-12">
-			<p class="text">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-				sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</p>
+		<div class="wrapper-head row">
+			<h1 class="title">Acerca de nosotros</h1>
+			<div class="intro col-md-6 col-xs-12">
+				<p class="text">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+				</p>
+			</div>
+			<div class="col-md-6 col-xs-12 imagen">
+				<%= image_tag('futbol.jpg', :class => "img-responsive") %>
+			</div>
 		</div>
-		<div class="col-md-4 col-xs-12 imagen">
-			<%= image_tag('futbol.jpg', :class => "img-responsive") %>
+
+		<div class="wrapper-body">
+			<h2>Nuestro equipo</h2>
+			<p>Queremos que nos conozcas mejor. Haz click en cada uno de los siguientes botones para ver los perfiles de nuestro equipo de desarrollo.</p>
+
+			<div class="panel-group accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#camilo">Georgian Camilo García Beltrán</a>
+						</h4>
+					</div>
+					<div id="camilo" class="panel-collapse collapse ">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-12">
+									<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "camilo-foto") %>
+								</div>
+								<div id="camilo-texto" class="col-md-8 col-xs-12">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#tania">Tania Paola Hurtado Pinto</a>
+						</h4>
+					</div>
+					<div id="tania" class="panel-collapse collapse ">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-12">
+									<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "tania-foto") %>
+								</div>
+								<div id="tania-texto" class="col-md-8 col-xs-12">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#wilman">Wilman Eduardo Guarín Sánchez</a>
+						</h4>
+					</div>
+					<div id="wilman" class="panel-collapse collapse ">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-12">
+									<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "wilman-foto") %>
+								</div>
+								<div id="wilman-texto" class="col-md-8 col-xs-12">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#gustavo">Gustavo Andrés Galvis Cifuentes</a>
+						</h4>
+					</div>
+					<div id="gustavo" class="panel-collapse collapse ">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-12">
+									<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "gustavo-foto") %>
+								</div>
+								<div id="gustavo-texto" class="col-md-8 col-xs-12">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#nicolas">Nicolás Castro Correa</a>
+						</h4>
+					</div>
+					<div id="nicolas" class="panel-collapse collapse ">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-4 col-xs-12">
+									<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "nicolas-foto") %>
+								</div>
+								<div id="nicolas-texto" class="col-md-8 col-xs-12">
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+									sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
 	</div>
-
-	<div class="wrapper-body">
-		<h2>Nuestro equipo</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-		<div class="panel-group accordion">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion" href="#camilo">Georgian Camilo García Beltrán</a>
-					</h4>
-				</div>
-				<div id="camilo" class="panel-collapse collapse ">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "camilo-foto") %>
-							</div>
-							<div id="camilo-texto" class="col-md-8 col-xs-12">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#tania">Tania Paola Hurtado Pinto</a>
-					</h4>
-				</div>
-				<div id="tania" class="panel-collapse collapse ">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "tania-foto") %>
-							</div>
-							<div id="tania-texto" class="col-md-8 col-xs-12">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#wilman">Wilman Eduardo Guarín Sánchez</a>
-					</h4>
-				</div>
-				<div id="wilman" class="panel-collapse collapse ">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "wilman-foto") %>
-							</div>
-							<div id="wilman-texto" class="col-md-8 col-xs-12">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#gustavo">Gustavo Andrés Galvis Cifuentes</a>
-					</h4>
-				</div>
-				<div id="gustavo" class="panel-collapse collapse ">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "gustavo-foto") %>
-							</div>
-							<div id="gustavo-texto" class="col-md-8 col-xs-12">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h4 class="panel-title">
-						<a data-toggle="collapse" data-parent="#accordion" href="#nicolas">Nicolás Castro Correa</a>
-					</h4>
-				</div>
-				<div id="nicolas" class="panel-collapse collapse ">
-					<div class="panel-body">
-						<div class="row">
-							<div class="col-md-4 col-xs-12">
-								<%= image_tag('futbol.jpg', :class => "img-responsive", :id => "nicolas-foto") %>
-							</div>
-							<div id="nicolas-texto" class="col-md-8 col-xs-12">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-</div>
+</body>
