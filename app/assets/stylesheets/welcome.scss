@@ -1,3 +1,119 @@
-// Place all the styles related to the Welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice, .alert{
+	display: none;
+}
+
+.wrapper{
+	.wrapper-head{
+		position: relative;
+		.info{
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 30%;
+			width: 100%;
+			.logo{
+				display: inline-block;
+				width: 100px;
+			}	
+			.slogan{
+				color: $white;
+				margin: 0;
+				padding-top: 10px;
+			}
+		}
+		.session{
+			padding: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			li{
+				display: inline-block;
+				list-style: none;
+				padding: 8px 15px;
+				a{
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	.wrapper-body{
+		position: relative;
+		.steps{
+			text-align: center;
+			.title{
+				color: $blue;
+				text-align: center;
+				text-transform: uppercase;
+			}	
+			.step{
+				padding: 40px;
+				position: relative;
+				span{
+					bottom: 10%;
+					color: $white;
+					font-size: 50px;
+					left: 0;
+					display: inline-block;
+					margin: 0 auto;
+					position: absolute;
+					right: 0;
+					text-align: center;
+					text-transform: uppercase;
+					text-shadow: 3px 4px 2px rgba(130, 130, 130, 1);
+				}
+			}
+			.middle{
+				&::before, &::after{
+					background: url(/assets/next.png);
+					content: '';
+					height: 64px;
+					position: absolute;
+					top: 41%;
+					width: 64px;
+					z-index: 10;	
+				}
+				&::before{
+					left: -30px;
+				}
+				&::after{
+					right: -30px;
+				}
+			}
+		}
+	}
+}
+footer{
+	background-color: $dark-gray;
+	color: $white;
+	padding-top: 25px;
+	.about_us, .services{
+		.subtitle{
+			text-transform: uppercase;
+		}
+		.options{
+			padding: 0;
+			.option{
+				list-style: none;
+				a{
+					color: $white;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+}

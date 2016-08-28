@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "facturas", force: :cascade do |t|
-    t.float    "total_factura"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "garments", force: :cascade do |t|
     t.string   "name"
     t.integer  "quantity"
@@ -46,23 +40,6 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
-  end
-
-  create_table "lugars", force: :cascade do |t|
-    t.string   "nombre_lugar"
-    t.string   "direccion_lugar"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "ordens", force: :cascade do |t|
-    t.datetime "fecha_creacion"
-    t.datetime "fecha_entrega"
-    t.string   "estado"
-    t.integer  "calificacion"
-    t.text     "comentario"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "orders", force: :cascade do |t|
@@ -82,33 +59,11 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "productos", force: :cascade do |t|
-    t.string   "nombre_producto"
-    t.string   "descripcion_producto"
-    t.integer  "cantidad_producto"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "repartidors", force: :cascade do |t|
-    t.string   "nombre_repartidor"
-    t.string   "telefono_entrega"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-  end
-
   create_table "services", force: :cascade do |t|
     t.string   "name"
     t.float    "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "servicios", force: :cascade do |t|
-    t.string   "nombre_servicio"
-    t.float    "costo_servicio"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
