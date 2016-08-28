@@ -1,3 +1,35 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.wrapper{
+	overflow-x: hidden;
+	padding: 30px 0;
+	width: 70%;
+	.superior{
+		height: 500px;
+		background-color: #6699ff;
+	}
+	.wrapper-head{
+		.title{
+			margin: 0;
+			padding: 0 15px 30px;
+		}
+		.intro{
+			/*padding-top: 20px;*/
+			.text{
+				text-justify: inter-word;
+			}
+		}
+		.imagen{
+			padding-top: 4px;
+		}	
+	}
+
+	.wrapper-body{
+		padding-top: 20px;
+		.accordion{
+			padding-top: 25px;
+		}
+	}
+}
