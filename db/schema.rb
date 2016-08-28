@@ -10,7 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160827210338) do
+ActiveRecord::Schema.define(version: 20160828003539) do
+
+  create_table "bills", force: :cascade do |t|
+    t.float    "total_bill"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "facturas", force: :cascade do |t|
+    t.float    "total_factura"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "garments", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "quantity"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +46,69 @@ ActiveRecord::Schema.define(version: 20160827210338) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_identities_on_user_id"
+  end
+
+  create_table "lugars", force: :cascade do |t|
+    t.string   "nombre_lugar"
+    t.string   "direccion_lugar"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "ordens", force: :cascade do |t|
+    t.datetime "fecha_creacion"
+    t.datetime "fecha_entrega"
+    t.string   "estado"
+    t.integer  "calificacion"
+    t.text     "comentario"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "d_created"
+    t.datetime "d_finished"
+    t.string   "state"
+    t.integer  "score"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "productos", force: :cascade do |t|
+    t.string   "nombre_producto"
+    t.string   "descripcion_producto"
+    t.integer  "cantidad_producto"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "repartidors", force: :cascade do |t|
+    t.string   "nombre_repartidor"
+    t.string   "telefono_entrega"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string   "name"
+    t.float    "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "servicios", force: :cascade do |t|
+    t.string   "nombre_servicio"
+    t.float    "costo_servicio"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,6 +124,9 @@ ActiveRecord::Schema.define(version: 20160827210338) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
