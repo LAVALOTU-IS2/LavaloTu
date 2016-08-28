@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'bebas';
+  src: url('../fonts/Bebas/bebasneue_regular.eot');
+  src: url('../fonts/Bebas/bebasneue_regular.eot?#iefix') format('embedded-opentype'), 
+      url('../fonts/Bebas/bebasneue_regular.woff2') format('woff2'), 
+      url('../fonts/Bebas/bebasneue_regular.woff') format('woff'), 
+      url('../fonts/Bebas/bebasneue_regular.ttf') format('truetype'), 
+      url('../fonts/Bebas/bebasneue_regular.svg#bebasneue') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'oswald';
+  src: url('../fonts/oswald/oswald-regular.eot');
+  src: url('../fonts/oswald/oswald-regular.eot') format('embedded-opentype'), 
+      url('../fonts/oswald/oswald-regular.woff2') format('woff2'), 
+      url('../fonts/oswald/oswald-regular.woff') format('woff'), 
+      url('../fonts/oswald/oswald-regular.ttf') format('truetype'), 
+      url('../fonts/oswald/oswald-regular.svg#oswald') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
