@@ -8,13 +8,23 @@
 			</div>
 			<h1 class="slogan">LavaloTu lava por tí</h1>
 		</div>
+
 		<ul class="session">
+			<% if user_signed_in? %>
 			<li>
-				<%= link_to "Regístrate", root_path %>
+				<p> Bienvenido <%= current_user.name %> </p>
+			</li>	
+				<li>
+					<%= link_to "Salir", destroy_user_session_path, method: :delete %>
+				</li>	
+			<%else%>
+			<li>
+				<%= link_to "Regístrate", sign_up_path %>
 			</li>
 			<li>
-				<%= link_to "Iniciar Sesión", root_path %>
+				<%= link_to "Iniciar Sesión", sign_in_path %>
 			</li>
+			<%end%>
 		</ul>
 	</div>
 	<div class="wrapper-body container">
