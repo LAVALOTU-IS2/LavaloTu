@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+LavaloTu
 
-Things you may want to cover:
+* Tania Hurtado
 
-* Ruby version
+* Camilo García
 
-* System dependencies
+* Nicolas Castro
 
-* Configuration
+* Gustavo Galvis
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Wilman Guarín
 
 * ...

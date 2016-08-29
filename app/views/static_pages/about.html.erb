@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag 'static_pages' %>
+<body class="page">
+	<div class ="wrapper container">
+
+		<div class="wrapper-logo row">
+			
+
+			<%= link_to image_tag('logo.png', :class => "logo img-responsive"), root_path %>
+		</div>
+
+		<div class="wrapper-head row">
+			<h1 class="title">¡Queremos que nos conozcas!</h1>
+			<div class="intro col-md-5 col-xs-12 vcenter">
+				<h2 class="lema">NUESTRO LEMA:
+					<span>
+						Compromiso, eficiencia, perfecta limpieza.
+					</span>
+				</h2>
+				<p class="text">
+					Nuestra motivación es darte siempre el mejor servicio en la limpieza y lavado de tu ropa para que uses tu tiempo libre en las cosas que te apasionan.
+				</p>
+			</div>
+			<div class="col-md-7 col-xs-12 group-col vcenter">
+				<%= image_tag('grupo.JPG', :class => "group img-responsive") %>
+			</div>
+		</div>
+
+		<div class="wrapper-body row">
+			<h2>NUESTRO EQUIPO</h2>
+			<p class="intro-body">Somos un grupo de futuros ingenieros de la Universidad Nacional de Colombia, emprendedores y autodidactas. Con nuestra empresa queremos aportar al crecimiento ecónomico del sector de servicios y a la generación de empleos.</p>
+
+			<div class = "row team-row">
+				<%= image_tag('camilo.JPG', :class => "team-photo img-responsive") %>
+				<h4 class="team-text">GEORGIAN CAMILO GARCÍA BELTRÁN</h4>
+				<p class="team-role">Scrum master</p>
+				<p class="team-role">Full-stack development</p>
+			</div>
+
+			<div class="row team-row">
+				<div class="col-md-6 col-xs-12">
+					<%= image_tag('tania.JPG', :class => "team-photo img-responsive") %>
+					<p class="team-text">TANIA PAOLA HURTADO PINTO</p>
+					<p class="team-role">Back-end development</p>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<%= image_tag('gustavo.JPG', :class => "team-photo img-responsive") %>
+					<p class="team-text">GUSTAVO ANDRÉS GALVIS CIFUENTES</p>
+					<p class="team-role">Back-end development</p>
+				</div>
+			</div>
+
+			<div class="row team-row">
+				<div class="col-md-6 col-xs-12">
+					<%= image_tag('wilman.JPG', :class => "team-photo img-responsive") %>
+					<p class="team-text">WILMAN EDUARDO GUARÍN SÁNCHEZ</p>
+					<p class="team-role">Front-end development</p>
+				</div>
+				<div class="col-md-6 col-xs-12">
+					<%= image_tag('nicolas.JPG', :class => "team-photo img-responsive") %>
+					<p class="team-text">NICOLÁS CASTRO CORREA</p>
+					<p class="team-role">Front-end development</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

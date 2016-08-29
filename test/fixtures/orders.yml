@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  d_created: 2016-08-27 18:36:00
+  d_finished: 2016-08-27 18:36:00
+  state: MyString
+  score: 1
+  comment: MyText
+
+two:
+  d_created: 2016-08-27 18:36:00
+  d_finished: 2016-08-27 18:36:00
+  state: MyString
+  score: 1
+  comment: MyText

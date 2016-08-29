@@ -1,0 +1,340 @@
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice, .alert{
+	display: none;
+} 
+
+body{
+	overflow-x: hidden;
+}
+
+.wrapper{
+	.wrapper-head{
+		position: relative;
+		.wrapper-menu{
+			padding-top: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			.nav{
+				li{
+					a{	
+						color: $white;
+						font-family: $font-LatoS;
+						padding: 10px 15px;
+						text-align: center;
+						&::before{
+							background-color: $white;
+							bottom: 0;
+							content: '';
+							height: 3px;
+							left: 50%;
+							position: absolute;
+							right: 50%;
+							@include transition(all 0.3s ease-in-out);
+						}
+						&:hover{
+							background-color: transparent;
+							&::before{
+								left: 5px;
+								right: 5px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.info{
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 20%;
+			width: 100%;
+			.logo{
+				display: inline-block;
+				width: 170px;
+			}	
+			.slogan{
+				color: $white;
+				font-family: $font-LatoS;
+				letter-spacing: 1px;
+				margin: 0;
+				padding-top: 10px;
+				text-align: center;
+				span{
+					font-family: $font-LatoT;
+					font-weight: bold;
+				}
+			}
+		}	
+	}
+	.wrapper-body{
+		position: relative;
+		.steps{
+			text-align: center;
+			.title{
+				color: $blue;
+				font-family: $font-LatoB;
+				position: relative;
+				text-align: center;
+				text-transform: uppercase;
+				&::before, &::after{
+					background: url(steps.png) no-repeat 0 0 transparent;
+					content: '';
+					height: 30px;
+					position: absolute;
+					top: 5px;
+					width: 70px;
+				}
+				&::before{
+					left: 20%;
+				}
+				&::after{
+					right: 20%;
+					@include transform(rotateY(-180deg));
+				}
+			}	
+			.step{
+				padding: 40px;
+				position: relative;
+				span{
+					bottom: 10%;
+					color: $white;
+					font-family: $font-LatoB;
+					font-size: 50px;
+					left: 0;
+					letter-spacing: 2px;
+					display: inline-block;
+					margin: 0 auto;
+					position: absolute;
+					right: 0;
+					text-align: center;
+					text-transform: uppercase;
+					text-shadow: 3px 4px 2px rgba(130, 130, 130, 1);
+				}
+			}
+			.middle{
+				&::before, &::after{
+					background: url(/assets/next.png) no-repeat 0 0 transparent;
+					background-size: 85%;
+					content: '';
+					height: 64px;
+					position: absolute;
+					top: 41%;
+					width: 64px;
+					z-index: 10;	
+				}
+				&::before{
+					left: -25px;
+				}
+				&::after{
+					right: -35px;
+				}
+			}
+		}
+	}
+	.share-button{
+		background-color: rgba(114, 226, 253, 0.7);
+		border: none;
+		border-radius: 50%;
+		bottom: -1.5em;
+		color: #fff;
+		font-size: 1.8em;
+		height: 3em;
+		left: 50%;
+		margin-left: -1.5em;
+		padding-bottom: 1em;
+		position: fixed;
+		text-align: center;
+		width: 3em;
+		z-index: 11;
+		&:focus{
+			outline: none;
+		}
+	}
+	.share-wrapper{
+		border-radius: 50%;
+		bottom: -15em;
+		font-size: 1em;
+		height: 26em;
+		left: 50%;
+		margin-left: -13em;
+		overflow: hidden;
+		pointer-events: none;
+		position: fixed;
+		width: 26em;
+		z-index: 10;
+		@include transform(scale(0.1));
+		@include transition(all 0.3s ease-in-out);
+		ul{
+			position: relative;
+			li{
+				font-size: 1.5em;
+				height: 8em;
+				left: 50%;
+				list-style: none;
+				margin-left: -8em;
+				margin-top: -0.3em;
+				overflow: hidden;
+				position: absolute;
+				top: 50%;
+				width: 8em;
+				@include transform-origin(100% 100%);
+				@include transition(border 0.3 ease-in-out);
+				a{
+					background-color: transparent;
+					border-radius: 50%;
+					bottom: -5em;
+					color: $blue;
+					display: block;
+					font-size: 1.18em;
+					height: 10em;
+					padding-left: 1em;
+					padding-top: 1em;
+					position: absolute;
+					right: -5em;
+					text-align: center;
+					text-decoration: none;
+					width: 10em;
+					@include transform(skew(-30deg) rotate(-70deg) scale(1));
+					@include transition(all 0.3s ease-in-out);
+					-webkit-backface-visibility: hidden;
+					.mask{
+						background-color: #fff;
+						border-radius: 50%;
+						display: inline-block;
+						height: 40px;
+						width: 40px;
+						@include transition(all 0.3s ease-in-out);
+						i{
+							font-size: 25px;
+						}
+						&:hover{
+							background-color: $blue;
+							color: $white;
+						}
+					}
+				}
+				&:first-child{
+					margin-left: -8em;
+					margin-top: -0.3em;
+					@include transform(rotate(0deg) skew(30deg));
+					a{
+						.mask{
+							i{
+								@include transform(rotate(70deg));
+							}
+						}
+					}
+				}
+				&:nth-child(2){
+					margin-left: -8em;
+					margin-top: -0.3em;
+					@include transform(rotate(60deg) skew(30deg));
+					a{
+						.mask{
+							i{
+								@include transform(rotate(25deg));
+							}
+						}
+					}
+				}
+				&:nth-child(3){
+					margin-left: -8em;
+					margin-top: -0.3em;
+					@include transform(rotate(120deg) skew(30deg));
+					a{
+						.mask{
+							i{
+								@include transform(rotate(-50deg));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.opened-nav{
+		border-radius: 50%;
+		pointer-events: auto;
+		@include transform(scale(1));
+	}
+}
+footer{
+	background-color: $dark-gray;
+	color: $white;
+	font-family: $font-LatoT;
+	padding-top: 25px;
+	.about_us, .lavalotu, .services{
+		padding: 0 40px;
+		.subtitle{
+			color: $light-blue;
+			font-family: $font-LatoS;
+			text-transform: uppercase;
+			a{
+				color: $light-blue;
+				text-decoration: none;
+			}
+		}
+		.options, .info{
+			padding: 0;
+			.option{
+				list-style: none;
+				a{
+					color: $white;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+			}
+		}
+		.social{
+			list-style: none;
+			padding: 0;
+			li{
+				display: inline-block;
+				padding: 10px 30px 10px 0;
+				a{
+					text-decoration: none;
+					i{
+						color: $white;
+						font-size: 22px;
+						@include transition(0.3s ease-in-out);
+					}
+					&:hover{
+						i{
+							color: $light-blue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+@media screen and (max-width: 40em) {
+	.wrapper{
+		.wrapper-head{
+			.info{
+				background-color: $blue;
+				padding: 40px 0 25px;
+				position: relative;
+				.slogan{
+					font-size: 35px;
+				}
+			}
+		}
+	}
+}

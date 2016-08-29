@@ -1,0 +1,107 @@
+<%= stylesheet_link_tag 'welcome' %>
+<div class="wrapper">
+	<div class="wrapper-head clearfix">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="wrapper-menu">
+			<div class="session navbar-collapse navbar-right collapse">
+				<ul class="nav navbar-nav">
+					<% if user_signed_in? %>
+						<li>
+							<p> Bienvenido <%= current_user.name %> </p>
+						</li>	
+							<li>
+								<%= link_to "Salir", destroy_user_session_path, method: :delete %>
+							</li>	
+						<%else%>
+						<li>
+							<%= link_to "Regístrate", sign_up_path %>
+						</li>
+						<li>
+							<%= link_to "Iniciar Sesión", sign_in_path %>
+						</li>
+					<%end%>
+				</ul>
+			</div>
+		</div>
+		<%= image_tag("background-header.jpg", :alt => "Background LavaloTu", :title => "Background LavaloTu", :class=> "img-responsive hidden-xs") %>
+		<div class="info">
+			<div class="logo">
+				<%= image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive") %>
+			</div>
+			<h1 class="slogan">Lavalotu <span>lava por tí</span></h1>
+		</div>
+
+	</div>
+	<div class="wrapper-body container">
+		<div class="steps row">
+			<h2 class="title">SOLO EN TRES SIMPLES PASOS</h2>
+			<div class="step col-md-4">
+				<span>Ordena</span>
+				<%= image_tag("ordena.jpg", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive") %>
+			</div>
+			<div class="step middle col-md-4">
+				<span>Entrega</span>
+				<%= image_tag("entrega.jpg", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive") %>
+			</div>
+			<div class="step col-md-4">
+				<span>Recibe</span>
+				<%= image_tag("recibe.jpg", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive") %>
+			</div>
+		</div>
+	</div>
+	<div class="option-menu">
+		<button id="share-button" class="share-button">+</button>
+		<div id="share-wrapper" class="share-wrapper">
+			<ul>
+				<li>
+					<a target="_blank" href="https://www.facebook.com/LavaloTu/"><div class="mask"><i class="fa fa-facebook" aria-hidden="true"></i></div></a>
+				</li>
+				<li>
+					<a target="_blank" href="https://twitter.com/lavalotu"><div class="mask"><i class="fa fa-twitter" aria-hidden="true"></i></div></a>
+				</li>
+				<li>
+					<a target="_blank" href="https://www.instagram.com/lavalo_tu/"><div class="mask"><i class="fa fa-instagram" aria-hidden="true"></i></div></a>
+				</li>
+			</ul>
+		</div>
+		<div id="share-overlay" class="share-overlay"></div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="about_us col-md-4">
+				<h4 class="subtitle"><%= link_to "ACERCA DE NOSOTROS", static_pages_about_path %></h4>
+				<ul class="options">
+					<li class="option"><%= link_to "Contáctanos", static_pages_contact_path %></li>
+					<li class="option"><%= link_to "Política de privacidad", root_path %></li>
+					<li class="option"><%= link_to "Preguntas frecuentes", root_path %></li>
+					<li class="option"><%= link_to "Términos y condiciones", root_path %></li>
+				</ul>
+			</div>
+			<div class="lavalotu col-md-4">
+			<h4 class="subtitle">SÍGUENOS EN:</h4>
+				<ul class="social">
+					<li class="option"><a href="https://www.facebook.com/LavaloTu/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li class="option"><a href="https://twitter.com/lavalotu"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li class="option"><a href="https://www.instagram.com/lavalo_tu/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+			<div class="services col-md-4">
+				<h4 class="subtitle"><%= link_to "NUESTROS SERVICIOS", root_path %></h4>
+				<ul class="options">
+					<li class="option">Lavado</li>
+					<li class="option">Tinturado</li>
+					<li class="option">Donaciones</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>	
+<!--<%= link_to "Signout", destroy_user_session_path, method: :delete %>-->
