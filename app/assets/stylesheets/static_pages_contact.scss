@@ -1,0 +1,41 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.page{
+	background-color: #F9FCFF;
+}
+
+
+.wrapper{
+	background-color: #F9FCFF;
+	overflow-x: hidden;
+	padding: 0 0;
+	width: 70%;
+	font-family: "Times New Roman", Georgia, Serif;
+	.wrapper-head{
+		.title{
+			margin: 0;
+			padding: 0 15px 30px;
+		}
+		.logo{
+			img{
+				padding: auto;
+				margin: auto;
+				width: 150px	;
+			}
+		}
+		.informacion{
+			.imag{
+				padding: auto;
+				margin: auto;
+			}
+		}
+	}
+	.wrapper-form{
+		padding: 25px 0 0;
+		.form{
+			padding: 25px 10px 0;
+		}
+	}
+
+}
