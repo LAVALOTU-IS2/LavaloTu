@@ -13,11 +13,15 @@ class User < ActiveRecord::Base
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
+    
  
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
- 
+      names = auth.info.name.split(" ")
+      name= names[0]
+      lastname= names[1]
+      phone = "3132603143"
       # Create the user if it's a new registration
       if user.nil?
         password = Devise.friendly_token[0,20]
@@ -25,13 +29,19 @@ class User < ActiveRecord::Base
           user = User.new(
             email: email ? email : "#{auth.uid}@change-me.com",
             password: password,
-            password_confirmation: password
+            password_confirmation: password,
+            name: name,
+            lastname: lastname,
+            phone: phone
           )
         elsif auth.provider == 'twitter'
           user = User.new(
             email: "#{auth.uid}@change-me.com",
             password: password,
-            password_confirmation: password
+            password_confirmation: password,
+            name: name,
+            lastname: lastname,
+            phone: phone
           )
         end
       end
