@@ -1,0 +1,57 @@
+<%= stylesheet_link_tag 'static_pages_contact' %>
+<body class="page">
+	<div class="wrapper container">
+		<div class="wrapper-head row">
+			<h2 class="title">Contáctanos</h2>
+			<div class="logo col-md-12 col-xs-12">
+				
+					<%= link_to image_tag('logo.png', :class => "logo img-responsive"), root_path %>
+
+			</div>
+			<div class="informacion col-md-12 col-xs-12">
+
+				<div class="col-md-6 col-xs-12 imag text-center">
+					<h3>Dirección</h3>
+					<p class="text-center">
+						Carrera 25 No.53-10 Sur
+					</p>
+				</div>
+				<div class="col-md-6 col-xs-12 imag text-center">
+					<h3>Telefonos</h3>
+					<p class="text-center">
+						Telefono:
+						714 33 27
+					</p>
+					<p class="text-center">
+						Celular:
+						319 604 61 35
+					</p>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="wrapper-form col-md-6 col-xs-10	">
+			<h2 class="title">Envíanos un mensaje</h2>
+			<form role="form" class="form">
+				<div class="form-group">
+					<label for="username">Nombre:</label>
+					<input type="text" name="nombre" class="form-control" placeholder="Nombre" />
+				</div>
+
+				<div class="form-group">
+					<label for="exampleInputEmail1">Correo:</label>
+					<input type="email" name="correo" class="form-control" placeholder="Correo" />
+				</div>
+
+				<div class="form-group">
+					<label for="comment">Mensaje:</label>
+					<textarea class="form-control" rows="5" placeholder="Mensaje"></textarea>
+				</div>
+
+				<button type="button" class="btn btn-info">Enviar</button>
+			</form>
+		</div>
+	</div>
+</body>
