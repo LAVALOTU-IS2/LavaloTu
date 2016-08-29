@@ -11,12 +11,21 @@
 		<div class="wrapper-menu">
 			<div class="session navbar-collapse navbar-right collapse">
 				<ul class="nav navbar-nav">
-					<li>
-						<%= link_to "Regístrate", root_path %>
-					</li>
-					<li>
-						<%= link_to "Iniciar Sesión", root_path %>
-					</li>
+					<% if user_signed_in? %>
+						<li>
+							<p> Bienvenido <%= current_user.name %> </p>
+						</li>	
+							<li>
+								<%= link_to "Salir", destroy_user_session_path, method: :delete %>
+							</li>	
+						<%else%>
+						<li>
+							<%= link_to "Regístrate", sign_up_path %>
+						</li>
+						<li>
+							<%= link_to "Iniciar Sesión", sign_in_path %>
+						</li>
+					<%end%>
 				</ul>
 			</div>
 		</div>
