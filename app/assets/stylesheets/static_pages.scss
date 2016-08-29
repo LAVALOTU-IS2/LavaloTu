@@ -8,48 +8,86 @@
 .wrapper{
 	overflow-x: hidden;
 	font-family: "Times New Roman", "Lucida Console";
-	font-size: 150%;
-	padding: 30px 0;
+	font-size: 140%;
+	padding: 0 0 30px 0;
 	width: 70%;
+
 	.wrapper-logo{
 		text-align: center;
 		.logo{
-			width : 130px;
+			width : 170px;
 			margin: 0 auto;
 		}
 	}
+
 	.wrapper-head{
-		padding-top: 20px;
+		padding: 20px 0 0 15px;
+		margin-top: 20px;
+		text-align: center;
+
 		.title{
 			margin: 0;
-			padding: 0 15px 30px;
+			padding: 0 15px 50px;
+			font-size: 50px;
+			text-align: center;
 		}
+
 		.intro{
+			padding-top: 25px;
+			
+			.lema span{
+				display: block;
+			}
 
 			.text{
-				text-justify: inter-word;
+				margin-top:20px;
+				display: block;
+			}
+
+			.vcenter {
+				display: inline-block;
+				vertical-align: middle;
+				float: none;
 			}
 		}
-		.imagen{
+
+		.group-col{
 			padding-top: 25px;
+
+			.group{
+				border-radius: 5%;
+				border-width: 2px;
+				border-color: Black;
+			}
 		}	
 	}
 
 	.wrapper-body{
-		padding-top: 20px;
-		.accordion{
-			font-family: "Times New Roman", "Lucida Console";
-			font-size: 110%;
-			width: 60%;
-			margin: 0 auto;
-			padding-top: 20px;
-			.panel-heading{
-				background-color: #b3ccff;
-				text-align: center;
-			}
-			.panel-collapse{
-				background-color: #e6eeff;
-			}
+		padding: 20px 0 0 15px;
+		text-align: center;
+
+		.team-row{
+			text-align: center;
+			padding: 20px 0 10px 0;
 		}
+
+		.team-photo{
+			border-radius: 5%;
+			width : 250px;
+			margin: 0 auto;
+		}
+
+		.team-text{
+			font-weight: bold;
+			font-family: "Times New Roman", "Lucida Console";
+			font-size: 12px;
+			padding-top: 12px;
+		}
+
+		.team-role{
+			font-family: "Times New Roman", "Lucida Console";
+			font-size: 13px;
+		}
+		
 	}
 }
