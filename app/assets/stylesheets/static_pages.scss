@@ -1,3 +1,8 @@
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -7,7 +12,7 @@
 
 .wrapper{
 	overflow-x: hidden;
-	font-family: "Times New Roman", "Lucida Console";
+	font-family: $font-LatoT;
 	font-size: 140%;
 	padding: 0 0 30px 0;
 	width: 70%;
@@ -26,6 +31,8 @@
 		text-align: center;
 
 		.title{
+			font-family: $font-LatoB;
+			color: $blue;
 			margin: 0;
 			padding: 0 15px 50px;
 			font-size: 50px;
@@ -33,15 +40,19 @@
 		}
 
 		.intro{
-			padding-top: 25px;
+			padding-top: 1px;
 			
-			.lema span{
-				display: block;
-			}
+			.lema{
+				font-family: $font-LatoS;
+				span{
+					display: block;
+				}
+			} 
 
 			.text{
 				margin-top:20px;
 				display: block;
+				font-size: 19px;
 			}
 
 			.vcenter {
@@ -66,6 +77,10 @@
 		padding: 20px 0 0 15px;
 		text-align: center;
 		margin: 0 auto;
+		h2{
+			font-family: $font-LatoS;
+			color: $blue;
+		}
 		intro-body{
 			width:70%;
 		}
@@ -83,13 +98,13 @@
 		
 		.team-text{
 			font-weight: bold;
-			font-family: "Times New Roman", "Lucida Console";
+			font-family: $font-LatoB;
 			font-size: 12px;
 			padding-top: 12px;
 		}
 
 		.team-role{
-			font-family: "Times New Roman", "Lucida Console";
+			font-family: $font-LatoS;
 			font-size: 13px;
 		}
 		
