@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require polyfill
+//= require jquery.inview
+//= require app
 //= require_tree .
