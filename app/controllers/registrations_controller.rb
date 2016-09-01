@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationController
-	def new
+	/def new
 		super
 	end
 	def create
@@ -7,5 +7,5 @@ class RegistrationsController < Devise::RegistrationController
 	end
 	def update
 		super
-	end
+	end/
 end
