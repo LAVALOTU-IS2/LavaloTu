@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
   
@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
     if identity.user != user
       identity.user = user
       identity.save!
+      sign_in(identity, :bypass => true)
+      redirect_to root_path
     end
     
     user
