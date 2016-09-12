@@ -1,6 +1,6 @@
 class Garment < ApplicationRecord
-	validates :name, :quantity, presence: true
-	validates :quantity, numericality: true
-	belongs_to :order
-	has_many :service
+	validates :name, presence: true
+	#belongs_to :order
+	has_one :order
+	has_many :services, dependent: :destroy
 end

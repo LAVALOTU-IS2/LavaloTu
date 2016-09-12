@@ -1,0 +1,14 @@
+<div class="comments-detail container">
+	<p>
+		<strong>Name</strong>
+		<%= service.name %>
+	</p>
+
+	<p>
+		<strong>Cost</strong>
+		<%= service.cost %>
+	</p>
+
+	<%= link_to 'Destroy service', [service.garment, service], method: :delete, data: { confirm: 'Are you sure?', class: "option"} %>
+
+</div>

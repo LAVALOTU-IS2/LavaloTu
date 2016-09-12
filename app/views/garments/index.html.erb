@@ -1,0 +1,25 @@
+<div class="wrapper container">
+  <h1>Lista de garments</h1>
+  <table>
+    <tr>
+      <th class="main">Name</th>
+      <th class="main">Description</th>
+      <th class="main" colspan="3"></th>
+    </tr>
+
+    <% @garments.each do |garment| %>
+    <tr class="content">
+      <td><%= garment.name %></td>
+      <td><%= garment.description %></td>
+      <td class="detail"><%= link_to 'Show', garment_path(garment) %></td>
+      <td class="detail"><%= link_to 'Edit', edit_garment_path(garment) %></td>
+      <td class="detail"><%= link_to 'Destroy', garment_path(garment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+  <br>
+  <%= link_to 'New garment', new_garment_path, class: "option" %> 
+  <%= link_to 'Home', root_path, class: "option" %>
+</div>
+
+

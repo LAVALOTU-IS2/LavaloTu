@@ -9,7 +9,7 @@ Devise.setup do |config|
   # config.secret_key = '044614175d886162415f8e8c9036f61f6cc606decc6bccaf76b6059b00752b5edfc16902e6c97fbc33d222d37e7601de70da3c6abe1b3f699a40c8798abdc820'
   #config.omniauth :facebook, "1490686600958021", "bf6979189d4be46172aa81ef9e4ae06a"
   
-  config.omniauth :twitter, "lubWcade9tkpCGWjsCLMYjZoM", "6H6u28cbLlrMO4tgG4MuQi1ljbgT7BULIZhVkEMWhrzcANq17l"
+  config.omniauth :twitter, "JpbUFTGUXSpI2mCJpeMybjN1a", "kZW8083GauRwOZAdQ3K5FIyqhzRzhGHaQWuKxxXKntAEnK7l6x"
   config.omniauth :facebook, "1490686600958021", "bf6979189d4be46172aa81ef9e4ae06a"
 
   # ==> Mailer Configuration

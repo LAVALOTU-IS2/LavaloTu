@@ -3,7 +3,7 @@ class CreateServices < ActiveRecord::Migration[5.0]
     create_table :services do |t|
       t.string :name
       t.float :cost
-
+      t.references :garment, foreign_key: true
       t.timestamps
     end
   end

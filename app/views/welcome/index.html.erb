@@ -18,7 +18,10 @@
 							<li>
 								<%= link_to "Salir", destroy_user_session_path, method: :delete %>
 							</li>	
-						<%else%>
+					<%else%>
+						<li>
+							<%= link_to "Garments", controller: 'garments' %>
+						</li>
 						<li>
 							<%= link_to "Regístrate", sign_up_path %>
 						</li>
