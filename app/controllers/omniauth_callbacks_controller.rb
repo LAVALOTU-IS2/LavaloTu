@@ -1,6 +1,6 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
- def twitter
-  @user = User.find_for_oauth(env["omniauth.auth"], current_user)
+  def twitter
+    @user = User.find_for_oauth(env["omniauth.auth"], current_user)
   
     if @user.persisted? # Chequea que nuestro usuario se haya guardado en la base de datos y no sea una instancia superficial
       sign_in_and_redirect @user, event: :authentication
