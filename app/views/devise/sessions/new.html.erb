@@ -3,6 +3,10 @@
   <div class="logo">
     <%= image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive") %>
   </div>
+  
+  <%= render "devise/shared/sign_up" %>
+  <%= render "devise/shared/social" %>
+  <span class="or">or</span>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row">
@@ -26,8 +30,6 @@
       </div>
     </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>
 
 

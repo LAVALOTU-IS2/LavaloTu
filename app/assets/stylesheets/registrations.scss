@@ -32,8 +32,17 @@
 			}
 		}
 		.check{
+			color: $gray;
+			font-family: $font-LatoH;
+			padding: 0 15px 5px;
+			text-align: left;
 			input{
+				margin-top: 5.5px;
+				vertical-align: top;
 				width: auto;
+			}
+			label{
+				font-weight: normal;
 			}
 		}
 		.name{
@@ -119,5 +128,24 @@
 	}
 	.sign_in{
 		text-decoration: underline;
+	}
+	.register{
+		padding-bottom: 15px;
+		a{
+			background-color: $pinky;
+			border-radius: 5px;
+			color: $white;
+			display: block;
+			font-family: $font-LatoS;
+			font-size: 17px;
+			padding: 15px;
+			@include transition(all 0.3s ease-in-out); 
+			&:hover{
+				background-color: rgba(255, 87, 107, 0.8);
+			}
+			&:hover, &:focus, &:active{
+				text-decoration: none;
+			}
+		}
 	}
 }
