@@ -1,43 +1,38 @@
-<h2>Configuracion de la cuenta<!--<%= resource_name.to_s.humanize %>--></h2>
+  <%= stylesheet_link_tag 'registrations' %>
+  <div class="container data">
+    <div class="logo">
+      <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
+    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+    <h3>Configuración<!--<%= resource_name.to_s.humanize %>--></h3>
 
-  <div class="field">
-    <%= f.label :Correo %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div class="field col-md-12">
+      <%= f.email_field :email, autofocus: true %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :Contrasena %> <i>(Omitir si no se desea realizar cambios)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> caracteres minimo</em>
     <% end %>
-  </div>
 
-  <div class="field">
-    <%= f.label :Repetir_contrasena %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="field col-md-12">
+      <%= f.password_field :password, autocomplete: "off", placeholder: "Nueva contraseña" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repetir contraseña" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :Contrasena_actual %> <i>(Ingresar contrasena actual para confirmar cambios)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.password_field :current_password, autocomplete: "off", placeholder: "Contraseña actual" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Guardar cambios" %>
+    </div>
+    <% end %>
+    <span class="or"></span>
+    <h3>Cancelar mi cuenta</h3>
 
-  <div class="actions">
-    <%= f.submit "Guardar cambios" %>
-  </div>
-<% end %>
+    <p>No estas feliz con el servicio? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Seguro?" }, method: :delete %></p>
 
-<h3>Cancelar mi cuenta</h3>
-
-<p>No estas feliz con el servicio? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Seguro?" }, method: :delete %></p>
-
-<%= link_to "Volver", :back %>

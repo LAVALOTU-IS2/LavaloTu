@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
-  
+  has_one :identity, dependent: :destroy
   has_many :order
   has_many :place
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}
@@ -51,8 +51,6 @@ class User < ActiveRecord::Base
     if identity.user != user
       identity.user = user
       identity.save!
-      sign_in(identity, :bypass => true)
-      redirect_to root_path
     end
     
     user

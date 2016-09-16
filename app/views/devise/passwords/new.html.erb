@@ -1,15 +1,19 @@
-<h2>Forgot your password?</h2>
+<%= stylesheet_link_tag 'registrations' %>
+<div class="container data">
+  <div class="logo">
+    <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
+  </div>
+<h3>Recuperar contraseña</h3>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, placeholder: "Correo"%>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Enviar correo" %>
   </div>
 <% end %>
 
