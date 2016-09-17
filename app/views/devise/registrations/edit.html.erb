@@ -18,21 +18,21 @@
     <% end %>
 
     <div class="field col-md-12">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Nueva contraseña" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: "New password" %>
     </div>
     <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repetir contraseña" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %>
     </div>
 
     <div class="field">
-      <%= f.password_field :current_password, autocomplete: "off", placeholder: "Contraseña actual" %>
+      <%= f.password_field :current_password, autocomplete: "off", placeholder: "Current password" %>
     </div>
     <div class="actions">
-      <%= f.submit "Guardar cambios" %>
+      <%= f.submit "Save changes" %>
     </div>
     <% end %>
     <span class="or"></span>
     <h3>Cancelar mi cuenta</h3>
 
-    <p>No estas feliz con el servicio? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Seguro?" }, method: :delete %></p>
+    <p>No estas feliz con el servicio? <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Seguro?" }, method: :delete %></p>
 

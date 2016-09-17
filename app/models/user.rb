@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       names = auth.info.name.split(" ")
       name= names[0]
       lastname= names[1]
-      phone = "3132603143"
+      phone = '3136064521'
       # Create the user if it's a new registration
       if user.nil?
         password = Devise.friendly_token[0,20]
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
             lastname: lastname,
             phone: phone
           )
+          user.skip_confirmation!
         elsif auth.provider == 'twitter'
           user = User.new(
             email: "#{auth.uid}@change-me.com",
@@ -43,6 +44,7 @@ class User < ActiveRecord::Base
             lastname: lastname,
             phone: phone
           )
+          user.skip_confirmation!
         end
       end
       user.save!

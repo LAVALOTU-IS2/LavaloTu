@@ -10,15 +10,15 @@
   <%= f.hidden_field :reset_password_token %>
 
   <div class="field">
-    <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "Nueva contraseña" %>
+    <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "New password" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirmar nueva contraseña" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm new password" %>
   </div>
   
   <div class="actions">
-    <%= f.submit "Cambiar contraseña" %>
+    <%= f.submit "Change password" %>
   </div>
 <% end %>
 
