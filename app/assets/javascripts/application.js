@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require angular.min
 //= require bootstrap-sprockets
 //= require polyfill
 //= require jquery.inview
 //= require app
+//= require dashboard
 //= require_tree .

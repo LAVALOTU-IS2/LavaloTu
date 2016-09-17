@@ -12,6 +12,10 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def index
+	
+	end
+
 	private
 	def user_params
 	    accessible = [ :name, :email ] # extend with your own params
