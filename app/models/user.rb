@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
-  
+  has_one :identity, dependent: :destroy
   has_many :order
   has_many :place
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       names = auth.info.name.split(" ")
       name= names[0]
       lastname= names[1]
-      phone = "3132603143"
+      phone = '3136064521'
       # Create the user if it's a new registration
       if user.nil?
         password = Devise.friendly_token[0,20]
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
             lastname: lastname,
             phone: phone
           )
+          user.skip_confirmation!
         elsif auth.provider == 'twitter'
           user = User.new(
             email: "#{auth.uid}@change-me.com",
@@ -43,6 +44,7 @@ class User < ActiveRecord::Base
             lastname: lastname,
             phone: phone
           )
+          user.skip_confirmation!
         end
       end
       user.save!

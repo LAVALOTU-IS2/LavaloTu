@@ -13,8 +13,8 @@
 				<ul class="nav navbar-nav">
 					<% if user_signed_in? %>
 						<li>
-							<p> Bienvenido <%= current_user.name %> </p>
-						</li>	
+							<%= link_to current_user.name, edit_user_registration_path, :class => 'navbar-link' %>
+						</li>
 							<li>
 								<%= link_to "Salir", destroy_user_session_path, method: :delete %>
 							</li>	

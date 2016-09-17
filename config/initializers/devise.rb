@@ -11,15 +11,14 @@ Devise.setup do |config|
   
   config.omniauth :twitter, "JpbUFTGUXSpI2mCJpeMybjN1a", "kZW8083GauRwOZAdQ3K5FIyqhzRzhGHaQWuKxxXKntAEnK7l6x"
   config.omniauth :facebook, "1490686600958021", "bf6979189d4be46172aa81ef9e4ae06a"
-
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'Lavalotu'
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  # config.mailer = 'devisese::Mailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
