@@ -1,7 +1,7 @@
 $(document).ready(function () { 
 	$.ajax({
 		dataType: "json",
-		url: 'http://localhost:3000/api/v1/garments/',
+		url: 'http://lavalotu.herokuapp.com/api/v1/garments/',
 		success: function(data){
 			/*Filter by service*/
 			var $content_prices = $('<div class="prices"></div>');
