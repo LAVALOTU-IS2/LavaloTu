@@ -21,6 +21,7 @@
 		float: left;
 		height: 100vh;	
 		padding: 10px 0;
+		position: fixed;
 		width: 20%;
 		.lavalotu-image{
 			padding: 15px 0;
@@ -38,9 +39,11 @@
 			}
 		}
 		.menu-options{
+			height: 90%;
 			list-style: none;
 			margin: 0;
 			padding: 0;
+			position: relative;
 			li{
 				padding: 0 20px;
 				@include transition(all 0.3s ease-in-out);
@@ -56,13 +59,155 @@
 					}
 				}
 				&:hover{
-					//background-color: red;
+					
+				}
+			}
+			span{
+				bottom: 25px;
+				font-family: $font-LatoT;
+				font-size: 17px;
+				font-weight: bold;
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	#garments-container{
+		float: right;
+		padding-top: 30px;
+		width: 80%;
+		.options{
+			font-family: $font-LatoT;
+			padding: 10px 20px;
+			label{
+				color: $dark-gray;
+				font-family: $font-LatoS;
+				font-size: 20px; 
+			}
+			select{
+				text-transform: capitalize;
+				width: 300px;
+				option{
+					padding: 10px;
+					text-transform: capitalize;
+				}
+			}
+		}
+		.content{
+			margin: 0;
+			.garment{
+				font-family: $font-LatoT;
+				font-size: 17px;
+				padding: 15px 20px 15px;
+				text-align: center;
+				.name{
+					display: block;
+					padding: 10px;
+					text-transform: capitalize;
+				}
+				.image{
+					border: 1px solid #ddd;
+					position: relative;
+					.mask{
+						background-color: rgba(255,255,255, 0.6);
+						height: 100%;
+						left: 0;
+						opacity: 0;
+						position: absolute;
+						top: 0;
+						width: 100%;
+						@include transition(0.3s ease-in-out);
+						span{
+							cursor: pointer;
+							left: 0;
+							margin: 0 auto;
+							position: absolute;
+							right: 0;
+							top: 45%;
+						}
+					}
+				}
+				&:hover{
+					.image{
+						.mask{
+							opacity: 1;
+						}
+					}
 				}
 			}
 		}
 	}
-	.content{
-		float: left;
+	#profile-container{
+		float: right;
+		padding-top: 30px;
+		text-align: center;
 		width: 80%;
+		.user-info{
+			display: inline-block;
+			font-family: $font-LatoT;
+			margin: 0 auto;
+			width: 85%;
+			.title{
+				color: $blue;
+				font-family: $font-LatoS;
+				text-align: center;
+			}
+			.data{
+				color: $dark-gray;
+				padding: 50px 0;
+				.user{
+					font-size: 20px;
+					padding-right: 50px;
+					text-align: right;
+					.subtitle{
+						padding-bottom: 15px;
+						text-align: left;
+					}
+					ul{
+						padding-left: 10px;
+						li{
+							list-style: none;
+							span{
+								display: inline-block;
+								float: left;
+								font-family: $font-LatoS;
+								font-style: italic;
+							}
+						}
+					}
+				}
+				.user-image{
+					text-align: right;;
+					img{
+						border-radius: 50%;
+						height: 200px;
+						width: 200px;
+					}
+				}
+			}
+			.user-friends{
+				h3{
+					padding-bottom: 20px;
+					text-align: left;
+				}
+				.friends{
+					text-align: left;
+					.friend{
+						text-align: center;
+						img{
+							border-radius: 50%;
+							display: inline-block;
+						}
+						.my_friend{
+							font-size: 14px;
+						}
+					}
+				}
+			}
+		}
 	}
 }

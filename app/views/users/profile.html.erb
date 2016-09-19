@@ -1,49 +1,46 @@
-<%= stylesheet_link_tag 'static_pages' %>
-<body class="page">
-  <div class ="wrapper container">
-
-    <div class="wrapper-logo row">
-      
-      <%= link_to image_tag('logo.png', :class => "logo img-responsive"), index_path %>
-    </div>
-
-    <div class="wrapper-head row">
-      <h1 class="title">¡Bienvenido a Lavalotu!</h1>
-      <h2 class="lema"><%= current_user.name+" "+current_user.lastname %></h2>
-      <div class="intro col-md-5 col-xs-12 vcenter">
-        <h3 class="lema">Tus Datos:</h3>
-          <li class="text"><%= current_user.name+" "+current_user.lastname %></li>         
-          <li class="text"><%= current_user.phone %></li> 
-          <li class="text"><%= current_user.name+" "+current_user.lastname %></li> 
-      </div>
-      <div class="col-md-7 col-xs-12 group-col vcenter">
-        <% if current_user.provider == "facebook" %>
-          <%=  image_tag current_user.image + "?type=large" %>
-        <% elsif current_user.provider == "twitter" %>
-          <%=  image_tag current_user.image.sub("_normal","") %>
-        <% else %>
-          <%=  image_tag 'logo.png' %>
-        <% end %>
-      </div>
-      </div>
-
-    <div class="wrapper-body row">
-      <h2>Tus amigos ya estan usando LavaloTu</h2>
-
-      <div style="text-align:center">    
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+  <%= render 'menu' %>
+  <div id="profile-container">
+    <section class="user-info">
+      <h1 class="title">Welcome to Lavalotu!</h1>
+      <h2 class="user-name"><%= current_user.name+" "+current_user.lastname %></h2>
+      <div class="data row">
+        <div class="user col-md-6">
+          <h3 class="subtitle">Your info:</h3>
+          <ul>
+            <li><span>Firstname:</span> <%= current_user.name %></li>
+            <li><span>LastName:</span> <%= current_user.lastname %></li>
+            <li><span>Phone:</span> <%= current_user.phone %></li>
+            <li><span>Address:</span> #</li>
+          </ul>
+        </div>
+        <div class="user-image col-md-6">
           <% if current_user.provider == "facebook" %>
-            <% friends = current_user.friends %>
-               <%  friends.each do |f|%>
-                  <%= image_tag f['picture']['data']['url'] %>
-                  <h4 class="team-text"> <%= f['name'] %></h4>
-              <% end %>
+          <%=  image_tag current_user.image + "?type=large" , :class=> "img-responsive" %>
+          <% elsif current_user.provider == "twitter" %>
+          <%=  image_tag current_user.image.sub("_normal","") , :class=> "img-responsive" %>
           <% else %>
-            <%=  image_tag 'logo.png' %>
+          <%=  image_tag 'user-m.svg' , :class=> "img-responsive" %>
           <% end %>
-
+        </div>
       </div>
-        
+      <div class="user-friends">
+        <h3>Your friends are already using LavaloTu</h3>
+        <div class="friends row">
+          <div class="friend col-md-2">
+            <% if current_user.provider == "facebook" %>
+            <% friends = current_user.friends %>
+            <%  friends.each do |f|%>
+            <%= image_tag f['picture']['data']['url'] %>
+            <h4 class="my_friend"> <%= f['name'] %></h4>
+            <% end %>
+            <% else %>
+            <%=  image_tag 'users.svg' %>
+            <% end %> 
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
-</body>
+</section>

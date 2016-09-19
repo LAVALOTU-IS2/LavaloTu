@@ -6,7 +6,7 @@
 			<div class="logo col-md-12 col-xs-12">
 				
 				<% if user_signed_in? %>
-					<%= link_to image_tag('logo.png', :class => "logo img-responsive"), index_path %>
+					<%= link_to image_tag('logo.png', :class => "logo img-responsive"), profile_path %>
 				<% else %>
 					<%= link_to image_tag('logo.png', :class => "logo img-responsive"), root_path %>
 				<% end %>
