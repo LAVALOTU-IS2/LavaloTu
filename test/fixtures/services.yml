@@ -3,7 +3,19 @@
 one:
   name: MyString
   cost: 1.5
+  garment_id: 1
+
+two:
+  name: 
+  cost: 1.5
+  garment_id: 2 
+
+three:
+  name: MyString
+  cost: 
+  garment_id: 3 
 
 two:
   name: MyString
   cost: 1.5
+  garment_id: 4 
