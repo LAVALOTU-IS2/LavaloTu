@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20160916234623) do
     t.string   "state"
     t.integer  "score"
     t.text     "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "delivery_id"
     t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
@@ -91,11 +91,16 @@ ActiveRecord::Schema.define(version: 20160916234623) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token" 
+    t.datetime "confirmed_at" 
+    t.datetime "confirmation_sent_at" 
+    t.string   "unconfirmed_email" 
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "lastname"
     t.string   "phone"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree 
     t.string   "provider"
     t.string   "uid"
     t.string   "token"
