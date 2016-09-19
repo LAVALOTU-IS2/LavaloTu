@@ -1,9 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  phone: MyString
+  name: MyString1
+  phone: 3201234567
+  order_id: 1
 
 two:
   name: MyString
-  phone: MyString
+  phone: 320134dvf3
+  order_id: 2
+
+three:
+  name: MyString
+  phone: 120234567
+  order_id: 3
+
+four:
+  name: Mqwertyuiosdfgtrewsde
+  phone: 3201234567
+  order_id: 4
+

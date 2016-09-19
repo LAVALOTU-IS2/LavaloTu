@@ -1,11 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user: one
+  user_id: 1
   provider: MyString
-  uid: MyString
+  uid: MyString1
 
 two:
-  user: two
+  user_id: 2
+  provider: 
+  uid: MyString2
+
+three:
+  user_id: 3
   provider: MyString
-  uid: MyString
+  uid: 
+
+four:
+  user_id: 
+  provider: MyString
+  uid: MyString4
+
+five:
+  user_id: dfsfs
+  provider: MyString
+  uid: MyString5

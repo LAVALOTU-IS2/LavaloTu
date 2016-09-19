@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require dashboard
 //= require bootstrap-sprockets
 //= require polyfill
 //= require jquery.inview

@@ -1,0 +1,21 @@
+
+<p>
+	<strong>Name:</strong>
+	<%= @garment.name %>
+</p>
+
+<p>
+	<strong>Description:</strong>
+	<%= @garment.description %>
+</p>
+
+<h2>Services</h2>
+<%= render @garment.services %>
+
+
+<h2>Add a service:</h2>
+<%= render 'services/form' %>
+
+<%= link_to 'Back', garments_path , class: "option"%>
+<%= link_to 'Home', root_path , class: "option"%>	
+

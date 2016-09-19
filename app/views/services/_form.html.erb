@@ -1,0 +1,15 @@
+<%= form_for([@garment, @garment.services.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  
+  <p>
+    <%= f.label :cost %><br>
+    <%= f.text_field :cost %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

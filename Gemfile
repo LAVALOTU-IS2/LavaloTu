@@ -4,10 +4,14 @@ gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem 'koala', '~> 2.4'
+gem 'fb_graph2'
 
 #Front-end, Bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass'
+
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -24,7 +28,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+gem 'active_model_serializers'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -52,6 +56,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #Favicon de LavaloTu
+  gem 'rails_real_favicon'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

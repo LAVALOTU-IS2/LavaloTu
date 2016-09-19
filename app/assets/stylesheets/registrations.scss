@@ -1,3 +1,151 @@
-// Place all the styles related to the registrations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice{
+	display: none;
+}
+
+.data{
+	text-align: center;
+	width: 350px;
+	.logo{
+		display: inline-block;
+		padding-bottom: 25px;
+		width: 100px;
+	}
+	form{
+		.field{
+			padding: 10px 15px;
+			input{
+				color: $gray;
+				font-family: $font-LatoT;
+				padding: 5px 10px;
+				width: 100%;
+			}
+		}
+		.check{
+			color: $gray;
+			font-family: $font-LatoH;
+			padding: 0 15px 5px;
+			text-align: left;
+			input{
+				margin-top: 5.5px;
+				vertical-align: top;
+				width: auto;
+			}
+			label{
+				font-weight: normal;
+			}
+		}
+		.name{
+			padding-right: 7.5px;
+		}
+		.lastname{
+			padding-left: 7.5px;
+		}
+		.actions{
+			padding: 0 15px;
+			input{
+				background-color: $green;
+				border: none;
+				border-radius: 5px;
+				color: $white;
+				font-family: $font-LatoS;
+				font-size: 17px;
+				padding: 15px;
+				width: 100%;
+				@include transition(all 0.3s ease-in-out); 
+				&:hover{
+					background-color: $dark-green;
+				}
+			}
+		}
+	}
+	.or{
+		color: $gray;
+		display: block;
+		padding: 10px 0;
+		position: relative;
+		text-align: center;
+		&::before, &::after{
+			background-color: $gray;
+			content: '';
+			height: 1px;
+			position: absolute;
+			top: 50%;
+			width: 42%;
+		}
+		&::before{
+			left: 0;
+		}
+		&::after{
+			right: 0;
+		}
+	}
+	.facebook, .twitter{
+		padding-bottom: 15px;
+		a{
+			border-radius: 5px;
+			color: $white;
+			display: block;
+			font-size: 30px;
+			padding: 10px 15px;
+			position: relative;
+			&:hover, &:focus, &:active{
+				text-decoration: none;
+			}
+		}
+	}
+	.facebook{
+		padding-left: 7.5px;
+		a{
+			background-color: $blue-facebook;
+			&:hover{
+				background-color: rgba(59, 89, 152, 0.8);
+			}
+		}
+	}
+	.twitter{
+		padding-right: 7.5px;
+		a{
+			background-color: $blue-twitter;
+			&:hover{
+				background-color: rgba(29, 161, 242, 0.8);
+			}
+		}
+	}
+	.active_user{
+		color: $gray;
+		font-family: $font-LatoT;
+	}
+	.sign_in{
+		text-decoration: underline;
+	}
+	.register{
+		padding-bottom: 15px;
+		a{
+			background-color: $pinky;
+			border-radius: 5px;
+			color: $white;
+			display: block;
+			font-family: $font-LatoS;
+			font-size: 17px;
+			padding: 15px;
+			@include transition(all 0.3s ease-in-out); 
+			&:hover{
+				background-color: rgba(255, 87, 107, 0.8);
+			}
+			&:hover, &:focus, &:active{
+				text-decoration: none;
+			}
+		}
+	}
+}
