@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828003539) do
+ActiveRecord::Schema.define(version: 20160916234623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.float    "total_bill"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_bills_on_order_id", using: :btree
   end
 
   create_table "deliveries", force: :cascade do |t|
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "order_id"
   end
 
   create_table "garments", force: :cascade do |t|
@@ -41,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "user"
     t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
   end
 
@@ -50,8 +54,12 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.string   "state"
     t.integer  "score"
     t.text     "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "delivery_id"
+    t.index ["delivery_id"], name: "index_orders_on_delivery_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "places", force: :cascade do |t|
@@ -59,6 +67,8 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
   create_table "services", force: :cascade do |t|
@@ -81,20 +91,22 @@ ActiveRecord::Schema.define(version: 20160828003539) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "lastname"
     t.string   "phone"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bills", "orders"
   add_foreign_key "identities", "users"
+  add_foreign_key "orders", "deliveries"
+  add_foreign_key "orders", "users"
+  add_foreign_key "places", "users"
   add_foreign_key "services", "garments"
 end
