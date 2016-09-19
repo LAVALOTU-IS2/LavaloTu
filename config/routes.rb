@@ -21,7 +21,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root "welcome#index"
 
-  get 'users/index'
+  #get 'users/index'
+  get "index" => "users#index"
+  get 'profile'=>"users#profile"
 
   devise_scope :user do
     get "sign_in" => "devise/sessions#new"

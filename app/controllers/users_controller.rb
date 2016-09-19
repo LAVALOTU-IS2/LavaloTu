@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
 	    	if @user.update(user_params)
 	    		sign_in(@user, :bypass => true)
-	    		redirect_to root_path, notice: 'Hemos guardado tu email correctamente.'
+	    		redirect_to index_path, notice: 'Hemos guardado tu email correctamente.'
 	    	else
 	    		@show_errors = true
 	    	end
@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
 	def index
 	
+	end
+	def profile
+
 	end
 
 	private
