@@ -1,4 +1,7 @@
-<h1>Confirma tu Email</h1>
+<%= stylesheet_link_tag 'registrations' %>
+<div class="container data">
+
+<h1>Confirmar Email</h1>
  
 <%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
   <% if @show_errors && current_user.errors.any? %>
@@ -10,13 +13,15 @@
     </ul>
   <% end %>
  
-  <div>
-    <%= f.label :email %>
+  <div class= "field">
+    <%#= f.label :email %>
+
     <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
   </div>
  
-  <div>
+  <div class="actions">
     <%= f.submit 'Confirmar' %>
   </div>
  
 <% end %>
+</div>

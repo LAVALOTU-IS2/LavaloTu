@@ -6,11 +6,17 @@
 			<h1>Lavalotu</h1>
 		</div>
 		<ul class="menu-options">
-			<li><a href="#">Prices</a></li> 
-			<li><a href="#">Tecnología</a></li>
-			<li><a href="#">Deportes</a></li> 
+			<li style="text-align:center"><%= current_user.name+" "+current_user.lastname %></li> 
+			
+			<li><%= link_to "Perfil", profile_path, :class => 'navbar-link' %></li>
+			<li><%= link_to "Prendas", controller: 'garments' %></li>
+			<li><a href="#">Precios</a></li>  
 			<li><a href="#">Hogar</a></li> 
-			<li><a href="#">Moda</a></li> 
+			<li><a href="#">Moda</a></li>
+			<li><%= link_to "Acerca de nosotros", static_pages_about_path %></li>
+			<li><%= link_to "Contáctanos", static_pages_contact_path %></li>
+			<li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+
 		</ul>
 	</div>
 	<div class="content" ng-controller="garmentsController">

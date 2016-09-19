@@ -4,6 +4,8 @@ gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem 'koala', '~> 2.4'
+gem 'fb_graph2'
 
 #Front-end, Bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
