@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	#before_action :authenticate_user!
 	def finish_signup
 	    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
 	    	@user = User.find(params[:id])
@@ -13,9 +14,13 @@ class UsersController < ApplicationController
 	end
 
 	def index
-	
+		@users=User.all
+		authorize @users
 	end
 
+	def show
+    	@user = User.find(params[:id])
+  	end
 	def prices
 	
 	end

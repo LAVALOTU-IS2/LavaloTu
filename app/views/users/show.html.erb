@@ -1,0 +1,34 @@
+<strong>Name:</strong>
+  <%= @user.name %>
+</p>
+ 
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+ 
+<p>
+  <strong>Role:</strong>
+  <%= @user.role %>
+</p>
+
+<h2>Places</h2>
+<% @user.places.each do |p| %>
+  <p>
+    <strong>Name:</strong>
+    <%= p.name %>
+  </p>
+ 
+  <p>
+    <strong>Address:</strong>
+    <%= p.address %>
+  </p>
+<% end %>
+  <%= link_to 'New place', new_user_place_path(@user) %>
+
+ <%= link_to 'User list', users_path %>

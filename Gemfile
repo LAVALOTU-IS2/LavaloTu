@@ -5,11 +5,11 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem 'koala', '~> 2.4'
-gem 'fb_graph2'
-
+gem 'fb_graph2' 
 #Front-end, Bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass'
+gem "pundit"
 
 gem 'rack-cors', :require => 'rack/cors'
 

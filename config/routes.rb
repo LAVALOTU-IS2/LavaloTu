@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-        resources :users, :only => [:show, :index]
+        #resources :users, :only => [:show, :index]
         resources :garments, :only => [:show, :index]
     end
   end
@@ -16,6 +16,12 @@ Rails.application.routes.draw do
   resources :garments do
     resources :services
   end
+  #resources :users do
+  #  resources :places
+  #end
+  resources :users, :only => [:show, :index] do
+    resources :places
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'welcome/index'
@@ -24,6 +30,8 @@ Rails.application.routes.draw do
   #get 'users/index'
   get "prices" => "users#prices"
   get 'profile'=>"users#profile"
+  get 'users' => "users#index"
+  #get '/users/:id', to: 'users#show', as: 'show'
 
 
   devise_scope :user do

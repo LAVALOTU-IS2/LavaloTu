@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  quantity: 1
+  cost: 1.5
+  orders: one
+  garments: one
+
+two:
+  description: MyString
+  quantity: 1
+  cost: 1.5
+  orders: two
+  garments: two
