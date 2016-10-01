@@ -1,0 +1,29 @@
+<div class="wrapper container">
+  <h1>List of laundries</h1>
+  <table>
+    <tr>
+      <th class="main">Name</th>
+      <th class="main">Address</th>
+      <th class="main">Phone</th>
+      <th class="main">Score</th>
+    </tr>
+
+    <% @laundries.each do |laundry| %>
+    <tr class="content">
+
+      <td><%= laundry.name %></td>
+      <td><%= laundry.address %></td>
+      <td><%= laundry.phone %></td>
+      <td><%= laundry.score %></td>
+      <td><%= link_to 'Show', laundry_path(laundry) , class: "option"%> </td>
+
+    </tr>
+    <% end %>
+
+  </table>
+  <br>
+  <%= link_to 'New laundry', new_laundry_path, class: "option" %> 
+  <%= link_to 'Profile', profile_path, class: "option" %> 
+
+
+</div>

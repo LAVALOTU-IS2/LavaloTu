@@ -5,17 +5,17 @@ Rails.application.routes.draw do
     namespace :v1 do
         #resources :users, :only => [:show, :index]
         resources :garments, :only => [:show, :index]
+      end
     end
-  end
 
-  get 'static_pages/about'
-  get 'static_pages/contact'
-  get 'static_pages_about_path' => 'static_pages/about'
-  get 'static_pages_contact_path' => 'static_pages/contact'
+    get 'static_pages/about'
+    get 'static_pages/contact'
+    get 'static_pages_about_path' => 'static_pages/about'
+    get 'static_pages_contact_path' => 'static_pages/contact'
 
-  resources :garments do
-    resources :services
-  end
+    resources :garments do
+      resources :services
+    end
   #resources :users do
   #  resources :places
   #end
@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   get 'users' => "users#index"
   #get '/users/:id', to: 'users#show', as: 'show'
 
+
+  resources :laundries
 
   devise_scope :user do
     get "sign_in" => "devise/sessions#new"

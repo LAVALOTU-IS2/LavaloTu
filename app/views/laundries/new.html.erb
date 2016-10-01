@@ -1,0 +1,30 @@
+<div class="wrapper container">
+	<h1>New Laundry</h1>
+
+	<%= form_for :laundry, url: laundries_path do |f| %>
+	<p>
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :address %><br>
+		<%= f.text_field :address %>
+	</p>
+
+	<p>
+		<%= f.label :phone %><br>
+		<%= f.text_field :phone %>
+	</p>
+
+	<p>
+		<%= f.label :score %><br>
+		<%= f.text_field :score %>
+	</p>
+	
+		<%= f.submit %>
+	</p>
+	<% end %>
+
+	<%= link_to 'Back', laundries_path %>
+</div>
