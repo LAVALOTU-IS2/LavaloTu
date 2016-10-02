@@ -1,0 +1,2 @@
+module LaundriesHelper
+end
