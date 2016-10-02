@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  #get 'services/new'
-
+  
+  root "welcome#index"
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-        #resources :users, :only => [:show, :index]
+        resources :users, :only => [:show, :index]
         resources :garments, :only => [:show, :index]
     end
   end
@@ -12,32 +12,35 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
   get 'static_pages_about_path' => 'static_pages/about'
   get 'static_pages_contact_path' => 'static_pages/contact'
-
+  get "prices" => "users#prices"
+  get 'profile'=>"users#profile"
+  get 'welcome/index'
+  
   resources :garments do
     resources :services
   end
-  #resources :users do
-  #  resources :places
-  #end
-  resources :users, :only => [:show, :index] do
-    resources :places
+
+  scope 'User' do
+    resources :users, only: [] do
+      resources :places
+    end
   end
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'welcome/index'
-  root "welcome#index"
-
-  #get 'users/index'
-  get "prices" => "users#prices"
-  get 'profile'=>"users#profile"
-  get 'users' => "users#index"
-  #get '/users/:id', to: 'users#show', as: 'show'
+  scope 'Admin' do
+    resources :users do
+      resources :places
+    end
+    resources :laundries
+    match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
+  end
 
 
   devise_scope :user do
     get "sign_in" => "devise/sessions#new"
     get "sign_up" => "devise/registrations#new"
+    
   end
   devise_for :users, controllers: { confirmations: 'confirmations', omniauth_callbacks: 'omniauth_callbacks' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+
 end

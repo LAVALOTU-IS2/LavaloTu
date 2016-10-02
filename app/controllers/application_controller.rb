@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters , if: :devise_controller?
   
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def after_sign_in_path_for(resource)
+    profile_path
+  end
 private
 	def user_not_authorized
 		flash[:notice] = "El usuario no esta autorizado para esta acción"

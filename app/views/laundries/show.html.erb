@@ -1,0 +1,23 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+  <%= render 'users/_menu' %>
+  <div id="laundries-container">
+    <section class="laundries-info">
+      <div class="data row">
+        <div class="user col-md-12">
+          <h3 class="subtitle">User info:</h3>
+          <ul>
+            <li><span>Name:  </span> <a> <%= @laundry.name %> </a></li><br> 
+            <li><span>Address:  </span> <a><%= @laundry.address %></a></li><br> 
+            <li><span>Phone:  </span> <a><%= @laundry.phone %></a></li><br> 
+            <li><span>Score:  </span> <a><%= @laundry.score %></a></li><br> 
+          </ul>
+          <%= link_to 'List of laundries', laundries_path , class: "option"%>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+<%= link_to 'List of laundries', laundries_path , class: "option"%>	
