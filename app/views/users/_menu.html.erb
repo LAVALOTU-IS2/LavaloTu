@@ -13,7 +13,7 @@
 			<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 		<% else %> 
 		<li><%= link_to "Prices", prices_path%></li>
-		<li><a href="#">Orders</a></li> 
+		<li><%= link_to "Orders", orders_path %></li> 
 		<li><a href="#">Donate</a></li> 
 		<li><%= link_to "Contact us", static_pages_contact_path %></li>
 		

@@ -1,5 +1,4 @@
 class Api::V1::GarmentsController < ApplicationController
-  
   respond_to :json
   
   def index
@@ -11,7 +10,7 @@ class Api::V1::GarmentsController < ApplicationController
   end
 
   private
-    def garment_params
-      params.require(:post).permit(:name,:description)
-    end
+  def garment_params
+    params.require(:post).permit(:name,:description)
+  end
 end

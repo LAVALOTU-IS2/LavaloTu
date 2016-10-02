@@ -18,11 +18,6 @@ class LaundriesController < ApplicationController
 		redirect_to laundries_path, notice: 'Lavanderia Eliminada '
 	end
 
-	private
-	def laundry_params
-		params.require(:laundry).permit(:name, :address, :phone, :score)
-	end
-
 	def show
 		@laundry = Laundry.find(params[:id])
 		@garments = @laundry.garments
@@ -32,4 +27,11 @@ class LaundriesController < ApplicationController
 		@laundry = Laundry.find(params[:id])
 		@services = @laundry.services
 	end
+
+	private
+	def laundry_params
+		params.require(:laundry).permit(:name, :address, :phone, :score)
+	end
+
+	
 end

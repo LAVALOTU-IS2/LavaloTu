@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
         resources :users, :only => [:show, :index]
         resources :garments, :only => [:show, :index]
+        resources :laundries, :only => [:show, :index]
     end
   end
 
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get 'static_pages_about_path' => 'static_pages/about'
   get 'static_pages_contact_path' => 'static_pages/contact'
   get "prices" => "users#prices"
+  get "orders" => "users#orders"
   get 'profile'=>"users#profile"
   get 'welcome/index'
   
@@ -20,16 +22,22 @@ Rails.application.routes.draw do
     resources :services
   end
 
+   resources :laundries do
+    resources :services
+  end
+
   scope 'User' do
     resources :users, only: [] do
       resources :places
     end
+    resources :laundries
   end
   scope 'Admin' do
     resources :users do
       resources :places
     end
     resources :laundries
+    resources :orders
     match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
   end
 

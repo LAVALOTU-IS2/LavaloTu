@@ -34,6 +34,10 @@ class UsersController < ApplicationController
 	
 	end
 
+	def orders
+		@laundries = Laundry.all
+	end
+
 	def profile
 
 	end
