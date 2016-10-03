@@ -1,7 +1,6 @@
 class ServiceSerializer < ActiveModel::Serializer
-  attributes :name, :cost
+  attributes :laundry_id, :garment_id, :name, :cost
 
-  belongs_to :garment
-  belongs_to :laundry
+
 end
 	

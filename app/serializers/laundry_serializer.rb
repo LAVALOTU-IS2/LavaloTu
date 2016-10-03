@@ -1,7 +1,7 @@
 class LaundrySerializer < ActiveModel::Serializer
-  attributes :name
+	attributes :id, :name
 
-  has_many :services
-  has_many :garments, through: :services
+	has_many :garments, serializer: GarmentSerializer, context: {id: 1}
+
 end
 
