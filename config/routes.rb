@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         resources :users, :only => [:show, :index]
         resources :garments, :only => [:show, :index]
         resources :laundries, :only => [:show, :index]
+        resources :services, :only => [:show, :index]
     end
   end
 
