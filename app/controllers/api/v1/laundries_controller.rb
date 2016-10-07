@@ -1,11 +1,13 @@
 class Api::V1::LaundriesController < ApplicationController
-	respond_to :json
+  respond_to :json
 
-	def index
-		respond_with Laundry.all 
-	end
+  def index
+    respond_with Laundry.all
+  end
 
-	def show
-		respond_with Laundry.find(params[:id])
-	end
+  def show
+    @laundry = Laundry.find(params[:id])
+    @services = @laundry.services.order(name: :desc)
+    respond_with @services
+  end
 end
