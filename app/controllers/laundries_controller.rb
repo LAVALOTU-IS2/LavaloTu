@@ -4,12 +4,31 @@ class LaundriesController < ApplicationController
 	end
 
 	def new
-
+		@laundry = Laundry.new
 	end
 
 	def create
-		@laundry = Laundry.create(laundry_params)
-		redirect_to @laundry
+		@laundry = Laundry.new(laundry_params)
+		
+		if @laundry.save
+			redirect_to @laundry
+		else
+			render 'new'
+		end
+	end
+
+	def update
+		@laundry = Laundry.find(params[:id])
+
+		if @laundry.update(laundry_params)
+			redirect_to @laundry
+		else
+			render 'edit'
+		end
+	end
+
+	def edit
+		@laundry = Laundry.find(params[:id])
 	end
 
 	def destroy

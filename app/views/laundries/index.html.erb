@@ -33,6 +33,7 @@
               <td><%= laundry.phone %></td>
               <td><%= laundry.score %></td>
               <td><%= link_to 'Show', laundry_path(laundry) , class: "option"%> </td>
+              <td><%= link_to 'Edit', edit_laundry_path(laundry) %></td>
               <td><%= link_to 'Destroy', laundry_path(laundry),
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %></td>

@@ -1,11 +1,27 @@
 <%= stylesheet_link_tag 'registrations' %>
 <div class="container data">
-  <div class="logo">
-    <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
-  </div>
-  <h1>New Laundry</h1>
+ <div class="logo">
+   <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
+   
+ </div>
 
-  <%= form_for :laundry, url: laundries_path do |f| %>
+ <h1>Editing Laundry</h1>
+
+ <%= form_for :laundry, url: laundry_path(@laundry), method: :patch do |f| %>
+
+ <% if @laundry.errors.any? %>
+ <div id="error_explanation">
+  <h2>
+    <%= pluralize(@laundry.errors.count, "error") %> prohibited
+    this laundry from being saved:
+  </h2>
+  <ul>
+    <% @laundry.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
   <div class="row">
     <div class="field col-md-12">
       <%= f.text_field :name, autofocus: true, placeholder: "Name"%>
@@ -26,5 +42,5 @@
   <% end %>
   <a> <%= link_to 'Back', laundries_path %></a>
 
-  
+
 </div>
