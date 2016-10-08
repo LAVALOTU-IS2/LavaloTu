@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
   
   root "welcome#index"
+
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-        resources :users, :only => [:show, :index]
-        resources :garments, :only => [:show, :index]
-        resources :laundries, :only => [:show, :index]
-        resources :services, :only => [:show, :index]
+        resources :users, :only => [:show, :index, :create, :update, :destroy] do
+          collection do
+            post 'login', to: :login
+            post 'reloadUser', to: :reloadUser 
+          end
+        end
+        resources :garments, :only => [:show, :index, :create, :update, :destroy]
+        resources :laundries, :only => [:show, :index, :create, :update, :destroy]
+        resources :services, :only => [:show, :index, :create, :update, :destroy]
     end
   end
 
