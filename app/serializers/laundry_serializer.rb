@@ -1,7 +1,5 @@
 class LaundrySerializer < ActiveModel::Serializer
-	attributes :id, :name
-
-	has_many :garments, serializer: GarmentSerializer
-
+  attributes :id, :name, :address, :phone, :score
+  has_many :services
 end
 

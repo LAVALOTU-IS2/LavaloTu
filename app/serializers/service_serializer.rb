@@ -1,5 +1,4 @@
 class ServiceSerializer < ActiveModel::Serializer
-  attributes :laundry_id, :garment_id, :name, :cost
-  
+  attributes :name, :cost
+  has_one :garment
 end
-	
