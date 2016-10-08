@@ -47,6 +47,6 @@ class Api::V1::ServicesController < ApiController
 
   private
     def service_params
-      params.require(:post).permit(:name,:cost,:garment_id)
+      params.require(:service).permit(:name,:cost,:garment_id)
     end
 end

@@ -2,13 +2,6 @@ class Api::V1::UsersController < ApiController
 	respond_to :json
 	def index
 		respond_with User.all 
-		#@users = User.all.paginate(:page => params[:page], :per_page => 25)
-		#render json: @users, meta: {pagination:
-		#								{per_page: 25,
-		#								 total_pages: @users.total_pages,
-		#								 total_objects: @users.total_entries,
-		#								 next_page: @users.next_page } },status: 200
-	
 	end
 	def reloadUser
 		if @user
@@ -49,12 +42,16 @@ class Api::V1::UsersController < ApiController
 	end
 
 	def login
-		if params.key?('email') #&& params.key?('encrypted_password')
-			@user = User.where("email=?",params['email']).first
-			if @user
-				render json: @user, status:200
+		if params.key?('email') && params.key?('password')
+			user = User.find_by_email(params['email'])
+			if user != nil
+				if user.valid_password?(params['password'])
+					render json: user, status:200
+				else
+					render json: {errors: "Invalid password"}, status: 422
+				end
 			else
-				render json: {errors: "Invalid credentials"}, status: 422
+				render json: {errors: "Invalid email"}, status: 422
 			end
 		else
 			render json: {errors: "The request is wrong"}, status: 422
@@ -63,7 +60,7 @@ class Api::V1::UsersController < ApiController
 
 	private
 	def user_params
-	  params.require(:post).permit(:name,:lastname, :phone, :email, :auth_token)
+	  params.require(:user).permit(:name,:lastname, :phone, :email)
 	end
 
 end

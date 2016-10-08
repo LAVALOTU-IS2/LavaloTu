@@ -4,12 +4,6 @@ class Api::V1::GarmentsController < ApiController
   
   def index
     respond_with Garment.all 
-    #@garments = Garment.all.paginate(:page => params[:page], :per_page => 25)
-    #render json: @garments, meta: {pagination:
-    #                                {per_page:25,
-    #                                 total_pages: @garments.total_pages,
-    #                                 total_objects: @garments.total_entries,
-    #                                 next_page: @garments.next_page}}, status: 200 
   end
 
   def show
@@ -46,6 +40,6 @@ class Api::V1::GarmentsController < ApiController
 
   private
     def garment_params
-      params.require(:post).permit(:name,:description)
+      params.require(:garment).permit(:name,:description)
     end
 end
