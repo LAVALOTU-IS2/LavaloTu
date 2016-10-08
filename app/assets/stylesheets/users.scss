@@ -80,7 +80,10 @@
 		float: right;
 		padding-top: 30px;
 		width: 80%;
-		.options{
+		.title{
+			margin: 10px 0 0 0; 
+		}
+		.options, .title{
 			font-family: $font-LatoT;
 			padding: 10px 20px;
 			label{
