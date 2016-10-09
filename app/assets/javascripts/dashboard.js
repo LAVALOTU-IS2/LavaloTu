@@ -1,9 +1,9 @@
 var garments_services = new Object();
 
 function renderGarments( service ){
-	$("#prueba").remove();
+	$("#garment_pieces").remove();
 
-	var $garments = $('<div id="prueba" class="content row"></div>');
+	var $garments = $('<div id="garment_pieces" class="content row"></div>');
 	for(var k in garments_services[service]){
 		var $garment = $('<div class="garment col-md-3"></div>');
 		var $garment_image = $('<div class="image"><img src="/assets/garments/'+ k.toLowerCase() +'.png" alt="'+ k +'" title="'+ k +'" class="img-responsive"></div>');
@@ -25,8 +25,6 @@ $(document).ready(function () {
 		dataType: "json",
 		url: '/api/v1/laundries/',
 		success: function(data){
-			var x = "Por favor"
-			var $content_prices = $('<div class="prices"></div>');
 			var $options = $('<div class="options form-group"><label for="service">Select service:</label></div>');
 			var $services = $('<select class="form-control" onchange="renderGarments(this.value);"></select>');
 

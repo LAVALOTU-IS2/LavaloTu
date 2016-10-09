@@ -1,12 +1,10 @@
 <%= stylesheet_link_tag 'laundries' %>
 <section class="laundry clearfix">
   <%= render 'users/menu' %>
-  
   <div id="laundries-container">
-    <h2 class="title">Welcome to <%= @laundry.name %></h2>
     
   </div>
+  <%= link_to 'List of laundries', laundries_path , class: "option"%>
 </section>
+<%= javascript_include_tag :laundries %>
 
-
-<%= link_to 'List of laundries', laundries_path , class: "option"%>	

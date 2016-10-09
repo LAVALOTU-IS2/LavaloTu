@@ -15,8 +15,10 @@ class UsersController < ApplicationController
 
 	def create
 	end
+
 	def new
 	end
+
 	def index
 		@users=User.all
 		authorize @users
@@ -25,13 +27,14 @@ class UsersController < ApplicationController
 	def show
     	@user = User.find(params[:id])
   	end
+
   	def destroyUser
   		@user = User.find(params[:id])
   		@user.destroy
   		redirect_to users_path, notice: 'Usario eliminado correctamente.'
   	end
+
 	def prices
-	
 	end
 
 	def orders
@@ -39,7 +42,6 @@ class UsersController < ApplicationController
 	end
 
 	def profile
-
 	end
 
 	private

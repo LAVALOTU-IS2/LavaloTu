@@ -1,56 +1,57 @@
 class LaundriesController < ApplicationController
-	def index
-		@laundries = Laundry.all
-	end
+  def index
+    @laundries = Laundry.all
+  end
 
-	def new
-		@laundry = Laundry.new
-	end
+  def new
+    @laundry = Laundry.new
+  end
 
-	def create
-		@laundry = Laundry.new(laundry_params)
-		
-		if @laundry.save
-			redirect_to @laundry
-		else
-			render 'new'
-		end
-	end
+  def create
+    @laundry = Laundry.new(laundry_params)
 
-	def update
-		@laundry = Laundry.find(params[:id])
+    if @laundry.save
+     redirect_to @laundry
+   else
+     render 'new'
+   end
+ end
 
-		if @laundry.update(laundry_params)
-			redirect_to @laundry
-		else
-			render 'edit'
-		end
-	end
+ def update
+  @laundry = Laundry.find(params[:id])
 
-	def edit
-		@laundry = Laundry.find(params[:id])
-	end
+  if @laundry.update(laundry_params)
+   redirect_to @laundry
+ else
+   render 'edit'
+ end
+end
 
-	def destroy
-		@laundry = Laundry.find(params[:id])
-		@laundry.destroy
-		redirect_to laundries_path, notice: 'Lavanderia Eliminada '
-	end
+def edit
+  @laundry = Laundry.find(params[:id])
+end
 
-	def show
-		@laundry = Laundry.find(params[:id])
-		@garments = @laundry.garments
-	end
+def destroy
+  @laundry = Laundry.find(params[:id])
+  @laundry.destroy
+  redirect_to laundries_path, notice: 'Lavanderia Eliminada '
+end
 
-	def calculator
-		@laundry = Laundry.find(params[:id])
-		@services = @laundry.services
-	end
+def show
+ #@laundry = Laundry.find(params[:id])
+ gon.laundry_id = params[:id]
+ #gon.rabl "app/views/products/index.json.rabl", as: "products"
+end
 
-	private
-	def laundry_params
-		params.require(:laundry).permit(:name, :address, :phone, :score)
-	end
+def calculator
+  @laundry = Laundry.find(params[:id])
+  @services = @laundry.services
+end
 
-	
+private
+def laundry_params
+  params.require(:laundry).permit(:name, :address, :phone, :score)
+end
+
+
 end
