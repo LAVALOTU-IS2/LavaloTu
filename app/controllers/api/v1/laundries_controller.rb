@@ -7,7 +7,8 @@ class Api::V1::LaundriesController < ApplicationController
 
   def show
     @laundry = Laundry.find(params[:id])
-    @services = @laundry.services.order(name: :desc)
+    #@services = @laundry.services.order(name: :desc)
+    @services = @laundry.services.where(name: "Washed And Drying")
     respond_with @services
   end
 end
