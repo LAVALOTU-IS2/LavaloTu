@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  before_create :generate_authentication_token!
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
@@ -10,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :places, dependent: :destroy
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}
   validates :name, :lastname, :presence => true
+  validates :auth_token, :uniqueness => true
   #validates_presence_of :uid, :provider
   #validates_uniqueness_of :uid, :scope => :provider
   enum role:{
@@ -95,4 +97,10 @@ class User < ActiveRecord::Base
      @friends ||= Koala::Facebook::API.new(self.acces_token,'bf6979189d4be46172aa81ef9e4ae06a')
       @friends.get_connections('me',"friends?fields=id,name,picture.type(normal)", api_version: "v2.7") 
   end 
+  private
+    def generate_authentication_token!
+      begin
+        self.auth_token = Devise.friendly_token
+      end while self.class.exists?(auth_token: auth_token)
+    end
 end

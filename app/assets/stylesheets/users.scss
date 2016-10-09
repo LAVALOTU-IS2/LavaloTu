@@ -80,7 +80,10 @@
 		float: right;
 		padding-top: 30px;
 		width: 80%;
-		.options{
+		.title{
+			margin: 10px 0 0 0; 
+		}
+		.options, .title{
 			font-family: $font-LatoT;
 			padding: 10px 20px;
 			label{
@@ -180,14 +183,14 @@
 						}
 					}
 					table {
-					    border-collapse: collapse;
-					    width: 100%;
+						border-collapse: collapse;
+						width: 100%;
 					}
 
 					th, td {
-					    padding: 8px;
-					    text-align: left;
-					    border-bottom: 1px solid #ddd;
+						padding: 8px;
+						text-align: left;
+						border-bottom: 1px solid #ddd;
 					}
 
 					tr:hover{background-color:#f5f5f5}
@@ -222,7 +225,6 @@
 			}
 		}
 	}
-
 	#users-container{
 		float: right;
 		padding-top: 30px;
@@ -268,14 +270,14 @@
 						}
 					}
 					table {
-					    border-collapse: collapse;
-					    width: 100%;
+						border-collapse: collapse;
+						width: 100%;
 					}
 
 					th, td {
-					    padding: 8px;
-					    text-align: left;
-					    border-bottom: 1px solid #ddd;
+						padding: 8px;
+						text-align: left;
+						border-bottom: 1px solid #ddd;
 					}
 
 					tr:hover{background-color:#f5f5f5}
@@ -283,8 +285,7 @@
 			}
 		}
 	}
-
-#laundries-container{
+	#laundries-container{
 		float: right;
 		padding-top: 30px;
 		text-align: center;
@@ -329,14 +330,14 @@
 						}
 					}
 					table {
-					    border-collapse: collapse;
-					    width: 100%;
+						border-collapse: collapse;
+						width: 100%;
 					}
 
 					th, td {
-					    padding: 8px;
-					    text-align: left;
-					    border-bottom: 1px solid #ddd;
+						padding: 8px;
+						text-align: left;
+						border-bottom: 1px solid #ddd;
 					}
 
 					tr:hover{background-color:#f5f5f5}
@@ -345,6 +346,4 @@
 			}
 		}
 	}
-
-
 }

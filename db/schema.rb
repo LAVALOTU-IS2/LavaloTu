@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 20161002170625) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
+    t.integer  "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
@@ -163,8 +164,10 @@ ActiveRecord::Schema.define(version: 20161002170625) do
     t.string   "acces_token"
     t.datetime "oauth_expires_at"
     t.string   "image"
+    t.string   "auth_token"
     t.integer  "role",                   default: 0
     t.integer  "orders"
+    t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
