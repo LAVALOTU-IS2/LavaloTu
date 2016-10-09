@@ -1,3 +1,4 @@
+/*
 var garments_services = new Object();
 
 function renderGarments( service ){
@@ -16,7 +17,7 @@ function renderGarments( service ){
 		$garments.append($garment);
 	}
 
-	$('#garments-container').append($garments);
+	$('#laundries-container').append($garments);
 }
 
 $(document).ready(function () {
@@ -54,10 +55,10 @@ $(document).ready(function () {
 					}
 				}
 			}
-			;
 			$options.append($services);
-			$('#garments-container').append($options);
+			$('#laundries-container').append($options);
 			renderGarments("Washed And Drying");
 		}
 	});
 });
+*/

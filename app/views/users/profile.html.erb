@@ -49,17 +49,17 @@
       <div class="user-friends">
         <h3>Your friends are already using LavaloTu</h3>
         <div class="friends row">
-          <div class="friend col-md-2">
-            <% if current_user.provider == "facebook" %>
+          <% if current_user.provider == "facebook" %>
             <% friends = current_user.friends %>
             <%  friends.each do |f|%>
-            <%= image_tag f['picture']['data']['url'] %>
-            <h4 class="my_friend"> <%= f['name'] %></h4>
+              <div class="friend col-md-2">
+                <%= image_tag f['picture']['data']['url'] %>
+                <h4 class="my_friend"> <%= f['name'] %></h4>
+              </div>
             <% end %>
             <% else %>
-            <%=  image_tag 'users.svg' %>
+              <%=  image_tag 'users.svg' %>
             <% end %> 
-          </div>
         </div>
       </div>
     </section>

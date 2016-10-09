@@ -1,3 +1,141 @@
-// Place all the styles related to the Laundries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice, .alert{
+	display: none;
+}
+
+.laundry{
+	position: relative;
+	.menu{
+		background-color: $blue;
+		color: $white;
+		float: left;
+		height: 100vh;	
+		padding: 10px 0;
+		position: fixed;
+		width: 20%;
+		.lavalotu-image{
+			padding: 15px 0;
+			text-align: center;
+			.logo{
+				display: inline-block;
+				width: 60px;
+			}
+			h1{
+				display: inline-block;
+				font-family: $font-LatoS;
+				font-size: 25px;
+				margin: 0;
+				vertical-align: -10%;
+			}
+		}
+		.menu-options{
+			height: 90%;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			li{
+				padding: 0 20px;
+				@include transition(all 0.3s ease-in-out);
+				a{
+					color: $white;
+					display: block;
+					font-family: $font-LatoT;
+					font-size: 22px;
+					font-weight: bold;
+					padding: 10px;
+					&:hover{
+						text-decoration: none;
+					}
+				}
+				&:hover{
+					
+				}
+			}
+			span{
+				bottom: 25px;
+				font-family: $font-LatoT;
+				font-size: 17px;
+				font-weight: bold;
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	#laundries-container{
+		float: right;
+		padding-top: 30px;
+		text-align: center;
+		width: 80%;
+		.laundries-info{
+			display: inline-block;
+			font-family: $font-LatoT;
+			margin: 0 auto;
+			width: 85%;
+			.title{
+				color: $blue;
+				font-family: $font-LatoS;
+				text-align: center;
+			}
+			.data{
+				color: $dark-gray;
+				padding: 50px 0;
+				.user{
+					font-size: 20px;
+					padding-right: 50px;
+					text-align: right;
+					.subtitle{
+						padding-bottom: 15px;
+						text-align: left;
+					}
+					ul{
+						padding-left: 10px;
+						li{
+							list-style: none;
+							span{
+								display: inline-block;
+								float: left;
+								font-family: $font-LatoS;
+								font-style: italic;
+							}
+							a{
+								padding-left: 10px;
+								display: inline-block;
+								float: left;
+							}
+
+						}
+					}
+					table {
+						border-collapse: collapse;
+						width: 100%;
+					}
+
+					th, td {
+						padding: 8px;
+						text-align: left;
+						border-bottom: 1px solid #ddd;
+					}
+
+					tr:hover{background-color:#f5f5f5}
+					
+				}
+			}
+		}
+	}
+}
+

@@ -209,7 +209,7 @@ body{
 					@include transition(all 0.3s ease-in-out);
 					-webkit-backface-visibility: hidden;
 					.mask{
-						background-color: #fff;
+						background-color: rgba(255,255,255,0.7);
 						border-radius: 50%;
 						display: inline-block;
 						height: 40px;
@@ -327,13 +327,76 @@ MEDIA QUERIS
 @media screen and (max-width: 40em) {
 	.wrapper{
 		.wrapper-head{
+			background-color: $blue;
+			.session{
+				ul{
+					li{
+						display: inline-block;
+					}
+				}
+			}
+			.navbar-header{
+				.navbar-toggle{
+					float: left;
+					margin: 5px;
+					padding: 13px;	
+					span{
+						background-color: $white;
+						width: 28px;
+					}
+				}
+			}
 			.info{
 				background-color: $blue;
-				padding: 40px 0 25px;
+				padding: 0 0 15px;
 				position: relative;
-				.slogan{
-					font-size: 35px;
+				.logo{
+					width: 130px;
 				}
+				.slogan{
+					font-size: 33px;
+					span{
+						display: block;
+					}
+				}
+			}
+		}
+		.wrapper-body{
+			.steps{
+				.title{
+					font-size: 30px;
+					padding: 0 20px;
+					&::before, &::after{
+						display: none;
+					}
+				}
+				.step{
+					padding: 20px 40px;
+					span{
+						font-size: 45px;
+					}
+				}
+				.middle{
+					&::before, &::after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	footer{
+		padding-bottom: 20px;
+		.about_us, .lavalotu, .services{
+			padding: 5px 40px 0;
+			.options{
+				padding-left: 20px;
+				li{
+					padding: 3px 0;
+				}
+			}
+			.social{
+				margin-bottom: 0;
+				padding-left: 20px;
 			}
 		}
 	}
