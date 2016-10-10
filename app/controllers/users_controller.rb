@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	#before_action :authenticate_user!
 	def finish_signup
 	    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
 	    	@user = User.find(params[:id])
@@ -12,21 +13,40 @@ class UsersController < ApplicationController
 	    end
 	end
 
-	def index
-	
+	def create
 	end
 
+	def new
+	end
+
+	def index
+		@users=User.all
+		authorize @users
+	end
+
+	def show
+    	@user = User.find(params[:id])
+  	end
+
+  	def destroyUser
+  		@user = User.find(params[:id])
+  		@user.destroy
+  		redirect_to users_path, notice: 'Usario eliminado correctamente.'
+  	end
+
 	def prices
-	
+	end
+
+	def orders
+		@laundries = Laundry.all
 	end
 
 	def profile
-
 	end
 
 	private
 	def user_params
-	    accessible = [ :name, :email, :lastname, :phone ] # extend with your own params
+	    accessible = [ :id, :name, :email, :lastname, :phone ] # extend with your own params
 	    accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
 	    params.require(:user).permit(accessible)
 	end

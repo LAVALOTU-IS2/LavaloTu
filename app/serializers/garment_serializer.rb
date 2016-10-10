@@ -1,5 +1,4 @@
 class GarmentSerializer < ActiveModel::Serializer
-  attributes :name
+  attributes :id, :name 
 
-  has_many :services
 end

@@ -1,0 +1,33 @@
+l1 = Laundry.create(name: "Lavaexpress", address: "Calle 127 #57-45", phone: "6459122", score: 4.4)
+l2 = Laundry.create(name: "Lavatodo", address: "Carrera 22A #12-87", phone: "3604117", score: 3.4)
+l3 = Laundry.create(name: "Lavanderia Juanca", address: "Diagonal 91A #27-18 sur", phone: "7836904", score: 4.6)
+
+g1 = Garment.create(name: "Jeans")
+g2 = Garment.create(name: "Dress")
+g3 = Garment.create(name: "Jacket")
+g4 = Garment.create(name: "Shirt")
+g5 = Garment.create(name: "Polo")
+
+s1 = Service.create(name: "Washed And Drying", cost: 4000, laundry_id: 1, garment_id: 1)
+s2 = Service.create(name: "Dyed", cost: 14000, laundry_id: 1, garment_id: 1)
+s3 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 1, garment_id: 2)
+s4 = Service.create(name: "Washed And Drying", cost: 7000, laundry_id: 1, garment_id: 3)
+s5 = Service.create(name: "Dyed", cost: 17000, laundry_id: 1, garment_id: 3)
+s6 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 1, garment_id: 4)
+s7 = Service.create(name: "Washed And Drying", cost: 4000, laundry_id: 1, garment_id: 5)
+s8 = Service.create(name: "Dyed", cost: 14000, laundry_id: 1, garment_id: 5)
+
+s9 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 2, garment_id: 1)
+s10 = Service.create(name: "Dyed", cost: 15000, laundry_id: 2, garment_id: 1)
+s11 = Service.create(name: "Washed And Drying", cost: 7000, laundry_id: 2, garment_id: 2)
+s12 = Service.create(name: "Washed And Drying", cost: 8000, laundry_id: 2, garment_id: 3)
+s13 = Service.create(name: "Dyed", cost: 18000, laundry_id: 2, garment_id: 3)
+s14 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 2, garment_id: 4)
+s15 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 2, garment_id: 5)
+s16 = Service.create(name: "Dyed", cost: 15000, laundry_id: 2, garment_id: 5)
+
+s17 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 3, garment_id: 1)
+s18 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 3, garment_id: 2)
+s19 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 3, garment_id: 4)
+s20 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 3, garment_id: 5)
+

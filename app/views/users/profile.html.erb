@@ -25,20 +25,41 @@
           <% end %>
         </div>
       </div>
+      <div class="data row">
+        <div class="user col-md-12">
+          <h3 class="subtitle">Your Address:</h3>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Action</th>
+              <th class="main" colspan="3"></th>
+            </tr>
+            <% current_user.places.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.address %></td>
+              <td><%= link_to 'Destroy', user_place_path(p.user, p), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          </table>
+          <h5 class="subtitle"><%= link_to 'New place', new_user_place_path(current_user) %></h5>
+        </div>
+      </div>
       <div class="user-friends">
         <h3>Your friends are already using LavaloTu</h3>
         <div class="friends row">
-          <div class="friend col-md-2">
-            <% if current_user.provider == "facebook" %>
+          <% if current_user.provider == "facebook" %>
             <% friends = current_user.friends %>
             <%  friends.each do |f|%>
-            <%= image_tag f['picture']['data']['url'] %>
-            <h4 class="my_friend"> <%= f['name'] %></h4>
+              <div class="friend col-md-2">
+                <%= image_tag f['picture']['data']['url'] %>
+                <h4 class="my_friend"> <%= f['name'] %></h4>
+              </div>
             <% end %>
             <% else %>
-            <%=  image_tag 'users.svg' %>
+              <%=  image_tag 'users.svg' %>
             <% end %> 
-          </div>
         </div>
       </div>
     </section>

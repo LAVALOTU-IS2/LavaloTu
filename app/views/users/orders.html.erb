@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+	<%= render 'menu' %>
+	<div id="laundries-container">
+		<section class="laundries-info">
+			<div class="data row">
+				<div class="user col-md-12">
+					<h3 class="subtitle">Lavalotu's Laundries</h3>  
+					<br>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Address</th>
+							<th>Phone</th>
+							<th>Score</th>
+							<th class="main" colspan="3"></th>
+						</tr>
+						<% @laundries.each do |laundry| %>
+						<tr>
+
+							<td><%= laundry.name %></td>
+							<td><%= laundry.address %></td>
+							<td><%= laundry.phone %></td>
+							<td><%= laundry.score %></td>
+							<td><%= link_to 'Show Prices', laundry_path(laundry) , class: "option"%> </td>
+						</tr>
+						<% end %>
+					</table>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>

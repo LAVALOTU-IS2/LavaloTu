@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  grade: 1
+  laundries: one
+
+two:
+  comment: MyString
+  grade: 1
+  laundries: two
