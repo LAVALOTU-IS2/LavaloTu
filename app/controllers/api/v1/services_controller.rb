@@ -20,7 +20,7 @@ class Api::V1::ServicesController < ApiController
     if @service.update(service_params)
       head 200, content_type: "text/html"
     else
-      render json: {errors @service.errors}, status: 400
+      render json: {errors: @service.errors}, status: 400
     end
   end
 
@@ -28,7 +28,7 @@ class Api::V1::ServicesController < ApiController
     @service = Service.find(params[:id])
     @service.destroy!
     if @service.errors.any?
-      render json: {errors @service.errors}, status: 500
+      render json: {errors: @service.errors}, status: 500
     else
       head 204, content_type: "text/html"
     end
