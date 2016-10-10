@@ -14,6 +14,7 @@
 }
 
 .laundry{
+	overflow-x: hidden;
 	position: relative;
 	.menu{
 		background-color: $blue;
@@ -81,58 +82,94 @@
 		padding-top: 30px;
 		text-align: center;
 		width: 80%;
-		.laundries-info{
-			display: inline-block;
+		.laundry_info{
+			display: block;
 			font-family: $font-LatoT;
-			margin: 0 auto;
-			width: 85%;
+			margin-top: 10px;
+			padding-left: 30px;
+			text-align: left;
 			.title{
 				color: $blue;
-				font-family: $font-LatoS;
-				text-align: center;
+				font-family: $font-LatoB;
+				font-size: 50px;
+				padding-bottom: 10px;
 			}
-			.data{
-				color: $dark-gray;
-				padding: 50px 0;
-				.user{
-					font-size: 20px;
-					padding-right: 50px;
-					text-align: right;
-					.subtitle{
-						padding-bottom: 15px;
-						text-align: left;
-					}
-					ul{
-						padding-left: 10px;
-						li{
-							list-style: none;
+			.detail-cost{
+				font-size: 21px;
+			}
+		}
+		.options{
+			font-family: $font-LatoT;
+			padding: 20px 30px 10px;
+			text-align: left;
+			label{
+				font-family: $font-LatoT;
+				font-size: 20px;
+				padding-bottom: 10px;
+				width: 500px;
+			}
+			select{
+				text-transform: capitalize;
+				width: 300px;
+				option{
+					padding: 10px;
+					text-transform: capitalize;
+				}
+			}
+		}
+		.content{
+			margin: 0;
+			.garment{
+				font-family: $font-LatoT;
+				font-size: 17px;
+				padding: 15px 20px 15px;
+				text-align: center;
+				.name{
+					display: block;
+					padding: 10px 10px 0;
+					text-transform: capitalize;
+				}
+				.image{
+					border: 1px solid #ddd;
+					position: relative;
+					.mask{
+						background-color: rgba(255,255,255, 0.6);
+						height: 100%;
+						left: 0;
+						opacity: 0;
+						position: absolute;
+						top: 0;
+						width: 100%;
+						@include transition(0.3s ease-in-out);
+						.options{
+							cursor: pointer;
+							left: 0;
+							margin: 0 auto;
+							padding: 0;
+							position: absolute;
+							right: 0;
+							text-align: center;
+							top: 45%;
 							span{
-								display: inline-block;
-								float: left;
-								font-family: $font-LatoS;
-								font-style: italic;
+								padding: 0 5px;
 							}
-							a{
-								padding-left: 10px;
-								display: inline-block;
-								float: left;
-							}
-
+						}
+						.number{
+							bottom: 10%;
+							left: 0;
+							margin: 0 auto;
+							position: absolute;
+							right: 0;
+							width: 40px;
 						}
 					}
-					table {
-						border-collapse: collapse;
-						width: 100%;
+				}
+				&:hover{
+					.image{
+						.mask{
+							opacity: 1;
+						}
 					}
-
-					th, td {
-						padding: 8px;
-						text-align: left;
-						border-bottom: 1px solid #ddd;
-					}
-
-					tr:hover{background-color:#f5f5f5}
-					
 				}
 			}
 		}
