@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	#before_action :authenticate_user!
+	before_action :authenticate_user!
 	def finish_signup
 	    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
 	    	@user = User.find(params[:id])
@@ -35,9 +35,11 @@ class UsersController < ApplicationController
   	end
 
 	def prices
+		
 	end
 
 	def orders
+		
 		@laundries = Laundry.all
 	end
 

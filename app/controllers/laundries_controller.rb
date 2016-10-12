@@ -1,5 +1,7 @@
 class LaundriesController < ApplicationController
+ #before_action :authenticate_user!
   def index
+    redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
     @laundries = Laundry.all
   end
 
@@ -38,11 +40,14 @@ def destroy
 end
 
 def show
- #@laundry = Laundry.find(params[:id])
  gon.laundry_id = params[:id]
  #gon.rabl "app/views/products/index.json.rabl", as: "products"
 end
 
+def show_laundry
+  #@laundry = Laundry.find(params[:id])
+  gon.laundry_id = params[:id]
+end
 def calculator
   @laundry = Laundry.find(params[:id])
   @services = @laundry.services

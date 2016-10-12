@@ -13,7 +13,7 @@
 				<ul class="nav navbar-nav">
 					<% if user_signed_in? %>
 						<li>
-							<%= link_to current_user.name, edit_user_registration_path, :class => 'navbar-link' %>
+							<%= link_to current_user.name, profile_path, :class => 'navbar-link' %>
 						</li>
 							<li>
 								<%= link_to "Salir", destroy_user_session_path, method: :delete %>

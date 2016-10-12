@@ -16,10 +16,13 @@ Rails.application.routes.draw do
     end
   end
 
+
   get 'static_pages/about'
   get 'static_pages/contact'
+  get 'static_pages/not_authorized'
   get 'static_pages_about_path' => 'static_pages/about'
   get 'static_pages_contact_path' => 'static_pages/contact'
+  get 'static_pages_not_authorized' => 'static_pages/not_authorized'
   get "prices" => "users#prices"
   get "orders" => "users#orders"
   get 'profile'=>"users#profile"
@@ -43,9 +46,11 @@ Rails.application.routes.draw do
     resources :users do
       resources :places
     end
+    match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
     resources :laundries
     resources :orders
-    match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
+    #get 'show_laundry'=>'laundries#show_laundry'
+
   end
 
 

@@ -47,6 +47,7 @@
         </div>
       </div>
       <div class="user-friends">
+      <% if current_user.provider == "facebook" %>
         <h3>Your friends are already using LavaloTu</h3>
         <div class="friends row">
           <% if current_user.provider == "facebook" %>
@@ -61,7 +62,9 @@
               <%=  image_tag 'users.svg' %>
             <% end %> 
         </div>
+      <% end %>
       </div>
+
     </section>
   </div>
 </section>
