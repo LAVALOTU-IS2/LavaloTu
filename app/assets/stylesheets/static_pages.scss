@@ -6,30 +6,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.page{
-	background-color: #F9FCFF;
+.notice, .alert{
+	display: none;
 }
 
 .wrapper{
 	overflow-x: hidden;
 	font-family: $font-LatoT;
-	font-size: 140%;
-	padding: 0 0 30px 0;
-	width: 70%;
-
 	.wrapper-logo{
+		padding-top: 50px;
 		text-align: center;
 		.logo{
-			width : 170px;
+			width : 140px;
 			margin: 0 auto;
 		}
 	}
-
 	.wrapper-head{
 		padding: 20px 0 0 15px;
 		margin-top: 20px;
 		text-align: center;
-
 		.title{
 			font-family: $font-LatoB;
 			color: $blue;
@@ -38,75 +33,133 @@
 			font-size: 50px;
 			text-align: center;
 		}
-
 		.intro{
-			padding-top: 1px;
-			
+			padding-top: 40px;	
 			.lema{
 				font-family: $font-LatoS;
 				span{
 					display: block;
 				}
-			} 
-
+			}
 			.text{
-				margin-top:20px;
+				margin-top: 20px;
 				display: block;
 				font-size: 19px;
 			}
-
-			.vcenter {
-				display: inline-block;
-				vertical-align: middle;
-				float: none;
+		}
+		.group-col{
+			padding: 0;
+			position: relative;
+			.mask{
+				background-color: transparent;
+				border: 1px solid #ccc;
+				bottom: 10px;
+				height: 100%;
+				left: 10px;
+				position: absolute;
+				width: 100%;
 			}
 		}
-
-		.group-col{
-			padding-top: 25px;
-
-			.group{
-				border-radius: 5%;
-				border-width: 2px;
-				border-color: Black;
-			}
-		}	
 	}
-
 	.wrapper-body{
-		padding: 20px 0 0 15px;
+		padding: 25px 0;
 		text-align: center;
 		margin: 0 auto;
-		h2{
-			font-family: $font-LatoS;
-			color: $blue;
-		}
-		intro-body{
-			width:70%;
-		}
-
-		.team-row{
+		width: 80%;
+		.lavalotu-team{
+			padding: 20px 15px;
 			text-align: center;
-			padding: 20px 0 10px 0;
+			.title{
+				font-family: $font-LatoS;
+				color: $blue;
+				padding-bottom: 10px;
+			}
+			.description{
+				display: inline-block;
+				font-size: 22px;
+				width: 70%;
+			}
 		}
-
-		.team-photo{
-			border-radius: 5%;
-			width : 250px;
-			margin: 0 auto;
+		.co-founders{
+			padding-top: 40px;
+			text-align: center;
+			.team{
+				margin-bottom: 25px;
+				.student{
+					display: inline-block;
+					font-family: $font-LatoT;
+					position: relative;
+					.image{
+						border-radius: 50%;
+						box-sizing: border-box;
+						display: inline-block;
+						height: 240px;
+						position: relative;
+						width: 240px;
+						@include transform(scale(1) translateX(0));
+						img{
+							border-radius: 50%;
+							height: 100%;
+							width: 100%;
+						}
+						&::before{
+							border-radius: 50%;
+							box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.6), 0 1px 2px rgba(0, 0, 0, 0.3);
+							content: '';
+							display: block;
+							height: 100%;
+							position: absolute;
+							width: 100%;
+							@include transition( all 350ms ease-in-out);
+						}
+					}
+					.info{
+						background-color: #333;
+						border-radius: 50%;
+						bottom: 0;
+						color: $white;
+						font-family: $font-LatoT;
+						left: 0;
+						opacity: 0;
+						padding: 30px;
+						pointer-events: none;
+						position: absolute;
+						right: 0;
+						text-align: center;
+						top: 0;
+						-webkit-backface-visibility: hidden;
+						backface-visibility: hidden;
+						@include transform(translateX(-100%));
+						@include transition( all 350ms ease-in-out);
+						.team-text{
+							color: $light-blue;
+							font-family: $font-LatoS;
+							font-size: 24px;
+							padding: 20px 0;
+							span{
+								display: block;
+							}
+						}
+						.team-role{
+							font-family: $font-LatoT;
+							font-size: 18px;
+							line-height: 1.3;
+							margin: 0;
+						}
+					}	
+					&:hover{
+						.image{
+							z-index: 11;
+							@include transform(scale(0.5) translateX(120%));
+							@include transition( all 350ms ease-in-out);
+						}
+						.info{
+							opacity: 1;
+							@include transform(translateX(0));
+						}
+					}
+				}
+			}
 		}
-		
-		.team-text{
-			font-weight: bold;
-			font-family: $font-LatoB;
-			font-size: 12px;
-			padding-top: 12px;
-		}
-
-		.team-role{
-			font-family: $font-LatoS;
-			font-size: 13px;
-		}
-		
 	}
 }
