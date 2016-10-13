@@ -16,10 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'static_pages/about'
-  get 'static_pages/contact'
-  get 'static_pages_about_path' => 'static_pages/about'
-  get 'static_pages_contact_path' => 'static_pages/contact'
+  get '/about', to: 'static_pages#about', as: 'about'
+  get '/contact', to: 'static_pages#contact', as: 'contact'
   get "prices" => "users#prices"
   get "orders" => "users#orders"
   get 'profile'=>"users#profile"

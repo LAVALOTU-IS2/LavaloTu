@@ -37,6 +37,7 @@
 			padding-top: 40px;	
 			.lema{
 				font-family: $font-LatoS;
+				text-transform: uppercase;
 				span{
 					display: block;
 				}
@@ -73,6 +74,7 @@
 				font-family: $font-LatoS;
 				color: $blue;
 				padding-bottom: 10px;
+				text-transform: uppercase;
 			}
 			.description{
 				display: inline-block;
