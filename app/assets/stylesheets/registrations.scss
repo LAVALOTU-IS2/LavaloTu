@@ -9,11 +9,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-.notice{
-	display: none;
-}
-
 .data{
+	padding-top: 50px;
 	text-align: center;
 	width: 350px;
 	.logo{
@@ -146,6 +143,33 @@
 			&:hover, &:focus, &:active{
 				text-decoration: none;
 			}
+		}
+	}
+}
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+@media screen and (max-width: 40em) {
+	.data{
+		padding: 25px;
+		width: 100%;
+		form{
+			.name{
+				padding-right: 15px;
+			}
+			.lastname{
+				padding-left: 15px;
+			}
+			.actions{
+				margin-top: 10px;
+			}
+		}
+		.twitter{
+			padding-right: 15px;
+		}
+		.facebook{
+			padding-left: 15px;
 		}
 	}
 }
