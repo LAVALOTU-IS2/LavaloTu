@@ -98,6 +98,37 @@
 				font-size: 21px;
 			}
 		}
+		#result{
+			border: 1px solid black;
+			width: 170px;
+			height:50px;
+			text-align: center;
+			float: right;
+			line-height: 2.2em;
+			margin-right: 70px;
+			margin-top: 30px;
+			font-family: $font-LatoS;
+			font-size: 20px;
+		}
+		#reset {
+			border: 1px solid black;
+			width: 170px;
+			height:50px;
+			text-align: center;
+			float: right;
+			line-height: 2.2em;
+			font-family: $font-LatoB;
+			font-size: 20px;
+			margin-top: 30px;
+			display: block;
+			cursor: pointer;
+			transition: background-color 0.5s ease;
+		}
+		#reset:hover{
+			background-color: $blue;
+			transition: background-color 0.5s ease;
+
+		}
 		.options{
 			font-family: $font-LatoT;
 			padding: 20px 30px 10px;
