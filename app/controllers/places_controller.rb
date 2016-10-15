@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @place = @user.places.create(place_params)
-    redirect_to users_path(@user)
+    redirect_to profile_path
   end
 
   def show
