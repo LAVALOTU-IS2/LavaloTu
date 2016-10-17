@@ -21,12 +21,12 @@
             <li><span>Firstname:</span> <%= current_user.name %></li>
             <li><span>LastName:</span> <%= current_user.lastname %></li>
             <li><span>Phone:</span> <%= current_user.phone %></li>
-            <!--li><span>Address:</span> #</li-->
+            <li><span>Address:</span> #</li>
           </ul>
         </div>
       </div>
       <div class="data row">
-        <div class="user col-md-12">
+        <div class="user address col-md-12">
           <h3 class="subtitle">Your Address:</h3>
           <table>
             <tr>
@@ -52,7 +52,7 @@
           <% if current_user.provider == "facebook" %>
           <% friends = current_user.friends %>
           <%  friends.each do |f|%>
-          <div class="friend col-md-2">
+          <div class="friend col-md-2 col-xs-6">
             <%= image_tag f['picture']['data']['url'] %>
             <h4 class="my_friend"> <%= f['name'] %></h4>
           </div>

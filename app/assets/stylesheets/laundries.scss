@@ -39,28 +39,33 @@
 				vertical-align: -10%;
 			}
 		}
-		.menu-options{
+		.wrapper-menu{
 			height: 90%;
-			list-style: none;
-			margin: 0;
-			padding: 0;
 			position: relative;
-			li{
-				padding: 0 20px;
-				@include transition(all 0.3s ease-in-out);
-				a{
-					color: $white;
-					display: block;
-					font-family: $font-LatoT;
-					font-size: 22px;
-					font-weight: bold;
-					padding: 10px;
-					&:hover{
-						text-decoration: none;
+			.menu-content{
+				.menu-options{
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					li{
+						padding: 0 20px;
+						@include transition(all 0.3s ease-in-out);
+						a{
+							color: $white;
+							display: block;
+							font-family: $font-LatoT;
+							font-size: 22px;
+							font-weight: bold;
+							padding: 10px;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+						&:hover{
+
+						}
 					}
-				}
-				&:hover{
-					
 				}
 			}
 			span{
@@ -97,37 +102,6 @@
 			.detail-cost{
 				font-size: 21px;
 			}
-		}
-		#result{
-			border: 1px solid black;
-			width: 170px;
-			height:50px;
-			text-align: center;
-			float: right;
-			line-height: 2.2em;
-			margin-right: 70px;
-			margin-top: 30px;
-			font-family: $font-LatoS;
-			font-size: 20px;
-		}
-		#reset {
-			border: 1px solid black;
-			width: 170px;
-			height:50px;
-			text-align: center;
-			float: right;
-			line-height: 2.2em;
-			font-family: $font-LatoB;
-			font-size: 20px;
-			margin-top: 30px;
-			display: block;
-			cursor: pointer;
-			transition: background-color 0.5s ease;
-		}
-		#reset:hover{
-			background-color: $blue;
-			transition: background-color 0.5s ease;
-
 		}
 		.options{
 			font-family: $font-LatoT;
@@ -194,7 +168,6 @@
 							position: absolute;
 							right: 0;
 							width: 40px;
-							font-family: $font-LatoB;
 						}
 					}
 				}
@@ -229,4 +202,94 @@
 		}
 	}
 }
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+@media screen and (max-width: 40em) {
+	.laundry{
+		.menu{
+			float: unset;
+			height: auto;
+			padding: 15px;
+			position: relative;
+			width: 100%;
+			.lavalotu-image{
+				display: inline-block;
+				padding: 0;
+				h1{
+					font-size: 21px;
+					letter-spacing: 0.5px;
+				}
+			}
+			.navbar-header{
+				float: right;
+				margin-top: 10px;
+				button{
+					margin: 0;
+					span{
+						background-color: $white;
+						height: 3px;
+						width: 28px;
+					}
+				}
+			}
+			.wrapper-menu{
+				height: auto;
+				.menu-content{
+					padding: 10px 0 0;
+					.menu-options{
+						li{
+							padding: 0 15px;
+							a{
+								font-size: 19px;
+								padding: 8px;
+							}
+						}
+					}
+				}
+				span{
+					display: none;
+				}
+			}
+		}
+		#laundries-container{
+			float: unset;
+			margin-top: 0;
+			padding-top: 10px;
+			width: 100%;
+			.laundry_info{
+				margin-top: 10px;
+				padding: 0 20px;
+				.title{
+					font-size: 24px;
+				}
+				.detail-cost{
+					font-size: 18px;
+				}
+			}
+			.options{
+				padding: 15px 20px 10px;
+				select{
+					width: 280px;
+				}
+				label{
+					font-size: 16px;
+					width: 100%;
+				}
+			}
+			.content{
+				.garment{
+					.image{
+						display: inline-block;
+					}
+					.name{
+						padding: 0 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
 
