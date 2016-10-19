@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "prices" => "users#prices"
   get "orders" => "users#orders"
   get 'profile' => "users#profile"
+  get 'contact_us' => "users#contact_us"
   get 'welcome/index'
   
   resources :garments do
@@ -55,5 +56,4 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { confirmations: 'confirmations', omniauth_callbacks: 'omniauth_callbacks' }
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-
 end
