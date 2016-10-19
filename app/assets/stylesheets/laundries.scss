@@ -82,9 +82,13 @@
 			}
 		}
 	}
+	.option{
+		display: none;
+	}
 	#laundries-container{
 		float: right;
 		padding-top: 30px;
+		position: relative;
 		text-align: center;
 		width: 80%;
 		.laundry_info{
@@ -101,6 +105,66 @@
 			}
 			.detail-cost{
 				font-size: 21px;
+			}
+		}
+		.calculator{
+			display: block;
+			position: absolute;
+			right: 10%;
+			text-align: center;
+			top: 150px;
+			#result{
+				color: #333;
+				font-family: $font-LatoS;
+				font-size: 30px;
+				letter-spacing: 2px;
+				text-align: center;
+			}
+			#reset{
+				border: 1px solid #333;
+				color: #333;
+				cursor: pointer;
+				display: block;
+				font-family: $font-LatoS;
+				font-size: 22px;
+				height: 55px;
+				margin-top: 10px;
+				overflow: hidden;
+				padding-top: 9px;
+				position: relative;
+				width: 200px;
+				z-index: 1;
+				&::before, &::after{
+					border-style: solid;
+					border-width: 0 0 0 0;			
+					content: '';
+					height: 0;				
+					position: absolute;
+					width: 0;
+					@include transform(rotate(360deg));
+					@include transition(all 0.5s);
+					z-index: -1;
+				}
+				&::before{
+					border-color: transparent transparent transparent $blue;
+					bottom: 0;
+					left: 0;
+				}
+				&::after{
+					border-color: transparent $blue transparent transparent;
+					top: 0;
+					right: 0;
+				}
+				&:hover{
+					border: 1px solid $blue;
+					color: $white;
+					&::before{
+						border-width: 135px 0 0 135px;
+					}
+					&::after{
+						border-width: 0 135px 135px 0;
+					}
+				}
 			}
 		}
 		.options{
@@ -191,6 +255,26 @@
 					background: asset-url('garments/shirt.png') no-repeat 0 0 transparent;
 					background-size: cover; 
 				}
+				.undershirt{
+					background: asset-url('garments/undershirt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.blouse{
+					background: asset-url('garments/blouse.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.suit{
+					background: asset-url('garments/suit.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.tie{
+					background: asset-url('garments/tie.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.quilt{
+					background: asset-url('garments/quilt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
 				&:hover{
 					.image{
 						.mask{
@@ -266,6 +350,18 @@ MEDIA QUERIS
 				}
 				.detail-cost{
 					font-size: 18px;
+				}
+			}
+			.calculator{
+				padding-bottom: 15px;
+				position: relative;
+				right: unset;
+				top: unset;
+				#result{
+					padding-bottom: 5px;
+				}
+				#reset{
+					margin: 0 auto;
 				}
 			}
 			.options{

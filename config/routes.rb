@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact', as: 'contact'
   get "prices" => "users#prices"
   get "orders" => "users#orders"
-  get 'profile'=>"users#profile"
+  get 'profile' => "users#profile"
   get 'welcome/index'
   
   resources :garments do

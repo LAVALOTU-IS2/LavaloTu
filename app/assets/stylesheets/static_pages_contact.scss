@@ -1,41 +1,181 @@
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.page{
-	background-color: #F9FCFF;
-}
-
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 .wrapper{
-	background-color: #F9FCFF;
-	overflow-x: hidden;
-	padding: 0 0;
-	width: 70%;
-	font-family: "Times New Roman", Georgia, Serif;
-	.wrapper-head{
-		.title{
-			margin: 0;
-			padding: 0 15px 30px;
-		}
-		.logo{
-			img{
-				padding: auto;
-				margin: auto;
-				width: 150px	;
+	height: 100vh;
+	position: relative;
+	.content{
+		font-family: $font-LatoT;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		top: 20%;
+		width: 75%;
+		-webkit-box-shadow: 1px 0px 6px 0px rgba(114,226,253,1);
+		-moz-box-shadow: 1px 0px 6px 0px rgba(114,226,253,1);
+		box-shadow: 1px 0px 6px 0px rgba(114,226,253,1);
+		.form-contact{
+			float: left;
+			padding: 20px 35px;
+			width: 65%;
+			.title{
+				font-family: $font-LatoS;
+				font-size: 25px;
+				position: relative;
+				&::after{
+					background: url(/assets/mail-send.png) no-repeat 0 0 transparent;
+					content: '';
+					height: 32px;
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 32px;
+				}
+			}
+			.form{
+				padding: 15px 0;
+				.detail-form{
+					margin: 0;
+					position: relative;
+					.name, .email, .message{
+						padding: 0;
+						label{
+							color: #333;
+							font-size: 16px;
+							font-weight: normal;
+							padding-top: 5px;
+						}
+						input, textarea{
+							border: none;
+							border-bottom: 1px solid #ddd;
+							border-radius: 0;
+							box-shadow: none;
+							color: #333;
+							font-size: 18px;
+							padding: 6px 0;
+							&::-webkit-input-placeholder {
+								color: #ddd;
+							}
+							&:-moz-placeholder { /* Firefox 18- */
+								color: #ddd;  
+							}
+							&::-moz-placeholder {  /* Firefox 19+ */
+								color: #ddd;  
+							}
+							&:-ms-input-placeholder {  
+								color: #ddd;  
+							}
+						}
+					}
+					.name{
+						padding-right: 12.5px;
+					}
+					.email{
+						padding-left: 12.5px;
+					}
+					.message{
+						padding: 15px 0 0;
+					}
+					button{
+						background-color: $blue;
+						border: none;
+						border-radius: 50%;
+						bottom: -7px;
+						height: 55px;
+						position: absolute;
+						right: -2px;
+						width: 55px;
+						svg{
+							margin: 5px 3px 0 0;
+						}
+					}
+				}
 			}
 		}
-		.informacion{
-			.imag{
-				padding: auto;
-				margin: auto;
+		.lavalotu-info{
+			background-color: #103F6E;
+			color: $white;
+			float: left;
+			font-family: $font-LatoT;
+			height: 100%;
+			padding: 20px 30px;
+			text-align: center;
+			width: 35%;
+			.logo{
+				display: inline-block;
+				margin-top: 5px;
+				width: 80px;
+			}
+			.info{
+				color: #8495AB;
+				display: block;
+				font-family: $font-LatoT;
+				font-size: 19px;
+				font-weight: bold;
+				letter-spacing: 0.5px;
+				padding: 10px 0 20px;
+			}
+			.address, .phone, .email{
+				display: block;
+				letter-spacing: 0.5px;
+				padding: 15px 0 15px 55px;
+				position: relative;
+				text-align: left;
+				span{
+					font-size: 16px;
+				}
+				&::before{
+					background: url(/assets/ubication.png) no-repeat 0 0 transparent;
+					content: '';
+					height: 32px;
+					left: 0;
+					position: absolute;
+					top: 10px;
+					width: 32px;
+				}
+			}
+			.phone{
+				&::before{
+					background: url(/assets/smartphone.png) no-repeat 0 0 transparent;
+				}
+			}
+			.email{
+				&::before{
+					background: url(/assets/email.png) no-repeat 0 0 transparent;
+				}
+			}
+			.social{
+				display: inline-block;
+				list-style: none;
+				margin: 0;
+				padding: 15px 0 0;
+				li{
+					display: inline-block;
+					padding: 20px;
+					a{
+						text-decoration: none;
+						i{
+							color: $white;
+							font-size: 26px;
+							@include transition(0.3s ease-in-out);
+						}
+						&:hover{
+							i{
+								color: $blue;
+							}
+						}
+					}
+				}
 			}
 		}
 	}
-	.wrapper-form{
-		padding: 25px 0 0;
-		.form{
-			padding: 25px 10px 0;
-		}
-	}
-
 }
