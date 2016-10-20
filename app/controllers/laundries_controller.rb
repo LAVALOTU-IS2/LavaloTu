@@ -1,7 +1,7 @@
 class LaundriesController < ApplicationController
  #before_action :authenticate_user!
   def index
-    redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
+    redirect_to not_authorized_path if !current_user.try(:Admin?)
     @laundries = Laundry.all
   end
 

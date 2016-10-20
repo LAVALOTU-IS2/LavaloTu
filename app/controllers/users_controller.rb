@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		#redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
+		#redirect_to not_authorized_path if !current_user.try(:Admin?)
 		@users=User.all
 		authorize @users
 	end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   	def destroyUser
   		@user = User.find(params[:id])
   		@user.destroy
-  		redirect_to users_path, notice: 'Usario eliminado correctamente.'
+  		redirect_to users_path, notice: 'Usuario eliminado correctamente.'
   	end
 
 	def prices
@@ -48,6 +48,7 @@ class UsersController < ApplicationController
 	end
 	 
 	def update
+		puts user_params
 	  @user = User.find(params[:id])
 	  if @user.update(user_params)
 	   redirect_to profile_path
