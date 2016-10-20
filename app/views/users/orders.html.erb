@@ -4,29 +4,20 @@
 	<div id="laundries-container">
 		<section class="laundries-info">
 			<div class="data row">
-				<div class="user col-md-12">
-					<h3 class="subtitle">Lavalotu's Laundries</h3>  
-					<br>
-					<table>
-						<tr>
-							<th>Name</th>
-							<th>Address</th>
-							<th>Phone</th>
-							<th>Score</th>
-							<th class="main" colspan="3"></th>
-						</tr>
-						<% @laundries.each do |laundry| %>
-						<tr>
-
-							<td><%= laundry.name %></td>
-							<td><%= laundry.address %></td>
-							<td><%= laundry.phone %></td>
-							<td><%= laundry.score %></td>
-							<td><%= link_to 'Show Prices', laundry_path(laundry) , class: "option"%> </td>
-						</tr>
-						<% end %>
-					</table>
+				<% @laundries.each do |laundry| %>
+				<div class="laundry col-md-4">
+					<div class="content">
+						<div class="image">
+							<%= image_tag("ironing-board.png", :alt => "Laundry Icon", :title => "Laundry Icon", :class=> "img-responsive") %>
+						</div>
+						<h3 class="name"><%= laundry.name %></h3>
+						<span class="address"><%= laundry.address %></span>
+						<span class="phone">Phone: <%= laundry.phone %></span>
+						<h4 class="score">Score: <%= laundry.score %></h4>
+						<%= link_to '', laundry_path(laundry) , class: "mask"%>
+					</div>
 				</div>
+				<% end %>
 			</div>
 		</section>
 	</div>

@@ -179,3 +179,68 @@
 		}
 	}
 }
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+
+@media screen and (max-width: 40em) {
+	.wrapper{
+		height: auto;
+		text-align: center;
+		.content{
+			display: inline-block;
+			left: unset;
+			margin: 25px 0;
+			position: relative;
+			right: unset;
+			text-align: left;
+			top: unset;
+			width: 90%;
+			.form-contact, .lavalotu-info{
+				float: unset;
+				padding: 15px 20px;
+				width: 100%;
+				.form{
+					.detail-form{
+						.name, .email{
+							padding: 0;
+						}	
+					}
+				}  
+			}
+			.lavalotu-info{
+				height: auto;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.wrapper{
+		.content{
+			.form-contact, .lavalotu-info{
+				.title{
+					font-size: 21px;
+				}
+				.form{
+					.detail-form{
+						.name, .email{
+							padding: 0;
+						}	
+					}
+				}  
+			}
+			.lavalotu-info{
+				.info{
+					font-size: 18px;
+				}
+				.address, .phone, .email{
+					span{
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -99,7 +99,7 @@ $(document).ready(function () {
 			$options.append($services);
 			$('#laundries-container').append($options);
 			$('#laundries-container').append($calculator);
-			renderGarments("Washed And Drying");
+			renderGarments("Washed And Dryed");
 		}
 	});
 });
