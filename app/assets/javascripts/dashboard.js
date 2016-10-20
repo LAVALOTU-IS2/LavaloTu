@@ -6,9 +6,8 @@ function renderGarments( service ){
 	var $garments = $('<div id="garment_pieces" class="content row"></div>');
 	for(var k in garments_services[service]){
 		var name_image = "garments/"+ k.toLowerCase() +".png"; 
-		console.log(name_image);
 		var $garment = $('<div class="garment col-md-3"></div>');
-		var $garment_image = $('<div class="image"> <img src="<%=asset_path('garments/jeans.png') %>" alt=" '+ k +' " title=" ' +k+' " class="img-responsive"></div>');	
+		var $garment_image = $('<div class="image '+ k.toLowerCase() +'"></div>');	
 		//var $garment_image = $('<div class="image"><%= asset_path "garments/'+ k.toLowerCase() +'.png", :alt => "'+ k +'", :title => "'+ k +'", :class=> "img-responsive" %></div>');
 		var $garment_name = $('<span class="name">'+ k +'</span>');
 		var $price = $('<span>From: $ '+ garments_services[service][k][0] +' To: $ ' + garments_services[service][k][1] + '</span>')
@@ -59,6 +58,7 @@ $(document).ready(function () {
 			$options.append($services);
 			$('#garments-container').append($options);
 			renderGarments("Washed And Drying");
+			console.log(garments_services);
 		}
 	});
 });

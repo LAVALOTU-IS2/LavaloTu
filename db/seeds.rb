@@ -30,4 +30,3 @@ s17 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 3, garme
 s18 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 3, garment_id: 2)
 s19 = Service.create(name: "Washed And Drying", cost: 5000, laundry_id: 3, garment_id: 4)
 s20 = Service.create(name: "Washed And Drying", cost: 6000, laundry_id: 3, garment_id: 5)
-

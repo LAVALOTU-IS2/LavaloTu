@@ -10,12 +10,11 @@ class PlacesController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @place = @user.places.create(place_params)
-    redirect_to profile_path
-    #if @place.save
-    #  redirect_to users_path(@user)
-    #else
-    #  render 'new'
-    #end
+    if @place.save
+      redirect_to users_path(@user)
+    else
+      render 'new'
+    end
   end
 
   def show

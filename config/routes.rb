@@ -16,17 +16,15 @@ Rails.application.routes.draw do
     end
   end
 
-
-  get 'static_pages/about'
-  get 'static_pages/contact'
-  get 'static_pages/not_authorized'
-  get 'static_pages_about_path' => 'static_pages/about'
-  get 'static_pages_contact_path' => 'static_pages/contact'
-  get 'static_pages_not_authorized' => 'static_pages/not_authorized'
+  get '/about', to: 'static_pages#about', as: 'about'
+  get '/contact', to: 'static_pages#contact', as: 'contact'
+  get '/not_authorized', to: 'static_pages#not_authorized', as: 'not_authorized'
   get "prices" => "users#prices"
   get "orders" => "users#orders"
-  get 'profile'=>"users#profile"
+  get 'profile' => "users#profile"
+  get 'contact_us' => "users#contact_us"
   get 'welcome/index'
+
   resources :garments do
     resources :services
   end
@@ -67,5 +65,4 @@ end
   devise_for :users, controllers: { confirmations: 'confirmations', omniauth_callbacks: 'omniauth_callbacks', registrations:'registrations'}
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
-
 end

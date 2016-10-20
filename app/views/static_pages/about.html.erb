@@ -1,69 +1,93 @@
 <%= stylesheet_link_tag 'static_pages' %>
-<body class="page">
-	<div class ="wrapper container">
-
-		<div class="wrapper-logo row">
-			
+<div class ="wrapper">
+	<div class="wrapper-logo row">
 		<% if user_signed_in? %>
-			<%= link_to image_tag('logo.png', :class => "logo img-responsive"), profile_path %>
+		<%= link_to image_tag('logo.png', :class => "logo img-responsive"), profile_path %>
 		<% else %>
-			<%= link_to image_tag('logo.png', :class => "logo img-responsive"), root_path %>
+		<%= link_to image_tag('logo.png', :class => "logo img-responsive"), root_path %>
 		<% end %>
+	</div>
+
+	<div class="wrapper-head container">
+		<h1 class="title">We want you to know us!</h1>
+		<div class="intro col-md-5 col-xs-12">
+			<h2 class="lema">Our motto:
+				<span>
+					Commitment, eficiency, perfect cleaning.
+				</span>
+			</h2>
+			<p class="text">
+				Our motivation is to provide you with the best service in the washing and cleaning of your clothes, so that you can use your free time in what really matters to you.
+			</p>
 		</div>
-
-		<div class="wrapper-head row">
-			<h1 class="title">¡Queremos que nos conozcas!</h1>
-			<div class="intro col-md-5 col-xs-12 vcenter">
-				<h2 class="lema">NUESTRO LEMA:
-					<span>
-						Compromiso, eficiencia, perfecta limpieza.
-					</span>
-				</h2>
-				<p class="text">
-					Nuestra motivación es darte siempre el mejor servicio en la limpieza y lavado de tu ropa para que uses tu tiempo libre en las cosas que te apasionan.
-				</p>
-			</div>
-			<div class="col-md-7 col-xs-12 group-col vcenter">
-				<%= image_tag('grupo.JPG', :class => "group img-responsive") %>
-			</div>
+		<div class="group-col col-md-6 col-md-push-1 col-xs-12">
+			<%= image_tag('grupo.JPG', :class => "group img-responsive") %>
+			<div class="mask"></div>
 		</div>
+	</div>
 
-		<div class="wrapper-body row">
-			<h2>NUESTRO EQUIPO</h2>
-			<p class="intro-body">Somos un grupo de futuros ingenieros de la Universidad Nacional de Colombia, emprendedores y autodidactas. Con nuestra empresa queremos aportar al crecimiento ecónomico del sector de servicios y a la generación de empleos.</p>
-
-			<div class = "row team-row">
-				<%= image_tag('camilo.JPG', :class => "team-photo img-responsive") %>
-				<h4 class="team-text">GEORGIAN CAMILO GARCÍA BELTRÁN</h4>
-				<p class="team-role">Scrum master</p>
-				<p class="team-role">Full-stack development</p>
-			</div>
-
-			<div class="row team-row">
-				<div class="col-md-6 col-xs-12">
-					<%= image_tag('tania.JPG', :class => "team-photo img-responsive") %>
-					<p class="team-text">TANIA PAOLA HURTADO PINTO</p>
-					<p class="team-role">Back-end development</p>
-				</div>
-				<div class="col-md-6 col-xs-12">
-					<%= image_tag('gustavo.JPG', :class => "team-photo img-responsive") %>
-					<p class="team-text">GUSTAVO ANDRÉS GALVIS CIFUENTES</p>
-					<p class="team-role">Back-end development</p>
+	<div class="wrapper-body row">
+		<section class="lavalotu-team container">
+			<h2 class="title">Our team</h2>
+			<p class="description">We are a group of future undergraduate engineers from the National University of Colombia, entrepreneurs and self-taught. With our venture we want to contribute to our country's economic growth in the service sector and the generation of new jobs.</p>
+		</section>
+		<div class="co-founders">
+			<div class="team col-md-4 col-xs-12">
+				<div class="student">
+					<div class="image">
+						<%= image_tag('camilo.JPG', :class => "team-photo img-responsive") %>	
+					</div>
+					<div class="info">
+						<h4 class="team-text">Camilo <span>García</span></h4>
+						<p class="team-role">Scrum master</p>
+						<p class="team-role">Full-Stack developer</p>
+					</div>	
 				</div>
 			</div>
-
-			<div class="row team-row">
-				<div class="col-md-6 col-xs-12">
-					<%= image_tag('wilman.JPG', :class => "team-photo img-responsive") %>
-					<p class="team-text">WILMAN EDUARDO GUARÍN SÁNCHEZ</p>
-					<p class="team-role">Front-end development</p>
-				</div>
-				<div class="col-md-6 col-xs-12">
-					<%= image_tag('nicolas.JPG', :class => "team-photo img-responsive") %>
-					<p class="team-text">NICOLÁS CASTRO CORREA</p>
-					<p class="team-role">Front-end development</p>
-				</div>
+			<div class="team col-md-4 col-xs-12">
+				<div class="student">
+					<div class="image">
+						<%= image_tag('tania.JPG', :class => "team-photo img-responsive") %>	
+					</div>
+					<div class="info">
+						<h4 class="team-text">Tania <span>Hurtado</span></h4>
+						<p class="team-role">Back-End developer</p>
+					</div>	
+				</div>	
+			</div>
+			<div class="team col-md-4 col-xs-12">
+				<div class="student">
+					<div class="image">
+						<%= image_tag('gustavo.JPG', :class => "team-photo img-responsive") %>	
+					</div>
+					<div class="info">
+						<h4 class="team-text">Gustavo <span>Galvis</span></h4>
+						<p class="team-role">Back-End developer</p>
+					</div>	
+				</div>		
+			</div>
+			<div class="team col-md-4 col-md-push-2 col-xs-12">
+				<div class="student">
+					<div class="image">
+						<%= image_tag('wilman.JPG', :class => "team-photo img-responsive") %>	
+					</div>
+					<div class="info">
+						<h4 class="team-text">Wilman <span>Guarín</span></h4>
+						<p class="team-role">Front-End developer</p>
+					</div>	
+				</div>	
+			</div>
+			<div class="team col-md-4 col-md-push-2 col-xs-12">
+				<div class="student">
+					<div class="image">
+						<%= image_tag('nicolas.JPG', :class => "team-photo img-responsive") %>
+					</div>
+					<div class="info">
+						<h4 class="team-text">Nicolas <span>Castro</span></h4>
+						<p class="team-role">Front-End developer</p>
+					</div>	
+				</div>		
 			</div>
 		</div>
 	</div>
-</body>
+</div>

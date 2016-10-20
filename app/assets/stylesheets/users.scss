@@ -38,28 +38,33 @@
 				vertical-align: -10%;
 			}
 		}
-		.menu-options{
+		.wrapper-menu{
 			height: 90%;
-			list-style: none;
-			margin: 0;
-			padding: 0;
 			position: relative;
-			li{
-				padding: 0 20px;
-				@include transition(all 0.3s ease-in-out);
-				a{
-					color: $white;
-					display: block;
-					font-family: $font-LatoT;
-					font-size: 22px;
-					font-weight: bold;
-					padding: 10px;
-					&:hover{
-						text-decoration: none;
+			.menu-content{
+				.menu-options{
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					li{
+						padding: 0 20px;
+						@include transition(all 0.3s ease-in-out);
+						a{
+							color: $white;
+							display: block;
+							font-family: $font-LatoT;
+							font-size: 22px;
+							font-weight: bold;
+							padding: 10px;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+						&:hover{
+
+						}
 					}
-				}
-				&:hover{
-					
 				}
 			}
 			span{
@@ -114,25 +119,49 @@
 				}
 				.image{
 					border: 1px solid #ddd;
+					height: 246px;
 					position: relative;
-					.mask{
-						background-color: rgba(255,255,255, 0.6);
-						height: 100%;
-						left: 0;
-						opacity: 0;
-						position: absolute;
-						top: 0;
-						width: 100%;
-						@include transition(0.3s ease-in-out);
-						span{
-							cursor: pointer;
-							left: 0;
-							margin: 0 auto;
-							position: absolute;
-							right: 0;
-							top: 45%;
-						}
-					}
+					width: 246px;
+				}
+				.jeans{
+					background: asset-url('garments/jeans.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.dress{
+					background: asset-url('garments/dress.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.jacket{
+					background: asset-url('garments/jacket.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.polo{
+					background: asset-url('garments/polo.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.shirt{
+					background: asset-url('garments/shirt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.undershirt{
+					background: asset-url('garments/undershirt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.blouse{
+					background: asset-url('garments/blouse.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.suit{
+					background: asset-url('garments/suit.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.tie{
+					background: asset-url('garments/tie.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.quilt{
+					background: asset-url('garments/quilt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
 				}
 				&:hover{
 					.image{
@@ -196,9 +225,10 @@
 					tr:hover{background-color:#f5f5f5}
 				}
 				.user-image{
-					text-align: right;;
+					text-align: center;
 					img{
 						border-radius: 50%;
+						display: inline-block;
 						height: 200px;
 						width: 200px;
 					}
@@ -219,6 +249,7 @@
 						}
 						.my_friend{
 							font-size: 14px;
+							min-height: 32px;
 						}
 					}
 				}
@@ -341,7 +372,136 @@
 					}
 
 					tr:hover{background-color:#f5f5f5}
-					
+
+				}
+			}
+		}
+	}
+	.wrapper{
+		float: right;
+		width: 80%;	
+	}
+}
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+@media screen and (max-width: 40em) {
+	.dashboard{
+		.menu{
+			float: unset;
+			height: auto;
+			padding: 15px;
+			position: relative;
+			width: 100%;
+			.lavalotu-image{
+				display: inline-block;
+				padding: 0;
+				h1{
+					font-size: 21px;
+					letter-spacing: 0.5px;
+				}
+			}
+			.navbar-header{
+				float: right;
+				margin-top: 10px;
+				button{
+					margin: 0;
+					span{
+						background-color: $white;
+						height: 3px;
+						width: 28px;
+					}
+				}
+			}
+			.wrapper-menu{
+				.menu-content{
+					padding: 10px 0 0;
+					.menu-options{
+						li{
+							padding: 0 15px;
+							a{
+								font-size: 19px;
+								padding: 8px;
+							}
+						}
+					}
+				}
+				span{
+					display: none;
+				}
+			}
+		}
+		#profile-container{
+			float: unset;
+			padding-top: 20px;
+			width: 100%;
+			.user-info{
+				padding: 0 15px;
+				width: 100%;
+				.data{
+					padding: 10px 0 0;
+					.user-image{
+						text-align: center;
+						img{
+							display: inline-block;
+							height: 140px;
+							width: 140px;
+						}
+					}
+					.user{
+						padding-right: 30px;
+						.subtitle{
+							font-size: 23px;
+							margin-top: 10px;
+							padding-bottom: 0;
+						}
+						ul{
+							font-size: 19px;
+						}
+					}
+					.address{
+						padding-right: 15px;
+						th, td{
+							font-size: 17px;
+						}
+					}
+				}
+				.title, .user-name{
+					font-size: 35px;
+					margin-top: 0;
+				}
+				.user-name{
+					font-size: 29px;
+				}
+				.user-friends{
+					.friends{
+						padding: 0 25px;
+					}
+				}
+			}
+		}
+		#garments-container{
+			float: unset;
+			margin-top: 0;
+			padding-top: 10px;
+			width: 100%;
+			.title{
+				font-size: 24px;
+			}
+			.options{
+				select{
+					width: 280px;
+				}
+			}
+			.content{
+				.garment{
+					.image{
+						display: inline-block;
+					}
+					.name{
+						padding: 0 10px;
+					}
 				}
 			}
 		}
