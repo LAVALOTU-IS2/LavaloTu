@@ -20,7 +20,12 @@
           <ul>
             <li><span>Firstname:</span> <%= current_user.name %></li>
             <li><span>LastName:</span> <%= current_user.lastname %></li>
-            <li><span>Phone:</span><%= link_to 'Update', edit_user_registration_path %></li>
+            <% if current_user.phone.eql? '3136064521' %>
+              <li><span>Phone:</span><%= link_to 'Update', edit_user_registration_path %></li>
+            <% else %>
+              <li><span>Phone:</span><%= current_user.phone %></li>
+              <li><span></span><%= link_to 'Update', edit_user_registration_path %></li>
+            <% end %>
           </ul>
         </div>
       </div>

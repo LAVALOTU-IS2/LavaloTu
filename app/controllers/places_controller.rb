@@ -11,7 +11,7 @@ class PlacesController < ApplicationController
     @user = User.find(params[:user_id])
     @place = @user.places.create(place_params)
     if @place.save
-      redirect_to users_path(@user)
+      redirect_to profile_path
     else
       render 'new'
     end
