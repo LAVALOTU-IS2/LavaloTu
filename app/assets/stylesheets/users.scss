@@ -104,6 +104,11 @@
 					text-transform: capitalize;
 				}
 			}
+			span{
+				display: block;
+				font-size: 30px;
+				padding-top: 5px;
+			}
 		}
 		.content{
 			margin: 0;
@@ -119,6 +124,7 @@
 				}
 				.image{
 					border: 1px solid #ddd;
+					display: inline-block;
 					height: 246px;
 					position: relative;
 					width: 246px;
@@ -332,47 +338,68 @@
 				text-align: center;
 			}
 			.data{
-				color: $dark-gray;
-				padding: 50px 0;
-				.user{
-					font-size: 20px;
-					padding-right: 50px;
-					text-align: right;
-					.subtitle{
-						padding-bottom: 15px;
-						text-align: left;
-					}
-					ul{
-						padding-left: 10px;
-						li{
-							list-style: none;
-							span{
+				margin: 20px 0;
+				.laundry{
+					padding: 15px;
+					text-align: center;
+					.content{
+						border: 1px solid #333;
+						display: inline-block;
+						overflow: hidden;
+						padding: 15px 20px;
+						position: relative;
+						width: 90%;
+						.image{
+							padding: 10px;
+							text-align: center;
+							img{
 								display: inline-block;
-								float: left;
-								font-family: $font-LatoS;
-								font-style: italic;
 							}
-							a{
-								padding-left: 10px;
-								display: inline-block;
-								float: left;
+						}
+						.name{
+							color: $blue;
+							font-family: $font-LatoS;
+							margin-top: 10px;
+							min-height: 62px;
+						}
+						.address, .name{
+							display: block;
+							padding-top: 5px;
+						}
+						.score{
+							font-style: italic;
+							font-weight: bold;
+						}
+						.mask{
+							background-color: rgba(200, 247, 255, 0.6);
+							font-family: $font-LatoS;
+							height: 100%;
+							left: -100%;
+							overflow: hidden;
+							position: absolute;
+							top: 0;
+							width: 100%;
+							-moz-box-sizing: border-box;
+							-webkit-box-sizing: border-box;
+							box-sizing: border-box;
+							@include transition(all 0.3s ease-in-out);
+							&::before{
+								content: 'Show Prices';
+								color: #333;
+								left: 0;
+								position: absolute;
+								text-transform: uppercase;
+								top: 47%;
+								width: 100%;
+								@include transition(all 0.3s ease-in-out);
 							}
-
+						}
+						&:hover{
+							.mask{
+								left: 0;
+							}
 						}
 					}
-					table {
-						border-collapse: collapse;
-						width: 100%;
-					}
-
-					th, td {
-						padding: 8px;
-						text-align: left;
-						border-bottom: 1px solid #ddd;
-					}
-
-					tr:hover{background-color:#f5f5f5}
-
 				}
 			}
 		}
@@ -504,6 +531,16 @@ MEDIA QUERIS
 					}
 				}
 			}
+		}
+		#laundries-container{
+			float: unset;
+			margin-top: 0;
+			padding-top: 10px;
+			width: 100%;	
+		}
+		.wrapper{
+			float: unset;
+			width: 100%;
 		}
 	}
 }

@@ -20,8 +20,7 @@
           <ul>
             <li><span>Firstname:</span> <%= current_user.name %></li>
             <li><span>LastName:</span> <%= current_user.lastname %></li>
-            <li><span>Phone:</span> <%= current_user.phone %></li>
-            <h5 class="subtitle"><%= link_to 'Update or cancel my account', edit_user_registration_path %></h5>
+            <li><span>Phone:</span><%= link_to 'Update', edit_user_registration_path %></li>
           </ul>
         </div>
       </div>

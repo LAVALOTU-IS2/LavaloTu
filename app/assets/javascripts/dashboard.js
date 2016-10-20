@@ -57,7 +57,7 @@ $(document).ready(function () {
 			;
 			$options.append($services);
 			$('#garments-container').append($options);
-			renderGarments("Washed And Drying");
+			renderGarments("Washed And Dryed");
 			console.log(garments_services);
 		}
 	});
