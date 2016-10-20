@@ -225,9 +225,10 @@
 					tr:hover{background-color:#f5f5f5}
 				}
 				.user-image{
-					text-align: right;;
+					text-align: center;
 					img{
 						border-radius: 50%;
+						display: inline-block;
 						height: 200px;
 						width: 200px;
 					}

@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+  <%= render 'menu' %>
+  <div id="users-container">
+    <section class="user-info">
+      <div class="data row">
+        <div class="user col-md-12">
+          <h3 class="subtitle">Laundries info:</h3>
+          <ul>
+            <li><span>Name:  </span> <a> <%= @laundry.name %> </a></li><br> 
+            <li><span>Address:  </span> <a><%= @laundry.address %></a></li><br> 
+            <li><span>Phone:  </span> <a><%= @laundry.phone %></a></li><br> 
+            <li><span>Score:  </span> <a><%= @laundry.score %></a></li><br> 
+          </ul>
+        </div>
+      </div>
+      <div class="data row">
+        <div class="user col-md-12">
+          <h3 class="subtitle">Services</h3>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Action</th>
+            </tr>
+
+            <% @laundry.services.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.description %></td>
+              <td><%= link_to 'Destroy', [p.laundry, p], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          </table>
+          <br>
+          <br>
+         </div>
+         <div class="user col-md-12">
+         <ul>
+          <li>
+            <%= link_to 'New service', new_laundry_service_path(@laundry) %> 
+          </li><br>
+          <li>
+            <%= link_to 'Destroy User', destroy_path(@user), method: :delete,
+                 data: { confirm: 'Are you sure?' }%>
+          </li><br>
+          <li>
+          <%= link_to 'Laundries list', laundry_path %>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+  

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	#before_action :authenticate_user!
+	before_action :authenticate_user!
 	def finish_signup
 	    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
 	    	@user = User.find(params[:id])
@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
+		#redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
 		@users=User.all
 		authorize @users
 	end
@@ -35,13 +36,27 @@ class UsersController < ApplicationController
   	end
 
 	def prices
+		
 	end
 
 	def orders
+		
 		@laundries = Laundry.all
 	end
 
 	def profile
+	end
+	 
+	def update
+	  @user = User.find(params[:id])
+	  if @user.update(user_params)
+	   redirect_to profile_path
+	 else
+	  render 'edit'
+	 end
+	end
+	def edit
+	  @user = User.find(params[:id])
 	end
 
 	private

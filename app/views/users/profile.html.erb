@@ -21,7 +21,7 @@
             <li><span>Firstname:</span> <%= current_user.name %></li>
             <li><span>LastName:</span> <%= current_user.lastname %></li>
             <li><span>Phone:</span> <%= current_user.phone %></li>
-            <li><span>Address:</span> #</li>
+            <!--<h5 class="subtitle"><%= link_to 'Update or cancel my account', edit_user_registration_path %></h5>--> 
           </ul>
         </div>
       </div>
@@ -47,6 +47,7 @@
         </div>
       </div>
       <div class="user-friends">
+      <% if current_user.provider == "facebook" %>
         <h3>Your friends are already using LavaloTu</h3>
         <div class="friends row">
           <% if current_user.provider == "facebook" %>
@@ -61,7 +62,9 @@
           <%=  image_tag 'users.svg' %>
           <% end %> 
         </div>
+      <% end %>
       </div>
+
     </section>
   </div>
 </section>

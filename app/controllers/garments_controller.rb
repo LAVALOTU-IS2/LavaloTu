@@ -1,4 +1,5 @@
 class GarmentsController < ApplicationController
+	#before_action :authenticate_user!
 	def new
 		@garment = Garment.new
 	end
@@ -21,6 +22,7 @@ class GarmentsController < ApplicationController
 	end
 
 	def index
+		redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
 		@garments = Garment.all
 	end
 
