@@ -6,16 +6,7 @@
       <h1 class="title">Welcome to Lavalotu!</h1>
       <h2 class="user-name"><%= current_user.name+" "+current_user.lastname %></h2>
       <div class="data row">
-        <div class="user col-md-6">
-          <h3 class="subtitle">Your info:</h3>
-          <ul>
-            <li><span>Firstname:</span> <%= current_user.name %></li>
-            <li><span>LastName:</span> <%= current_user.lastname %></li>
-            <li><span>Phone:</span> <%= current_user.phone %></li>
-            <li><span>Address:</span> #</li>
-          </ul>
-        </div>
-        <div class="user-image col-md-6">
+        <div class="user-image col-md-6 col-md-push-6">
           <% if current_user.provider == "facebook" %>
           <%=  image_tag current_user.image + "?type=large" , :class=> "img-responsive" %>
           <% elsif current_user.provider == "twitter" %>
@@ -24,9 +15,18 @@
           <%=  image_tag 'user-m.svg' , :class=> "img-responsive" %>
           <% end %>
         </div>
+        <div class="user col-md-6 col-md-pull-6">
+          <h3 class="subtitle">Your info:</h3>
+          <ul>
+            <li><span>Firstname:</span> <%= current_user.name %></li>
+            <li><span>LastName:</span> <%= current_user.lastname %></li>
+            <li><span>Phone:</span> <%= current_user.phone %></li>
+            <!--<h5 class="subtitle"><%= link_to 'Update or cancel my account', edit_user_registration_path %></h5>--> 
+          </ul>
+        </div>
       </div>
       <div class="data row">
-        <div class="user col-md-12">
+        <div class="user address col-md-12">
           <h3 class="subtitle">Your Address:</h3>
           <table>
             <tr>
@@ -47,21 +47,24 @@
         </div>
       </div>
       <div class="user-friends">
+      <% if current_user.provider == "facebook" %>
         <h3>Your friends are already using LavaloTu</h3>
         <div class="friends row">
           <% if current_user.provider == "facebook" %>
-            <% friends = current_user.friends %>
-            <%  friends.each do |f|%>
-              <div class="friend col-md-2">
-                <%= image_tag f['picture']['data']['url'] %>
-                <h4 class="my_friend"> <%= f['name'] %></h4>
-              </div>
-            <% end %>
-            <% else %>
-              <%=  image_tag 'users.svg' %>
-            <% end %> 
+          <% friends = current_user.friends %>
+          <%  friends.each do |f|%>
+          <div class="friend col-md-2 col-xs-6">
+            <%= image_tag f['picture']['data']['url'] %>
+            <h4 class="my_friend"> <%= f['name'] %></h4>
+          </div>
+          <% end %>
+          <% else %>
+          <%=  image_tag 'users.svg' %>
+          <% end %> 
         </div>
+      <% end %>
       </div>
+
     </section>
   </div>
 </section>

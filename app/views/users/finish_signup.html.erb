@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'registrations' %>
 <div class="container data">
 
-<h1>Confirmar Email</h1>
+<h1>Email Confirmation</h1>
  
 <%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
   <% if @show_errors && current_user.errors.any? %>
@@ -20,7 +20,7 @@
   </div>
  
   <div class="actions">
-    <%= f.submit 'Confirmar' %>
+    <%= f.submit 'Confirmar'  %>
   </div>
  
 <% end %>

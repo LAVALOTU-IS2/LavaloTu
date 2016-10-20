@@ -88,7 +88,7 @@ body{
 				text-align: center;
 				text-transform: uppercase;
 				&::before, &::after{
-					background: url(steps.png) no-repeat 0 0 transparent;
+					background: url(/assets/steps.png) no-repeat 0 0 transparent;
 					content: '';
 					height: 30px;
 					position: absolute;

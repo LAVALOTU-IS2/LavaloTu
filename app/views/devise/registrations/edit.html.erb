@@ -1,38 +1,30 @@
-  <%= stylesheet_link_tag 'registrations' %>
-  <div class="container data">
-    <div class="logo">
-      <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), profile_path %>
-    </div>
+    <%= stylesheet_link_tag 'registrations' %>    
+    <div class="container data">
+      <div class="logo">
+        <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), profile_path %>
+      </div>
 
-    <h3>Configuración<!--<%= resource_name.to_s.humanize %>--></h3>
+      <h3>Update my information<!--<%= resource_name.to_s.humanize %>--></h3>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field col-md-12">
-      <%= f.email_field :email, autofocus: true %>
-    </div>
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, placeholder: "Firstname" %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+      <div class="field col-md-12">
+        <%= f.text_field :phone, autofocus: true, placeholder: "Cell phone" %>
+      </div>
+      
 
-    <div class="field col-md-12">
-      <%= f.password_field :password, autocomplete: "off", placeholder: "New password" %>
-    </div>
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Repeat password" %>
-    </div>
+      
+      <div class="actions">
+        <%= f.submit "Save changes" %>
+      </div>
+      <% end %>
+      <span class="or"></span>
+      <h3>Cancel my account</h3>
 
-    <div class="field">
-      <%= f.password_field :current_password, autocomplete: "off", placeholder: "Current password" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Save changes" %>
-    </div>
-    <% end %>
-    <span class="or"></span>
-    <h3>Cancelar mi cuenta</h3>
-
-    <p>No estas feliz con el servicio? <%= button_to "Cancel", registration_path(resource_name), data: { confirm: "Seguro?" }, method: :delete %></p>
-
+      <p>Aren't you happy with our service? <%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  

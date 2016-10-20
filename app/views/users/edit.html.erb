@@ -1,0 +1,41 @@
+<%= stylesheet_link_tag 'registrations' %>
+<div class="container data">
+ <div class="logo">
+   <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
+   
+ </div>
+
+ <h1>Editing Laundry</h1>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+ <% if @user.errors.any? %>
+ <div id="error_explanation">
+  <h2>
+    <%= pluralize(@user.errors.count, "error") %> prohibited
+    this laundry from being saved:
+  </h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+  <div class="row">
+    <div class="field col-md-12">
+      <%= f.text_field :name, autofocus: true, placeholder: "Name"%>
+    </div>
+    <div class="field col-md-12">
+      <%= f.text_field :phone, autofocus: true, placeholder: "Phone"%>
+    </div> 
+    <div class="field col-md-12">
+      <%= f.text_field :role, autofocus: true, placeholder: "Score"%>
+    </div>
+    <div class="actions">
+      <%= f.submit "Save"%>
+    </div>
+  </div>
+  <% end %>
+  <a> <%= link_to 'Back', laundries_path %></a>
+
+
+</div>

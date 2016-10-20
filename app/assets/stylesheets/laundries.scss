@@ -39,28 +39,33 @@
 				vertical-align: -10%;
 			}
 		}
-		.menu-options{
+		.wrapper-menu{
 			height: 90%;
-			list-style: none;
-			margin: 0;
-			padding: 0;
 			position: relative;
-			li{
-				padding: 0 20px;
-				@include transition(all 0.3s ease-in-out);
-				a{
-					color: $white;
-					display: block;
-					font-family: $font-LatoT;
-					font-size: 22px;
-					font-weight: bold;
-					padding: 10px;
-					&:hover{
-						text-decoration: none;
+			.menu-content{
+				.menu-options{
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					li{
+						padding: 0 20px;
+						@include transition(all 0.3s ease-in-out);
+						a{
+							color: $white;
+							display: block;
+							font-family: $font-LatoT;
+							font-size: 22px;
+							font-weight: bold;
+							padding: 10px;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+						&:hover{
+
+						}
 					}
-				}
-				&:hover{
-					
 				}
 			}
 			span{
@@ -77,9 +82,13 @@
 			}
 		}
 	}
+	.option{
+		display: none;
+	}
 	#laundries-container{
 		float: right;
 		padding-top: 30px;
+		position: relative;
 		text-align: center;
 		width: 80%;
 		.laundry_info{
@@ -96,6 +105,66 @@
 			}
 			.detail-cost{
 				font-size: 21px;
+			}
+		}
+		.calculator{
+			display: block;
+			position: absolute;
+			right: 10%;
+			text-align: center;
+			top: 150px;
+			#result{
+				color: #333;
+				font-family: $font-LatoS;
+				font-size: 30px;
+				letter-spacing: 2px;
+				text-align: center;
+			}
+			#reset{
+				border: 1px solid #333;
+				color: #333;
+				cursor: pointer;
+				display: block;
+				font-family: $font-LatoS;
+				font-size: 22px;
+				height: 55px;
+				margin-top: 10px;
+				overflow: hidden;
+				padding-top: 9px;
+				position: relative;
+				width: 200px;
+				z-index: 1;
+				&::before, &::after{
+					border-style: solid;
+					border-width: 0 0 0 0;			
+					content: '';
+					height: 0;				
+					position: absolute;
+					width: 0;
+					@include transform(rotate(360deg));
+					@include transition(all 0.5s);
+					z-index: -1;
+				}
+				&::before{
+					border-color: transparent transparent transparent $blue;
+					bottom: 0;
+					left: 0;
+				}
+				&::after{
+					border-color: transparent $blue transparent transparent;
+					top: 0;
+					right: 0;
+				}
+				&:hover{
+					border: 1px solid $blue;
+					color: $white;
+					&::before{
+						border-width: 135px 0 0 135px;
+					}
+					&::after{
+						border-width: 0 135px 135px 0;
+					}
+				}
 			}
 		}
 		.options{
@@ -131,7 +200,9 @@
 				}
 				.image{
 					border: 1px solid #ddd;
+					height: 246px;
 					position: relative;
+					width: 246px;
 					.mask{
 						background-color: rgba(255,255,255, 0.6);
 						height: 100%;
@@ -164,6 +235,46 @@
 						}
 					}
 				}
+				.jeans{
+					background: asset-url('garments/jeans.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.dress{
+					background: asset-url('garments/dress.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.jacket{
+					background: asset-url('garments/jacket.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.polo{
+					background: asset-url('garments/polo.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.shirt{
+					background: asset-url('garments/shirt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.undershirt{
+					background: asset-url('garments/undershirt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.blouse{
+					background: asset-url('garments/blouse.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.suit{
+					background: asset-url('garments/suit.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.tie{
+					background: asset-url('garments/tie.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
+				.quilt{
+					background: asset-url('garments/quilt.png') no-repeat 0 0 transparent;
+					background-size: cover; 
+				}
 				&:hover{
 					.image{
 						.mask{
@@ -175,4 +286,106 @@
 		}
 	}
 }
+
+/* ================================================
+MEDIA QUERIS
+==================================================*/
+@media screen and (max-width: 40em) {
+	.laundry{
+		.menu{
+			float: unset;
+			height: auto;
+			padding: 15px;
+			position: relative;
+			width: 100%;
+			.lavalotu-image{
+				display: inline-block;
+				padding: 0;
+				h1{
+					font-size: 21px;
+					letter-spacing: 0.5px;
+				}
+			}
+			.navbar-header{
+				float: right;
+				margin-top: 10px;
+				button{
+					margin: 0;
+					span{
+						background-color: $white;
+						height: 3px;
+						width: 28px;
+					}
+				}
+			}
+			.wrapper-menu{
+				height: auto;
+				.menu-content{
+					padding: 10px 0 0;
+					.menu-options{
+						li{
+							padding: 0 15px;
+							a{
+								font-size: 19px;
+								padding: 8px;
+							}
+						}
+					}
+				}
+				span{
+					display: none;
+				}
+			}
+		}
+		#laundries-container{
+			float: unset;
+			margin-top: 0;
+			padding-top: 10px;
+			width: 100%;
+			.laundry_info{
+				margin-top: 10px;
+				padding: 0 20px;
+				.title{
+					font-size: 24px;
+				}
+				.detail-cost{
+					font-size: 18px;
+				}
+			}
+			.calculator{
+				padding-bottom: 15px;
+				position: relative;
+				right: unset;
+				top: unset;
+				#result{
+					padding-bottom: 5px;
+				}
+				#reset{
+					margin: 0 auto;
+				}
+			}
+			.options{
+				padding: 15px 20px 10px;
+				select{
+					width: 280px;
+				}
+				label{
+					font-size: 16px;
+					width: 100%;
+				}
+			}
+			.content{
+				.garment{
+					.image{
+						display: inline-block;
+					}
+					.name{
+						padding: 0 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
 
