@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 	end
 
 	def index
+		#redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
 		@users=User.all
 		authorize @users
 	end
@@ -44,6 +45,18 @@ class UsersController < ApplicationController
 	end
 
 	def profile
+	end
+	 
+	def update
+	  @user = User.find(params[:id])
+	  if @user.update(user_params)
+	   redirect_to profile_path
+	 else
+	  render 'edit'
+	 end
+	end
+	def edit
+	  @user = User.find(params[:id])
 	end
 
 	private

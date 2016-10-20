@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-	before_action :authenticate_user!
+	#before_action :authenticate_user!
 	def create
 		@garment = Garment.find(params[:garment_id])
 		@service = @garment.services.create(service_params)

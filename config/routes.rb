@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get "orders" => "users#orders"
   get 'profile'=>"users#profile"
   get 'welcome/index'
-  
   resources :garments do
     resources :services
   end
@@ -37,11 +36,17 @@ Rails.application.routes.draw do
   end
 
   scope 'User' do
-    resources :users, only: [] do
+  resources :users do
       resources :places
     end
     resources :laundries
+
   end
+  resource :user, only: [:edit, :update] do
+  collection do
+    patch 'update_password'
+  end
+end
   scope 'Admin' do
     resources :users do
       resources :places
@@ -59,7 +64,7 @@ Rails.application.routes.draw do
     get "sign_up" => "devise/registrations#new"
     
   end
-  devise_for :users, controllers: { confirmations: 'confirmations', omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { confirmations: 'confirmations', omniauth_callbacks: 'omniauth_callbacks', registrations:'registrations'}
   match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], as: :finish_signup  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
 
