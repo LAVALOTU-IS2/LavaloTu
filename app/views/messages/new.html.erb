@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <%= stylesheet_link_tag 'static_pages_contact' %>
+  <%= stylesheet_link_tag 'users' %>
+  <section class="dashboard clearfix">
+    <%= render 'users/menu' %>
+    <div class="wrapper container">
+      <%= render 'static_pages/contact' %>
+    </div>
+  </section>
+<% else %>
+  <%= stylesheet_link_tag 'static_pages_contact' %>
+  <div class="wrapper container">
+    <%= render 'static_pages/contact' %>
+  </div>
+<% end %>

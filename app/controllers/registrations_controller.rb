@@ -1,12 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  	
   def account_update_params
     devise_parameter_sanitizer.sanitize(:account_update)
   end
   private
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name,:phone, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:name, :lastname,:phone, :email, :password, :password_confirmation, :current_password)
   end
 
 
