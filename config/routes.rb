@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   end
 
   get '/about', to: 'static_pages#about', as: 'about'
-  get '/contact', to: 'static_pages#contact', as: 'contact'
+  #get '/contact', to: 'static_pages#contact', as: 'contact'
   get '/not_authorized', to: 'static_pages#not_authorized', as: 'not_authorized'
   get "prices" => "users#prices"
   get "orders" => "users#orders"
   get 'profile' => "users#profile"
   get 'contact_us' => "users#contact_us"
   get 'welcome/index'
-
+  get '/contact', to: 'messages#new', as: 'contact'
+  post '/contact', to: 'messages#create'
   resources :garments do
     resources :services
   end
