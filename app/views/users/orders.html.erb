@@ -2,23 +2,6 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div id="laundries-container">
-		<section class="laundries-info">
-			<div class="data row">
-				<% @laundries.each do |laundry| %>
-				<div class="laundry col-md-4">
-					<div class="content">
-						<div class="image">
-							<%= image_tag("ironing-board.png", :alt => "Laundry Icon", :title => "Laundry Icon", :class=> "img-responsive") %>
-						</div>
-						<h3 class="name"><%= laundry.name %></h3>
-						<span class="address"><%= laundry.address %></span>
-						<span class="phone">Phone: <%= laundry.phone %></span>
-						<h4 class="score">Score: <%= laundry.score %></h4>
-						<%= link_to '', laundry_path(laundry) , class: "mask"%>
-					</div>
-				</div>
-				<% end %>
-			</div>
-		</section>
 	</div>
 </section>
+<%= javascript_include_tag :laundry_order %>
