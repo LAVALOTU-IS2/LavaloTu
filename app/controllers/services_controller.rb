@@ -2,15 +2,17 @@ class ServicesController < ApplicationController
 	#before_action :authenticate_user!
 	def create
 		@garment = Garment.find(params[:garment_id])
-		@service = @garment.services.create(service_params)
-		redirect_to garment_path(@garment)
+		@laundry = Laundry.find(params[:laundry_id])
+		@service = @laundry.services.create(service_params)
+		redirect_to laundry_garment_path(@laundry,@garment)
 	end
 
 	def destroy
 		@garment = Garment.find(params[:garment_id])
-		@service = @garment.services.find(params[:id])
+		@laundry = Laundry.find(params[:laundry_id])
+		@service = @laundry.services.find(params[:id])
 		@service.destroy
-		redirect_to garment_path(@garment)
+		redirect_to laundry_garment_path(@laundry,@garment)
 	end
 
 	def show
@@ -19,6 +21,6 @@ class ServicesController < ApplicationController
 	end
 	private
 	def service_params
-		params.require(:service).permit(:name, :cost)
+		params.require(:service).permit(:name, :cost, :garment_id, :laundry_id)
 	end
 end

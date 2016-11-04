@@ -1,15 +1,19 @@
-<%= form_for([@garment, @garment.services.build]) do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-  
-  <p>
-    <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= stylesheet_link_tag 'registrations' %>
+<div class="container data" >
+  <h2>Add a service:</h2>
+  <%= form_for :service, url:laundry_garment_services_path(@laundry,@garment) do |f| %>
+    <div class="row">
+      <div class="field col-md-12">
+        <%= f.text_field :name, autofocus: true, placeholder: "Name"%>
+      </div>
+        <div class="field col-md-12">
+           <%= f.text_field :cost, autofocus: true, placeholder: "Cost"%>
+        </div>
+        <%= f.hidden_field :garment_id, :value => @garment.id %>
+        <%= f.hidden_field :laundry_id, :value => @laundry.id %>
+      <div class="actions">
+        <%= f.submit "Save"%>
+      </div>
+    </div>
+  <% end %>
+</div>

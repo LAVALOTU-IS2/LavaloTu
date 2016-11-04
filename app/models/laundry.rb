@@ -1,4 +1,4 @@
 class Laundry < ApplicationRecord
-	has_many :services
-	has_many :garments, through: :services
+	has_many :services, dependent: :destroy
+	has_many :garments, through: :services, dependent: :destroy
 end

@@ -24,12 +24,14 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get '/contact', to: 'messages#new', as: 'contact'
   post '/contact', to: 'messages#create'
-  resources :garments do
-    resources :services
-  end
+  #resources :garments do
+  #  resources :services
+  #end
 
-   resources :laundries do
-    resources :services
+  resources :laundries do
+    resources :garments do
+      resources :services
+    end
   end
 
   scope 'User' do

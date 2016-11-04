@@ -6,12 +6,15 @@ class GarmentsController < ApplicationController
 
 	def show
 		@garment = Garment.find(params[:id])
+		@laundry = Laundry.find(params[:laundry_id])
+		@service_laundry = Service.where(laundry_id: @laundry.id, garment_id: @garment.id)
 	end
 
 	def create
 		@garment = Garment.new(garment_params)
+		@laundry = Laundry.find(params[:laundry_id])
 		if @garment.save
-			redirect_to @garment
+			redirect_to laundry_garment_path(@laundry,@garment)
 		else
 			render 'new'
 		end
@@ -19,18 +22,20 @@ class GarmentsController < ApplicationController
 
 	def edit
 		@garment = Garment.find(params[:id])
+		@laundry = Laundry.find(params[:laundry_id])
 	end
 
 	def index
 		redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
 		@garments = Garment.all
+		@laundry = Laundry.find(params[:laundry_id])
 	end
 
 	def update
 		@garment = Garment.find(params[:id])
-		
+		@laundry = Laundry.find(params[:laundry_id])
 		if @garment.update(garment_params)
-			redirect_to @garment
+			redirect_to laundry_garments_path
 		else
 			render 'edit'
 		end
@@ -38,9 +43,10 @@ class GarmentsController < ApplicationController
 	
 	def destroy
 		@garment = Garment.find(params[:id])
+		@laundry = Laundry.find(params[:laundry_id])
 		@garment.destroy
 
-		redirect_to garments_path
+		redirect_to laundry_garments_path
 	end
 
 	private 
