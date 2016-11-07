@@ -21,6 +21,10 @@ class ServicesController < ApplicationController
 	end
 	private
 	def service_params
+<<<<<<< HEAD
+		params.require(:service).permit(:name, :cost, :laundry_id)
+=======
 		params.require(:service).permit(:name, :cost, :garment_id, :laundry_id)
+>>>>>>> services
 	end
 end

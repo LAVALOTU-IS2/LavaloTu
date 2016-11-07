@@ -91,6 +91,7 @@
 		position: relative;
 		text-align: center;
 		width: 80%;
+		
 		.laundry_info{
 			display: block;
 			font-family: $font-LatoT;
@@ -236,6 +237,10 @@
 							width: 40px;
 						}
 					}
+				}
+				.icon{
+					background: asset-url('ironing-board.png') no-repeat 0 0 transparent;
+					background-size: cover; 
 				}
 				.jeans{
 					background: asset-url('garments/jeans.png') no-repeat 0 0 transparent;

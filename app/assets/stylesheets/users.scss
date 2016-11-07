@@ -327,6 +327,26 @@
 		padding-top: 30px;
 		text-align: center;
 		width: 80%;
+		.options{
+			font-family: $font-LatoT;
+			padding: 20px 30px 10px;
+			text-align: left;
+			label{
+				font-family: $font-LatoT;
+				font-size: 20px;
+				padding-bottom: 10px;
+				width: 500px;
+			}
+			select{
+				text-transform: capitalize;
+				width: 300px;
+				option{
+					padding: 10px;
+					text-transform: capitalize;
+				}
+			}
+		}
+
 		.laundries-info{
 			display: inline-block;
 			font-family: $font-LatoT;
@@ -336,6 +356,9 @@
 				color: $blue;
 				font-family: $font-LatoS;
 				text-align: center;
+			}
+			.detail-title{
+				font-size: 24px;
 			}
 			.data{
 				margin: 20px 0;
