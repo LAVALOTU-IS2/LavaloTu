@@ -40,8 +40,23 @@ class UsersController < ApplicationController
 	end
 
 	def orders
-		
 		@laundries = Laundry.all
+		@hash = Gmaps4rails.build_markers(@laundries) do |laundry, marker|
+		  marker.lat laundry.latitude
+		  marker.lng laundry.longitude
+		  content = 	'<div class="content">' +
+						'<div class="image" align="center">' +
+						'<img alt="Laundry Icon" title="Laundry Icon" class="img-responsive" src="/assets/ironing-board.png" />' +
+						'</div>' +
+		  				'<h4 class="name">' + laundry.name + '</h4>' +
+		  				'<span class="address">' + laundry.address + '</span>' + '</br>' +
+		  				'<span class="phone">Phone: ' + laundry.phone.to_s + '</span>' +
+		  				'<h5 class="score">Score: ' + laundry.score.to_s + '</h5>' +
+		  				'<a class="mask" href="/laundries/' + laundry.id.to_s + '">' +
+      						'See prices </a>' +
+						'</div>'
+		  marker.infowindow content
+		end
 	end
 
 	def profile
