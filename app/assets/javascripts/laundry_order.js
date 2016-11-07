@@ -12,26 +12,24 @@ function renderLaundry(id){
 	var e = document.getElementsByClassName("name");
 	console.log(e[0]);
 }
-
-function OrderLaundries( type ){
-	$(".laundries-info").remove();
-	if(type=="score_as"){		
-		laundries.orderByNumber('score',1);
-		var $laundries_con = $('<section class="laundries-info"></section>');
+function drawLaundries(){
+var $laundries_con = $('<section class="laundries-info"></section>');
 		var $ld = $('<div class="data row">');
 		for(var k in laundries){		
 			console.log("entro al for");
 			console.log(k, laundries[k].name);
 			var $id=laundries[k].id;
+			var $alaundry = $('<a href=laundries/'+$id+'></a>');
 			var $laundryc = $('<div class="laundry col-md-4"></div>');
 			var $lc = $('<div class="content">');
 			var $mask = $('<div class="mask" onclick="renderLaundry(id)" ></div>');
 			var $name = $('<h3 class="name">'+ laundries[k].name +'</h3>');
 			var $address = $('<span class="address">'+laundries[k].address +'</span>');
 			var $phone = $('<span class="phone">' + laundries[k].phone+'</span>');
-			var $score = $('<h4 class="score">' + laundries[k].score+ '</h4>');
-			
-			$lc.append($mask);
+			var $score = $('<h4 class="score">' + laundries[k].score+ '</h4>');			
+
+			$alaundry.append($mask);
+			$lc.append($alaundry);
 			$lc.append($name);
 			$lc.append($address);	
 			$lc.append($phone);	
@@ -42,33 +40,20 @@ function OrderLaundries( type ){
 		}
 
 		$('#laundries-container').append($laundries_con);
-	}
+
+
+}
+
+function OrderLaundries( type ){
+	$(".laundries-info").remove();
+	if(type=="score_as"){		
+		laundries.orderByNumber('score',1);
+		drawLaundries();
+			}
 	else if(type=="score_ds"){		
 		laundries.orderByNumber('score',-1);
-		var $laundries_con = $('<section class="laundries-info"></section>');
-		var $ld = $('<div class="data row">');
-		for(var k in laundries){		
-			console.log(k, laundries[k].name);
-			var $id=laundries[k].id;
-			var $laundryc = $('<div class="laundry col-md-4"></div>');
-			var $lc = $('<div class="content">');
-			var $mask = $('<div class="mask" onclick="renderLaundry(id)" ></div>');
-			var $name = $('<h3 class="name">'+ laundries[k].name +'</h3>');
-			var $address = $('<span class="address">'+laundries[k].address +'</span>');
-			var $phone = $('<span class="phone">' + laundries[k].phone+'</span>');
-			var $score = $('<h4 class="score">' + laundries[k].score+ '</h4>');
-			
-			$lc.append($mask);
-			$lc.append($name);
-			$lc.append($address);	
-			$lc.append($phone);	
-			$lc.append($score);
-			$laundryc.append($lc);
-			$ld.append($laundryc);	
-			$laundries_con.append($ld);
-		}
-
-		$('#laundries-container').append($laundries_con);
+		drawLaundries();
+		
 	}
 
 }
@@ -92,7 +77,9 @@ $(document).ready(function () {
 			}
 			$options.append($search);
 			$('#laundries-container').append($options);
-			renderLaundry("score_as");
+			OrderLaundries("score_as");
+			drawLaundries();
+			
 		}
 	});
 });

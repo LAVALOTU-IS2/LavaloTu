@@ -2,6 +2,9 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div id="laundries-container">
+	<% @laundries.each do |laundry| %>				
+		<%= link_to '', laundry_path(laundry) , class: "mask"%>
+	<% end %>			
 	</div>
 </section>
 <%= javascript_include_tag :laundry_order %>
