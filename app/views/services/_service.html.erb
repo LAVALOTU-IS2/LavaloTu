@@ -1,4 +1,9 @@
-<div class="comments-detail container">
+<%= stylesheet_link_tag 'users' %>
+
+    <section class="laundries-info">
+      <div class="data row">
+        <div class="user col-md-12">
+
 	<p>
 		<strong>Laundry</strong>
 		<%= service.laundry.id %>
@@ -14,6 +19,12 @@
 		<%= service.cost %>
 	</p>
 
-	<%= link_to 'Destroy service', [service.garment, service], method: :delete, data: { confirm: 'Are you sure?', class: "option"} %>
+	<%= link_to 'Destroy service', [service.laundry,service.garment, service], method: :delete, data: { confirm: 'Are you sure?', class: "option"} %>
 
-</div>
+        
+        </div>
+      </div>
+    </section>
+ 
+          
+

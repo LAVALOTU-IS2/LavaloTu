@@ -1,9 +1,22 @@
-<div class="wrapper container">
-	<h1>New Garment</h1>
-
-	<%= render 'form' %>
-
-	<%= link_to 'Back', garments_path, class: "option" %>
-	<%= link_to 'Home', root_path, class: "option" %>
+<%= stylesheet_link_tag 'registrations' %>
+<div class="container data">
+   <div class="logo">
+    <%= link_to image_tag("logo.png", :alt => "Logo LavaloTu", :title => "Logo LavaloTu", :class=> "img-responsive"), root_path %>
+  </div>
+  <h1>New Garment</h1>
+  <%= form_for :garment, url: laundry_garments_path do |f| %>
+  <div class="row">
+    <div class="field col-md-12">
+        <%= f.text_field :name, autofocus: true, placeholder: "Name"%>
+        </div>
+        <div class="field col-md-12">
+        <%= f.text_field :description, autofocus: true, placeholder: "Description"%>
+        </div>
+    <div class="actions">
+        <%= f.submit "Save"%>
+        </div>
+  </div>
+  <% end %>
+  <%= link_to 'Back', laundry_garments_path, class: "option" %>
+  <%= link_to 'Home', root_path, class: "option" %>
 </div>
-

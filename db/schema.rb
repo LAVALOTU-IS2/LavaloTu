@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020051203) do
+ActiveRecord::Schema.define(version: 20161106224357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20161020051203) do
     t.float    "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -124,6 +126,8 @@ ActiveRecord::Schema.define(version: 20161020051203) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
   end
 
