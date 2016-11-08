@@ -494,6 +494,66 @@
 	}
 }
 
+.garmnet-info{
+	font-family: $font-LatoT;
+	padding-top: 20px;
+	.detail{
+		text-align: center;
+		.subtitle{
+			font-family: $font-LatoS;
+			text-align: left;
+		}
+		p{
+			padding-left: 15px;
+			text-align: left;
+		}
+		.description{
+			display: none;
+		}
+		.service{
+			font-size: 20px;
+			padding-top: 20px;
+			text-align: left;
+		}
+		.laundry{
+			padding-bottom: 15px;
+			.laundries-info{
+				float: left;
+				width: 33.33333%;
+				.data{
+					padding-top: 20px;
+					.laundry-name{
+						display: none;
+					}
+					p, a{
+						display: block;
+						text-align: left;
+					}
+					a{
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+		.data{
+			padding-top: 15px
+		}
+		.option{
+			display: inline-block;
+			font-size: 25px;
+			padding: 30px 25px 20px;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		.home{
+			color: $blue;
+		}
+		.back{
+			color: $dark-gray;
+		}
+	}
+}
 /* ================================================
 MEDIA QUERIS
 ==================================================*/
