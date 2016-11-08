@@ -21,7 +21,8 @@
 					<li><%= link_to "Orders", orders_path %></li> 
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 				<% elsif policy(current_user).laundry? %>
-					<li><%= link_to "Profile", ladmin_path(current_user)%></li>  					
+					<li><%= link_to "Profile", ladmin_path(current_user)%></li>
+					<li><%= link_to "Garments", laundry_garments_path(@laundry) %><li>
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 				<% else %>
 					<li><%= link_to "Profile", profile_path%></li>

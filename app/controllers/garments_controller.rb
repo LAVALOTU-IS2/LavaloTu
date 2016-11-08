@@ -26,9 +26,12 @@ class GarmentsController < ApplicationController
 	end
 
 	def index
-		redirect_to static_pages_not_authorized_path if !current_user.try(:Admin?)
-		@garments = Garment.all
-		@laundry = Laundry.find(params[:laundry_id])
+		if policy(current_user).index? or policy(current_user).laundry?
+			@garments = Garment.all
+			@laundry = Laundry.find(params[:laundry_id])
+		else
+			redirect_to static_pages_not_authorized_path
+		end
 	end
 
 	def update

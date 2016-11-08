@@ -25,9 +25,9 @@
             <% @garments.each do |garment| %>
             <tr>
               <td><%= garment.name %></td>
-              <td><%= link_to 'Show', laundry_garment_path(@laundry, garment) , class: "option"%> </td>
-              <td><%= link_to 'Edit', edit_laundry_garment_path(@laundry,garment) %></td>
-              <td><%= link_to 'Destroy', laundry_garment_path(@laundry,garment),
+              <td><%= link_to image_tag("show.png"), laundry_garment_path(@laundry, garment) , class: "option"%> </td>
+              <td><%= link_to image_tag("edit.png"), edit_laundry_garment_path(@laundry,garment) %></td>
+              <td><%= link_to image_tag("delete.png"), laundry_garment_path(@laundry,garment),
                       method: :delete,
                       data: { confirm: 'Are you sure?' } %></td-->
             </tr>
@@ -35,7 +35,7 @@
           </table>
           <br>
           <ul>          
-            <li><%= link_to 'New garment', new_laundry_garment_path, class: "option" %>  </li> 
+            <li><%= link_to image_tag("add.png"), new_laundry_garment_path, class: "option" %>  </li> 
             <%= link_to 'Back', laundries_path, class: "option" %>    
           </ul>
         </div>
