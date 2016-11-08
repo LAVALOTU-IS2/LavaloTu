@@ -26,7 +26,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def after_sign_in_path_for(resource) # Revisa después de cada login si el mail del usuario es válido
     if resource.email_verified?
       if @user.role=="Laundry"
-         ladmin_path
+         ladmin_path(@user)
       else
       profile_path
       end

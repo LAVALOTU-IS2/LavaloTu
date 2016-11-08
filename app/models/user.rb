@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:twitter, :facebook]
   
   has_one :identity, dependent: :destroy
+  has_one :laundry
   has_many :order
   has_many :places, dependent: :destroy
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}

@@ -13,9 +13,6 @@ class UsersController < ApplicationController
 	    end
 	end
 
-	def laundries_login
-
-	end
 	def create
 	end
 
@@ -29,14 +26,14 @@ class UsersController < ApplicationController
 	end
 
 	def show
-    	@user = User.find(params[:id])
-  	end
+		@user = User.find(params[:id])
+	end
 
-  	def destroyUser
-  		@user = User.find(params[:id])
-  		@user.destroy
-  		redirect_to users_path, notice: 'Usuario eliminado correctamente.'
-  	end
+	def destroyUser
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to users_path, notice: 'Usuario eliminado correctamente.'
+	end
 
 	def prices
 		
@@ -45,37 +42,37 @@ class UsersController < ApplicationController
 	def orders
 		@laundries = Laundry.all
 		@hash = Gmaps4rails.build_markers(@laundries) do |laundry, marker|
-		  marker.lat laundry.latitude
-		  marker.lng laundry.longitude
-		  content = 	'<div class="content">' +
-						'<div class="image" align="center">' +
-						'<img alt="Laundry Icon" title="Laundry Icon" class="img-responsive" src="/assets/ironing-board.png" />' +
-						'</div>' +
-		  				'<h4 class="name">' + laundry.name + '</h4>' +
-		  				'<span class="address">' + laundry.address + '</span>' + '</br>' +
-		  				'<span class="phone">Phone: ' + laundry.phone.to_s + '</span>' +
-		  				'<h5 class="score">Score: ' + laundry.score.to_s + '</h5>' +
-		  				'<a class="mask" href="/laundries/' + laundry.id.to_s + '">' +
-      						'See prices </a>' +
-						'</div>'
-		  marker.infowindow content
+			marker.lat laundry.latitude
+			marker.lng laundry.longitude
+			content = 	'<div class="content">' +
+			'<div class="image" align="center">' +
+			'<img alt="Laundry Icon" title="Laundry Icon" class="img-responsive" src="/assets/ironing-board.png" />' +
+			'</div>' +
+			'<h4 class="name">' + laundry.name + '</h4>' +
+			'<span class="address">' + laundry.address + '</span>' + '</br>' +
+			'<span class="phone">Phone: ' + laundry.phone.to_s + '</span>' +
+			'<h5 class="score">Score: ' + laundry.score.to_s + '</h5>' +
+			'<a class="mask" href="/laundries/' + laundry.id.to_s + '">' +
+			'See prices </a>' +
+			'</div>'
+			marker.infowindow content
 		end
 	end
 
 	def profile
 	end
-	 
+
 	def update
 		puts user_params
-	  @user = User.find(params[:id])
-	  if @user.update(user_params)
-	   redirect_to profile_path
-	 else
-	  render 'edit'
-	 end
+		@user = User.find(params[:id])
+		if @user.update(user_params)
+			redirect_to profile_path
+		else
+			render 'edit'
+		end
 	end
 	def edit
-	  @user = User.find(params[:id])
+		@user = User.find(params[:id])
 	end
 
 
