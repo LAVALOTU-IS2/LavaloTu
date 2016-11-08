@@ -53,6 +53,8 @@ def calculator
   @services = @laundry.services
 end
 
+def laundry_admin
+end
 private
 def laundry_params
   params.require(:laundry).permit(:name, :address, :phone, :score)

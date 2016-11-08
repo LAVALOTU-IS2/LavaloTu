@@ -20,7 +20,9 @@
 					<li><%= link_to "Laundries", laundries_path %></li>
 					<li><%= link_to "Orders", orders_path %></li> 
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-				<% else %> 
+				<% elsif policy(current_user).laundry? %>  					
+					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+				<% else %>
 					<li><%= link_to "Prices", prices_path%></li>
 					<li><%= link_to "Orders", orders_path %></li> 
 					<li><a href="#">Donate</a></li> 

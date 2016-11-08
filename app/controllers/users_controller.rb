@@ -13,6 +13,9 @@ class UsersController < ApplicationController
 	    end
 	end
 
+	def laundries_login
+
+	end
 	def create
 	end
 
@@ -74,6 +77,7 @@ class UsersController < ApplicationController
 	def edit
 	  @user = User.find(params[:id])
 	end
+
 
 	private
 	def user_params

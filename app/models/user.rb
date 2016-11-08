@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
   #validates_uniqueness_of :uid, :scope => :provider
   enum role:{
     "User"  => 0,
-    "Admin" => 1
+    "Admin" => 1,
+    "Laundry" => 2
   }
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

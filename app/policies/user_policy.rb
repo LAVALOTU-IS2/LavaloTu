@@ -5,6 +5,9 @@ class UserPolicy < ApplicationPolicy
   def destroy?
   	user.Admin?
   end
+  def laundry?
+    user.Laundry?
+  end
   class Scope < Scope
     def resolve
       scope
