@@ -1,5 +1,5 @@
 l1 = Laundry.create(name: "Lavaexpress", address: "Calle 127 #57-45", phone: "6459122", score: 4.4)
-l2 = Laundry.create(name: "Lavatodo", address: "Carrera 22A #12-87", phone: "3604117", score: 3.4)
+l2 = Laundry.create(name: "Lavatodo", address: "Carrera 22A este #12-87", phone: "3604117", score: 3.4)
 l3 = Laundry.create(name: "Lavanderia Juanca", address: "Diagonal 91A #27-18 sur", phone: "7836904", score: 4.6)
 l4 = Laundry.create(name: "Lavaseco Angie Express", address: "Calle 151 # 103C-03", phone: "6923994", score: 5.0)
 
