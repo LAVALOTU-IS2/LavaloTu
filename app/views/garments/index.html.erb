@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'users' %>
+<%= stylesheet_link_tag 'laundries' %>
 <section class="dashboard clearfix">
   <%= render 'users/menu' %>
   <div class="admin-container">
@@ -6,16 +7,7 @@
     <section class="laundries-info">
       <div class="data row">
         <div class="user col-md-12">
-          <h3 class="subtitle"><%= 'Admin: ' +current_user.name+" "+current_user.lastname %></h3>
-          <ul>
-            <li><%= link_to 'Profile', profile_path, class: "option" %> </li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </div>
-      </div>
-      <div class="data row">
-        <div class="user col-md-12">
-          <h3 class="subtitle">Lavalotu's Garments</h3>  
+          <h3 class="subtitle"><%= @laundry.name %> Garments</h3>  
           <br>
           <table>
             <tr>

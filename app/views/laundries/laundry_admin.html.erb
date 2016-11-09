@@ -6,10 +6,10 @@
 			<h1 class="title">Welcome to Lavalotu!</h1>
 			<h2 class="user-name"><%= current_user.name+" "+current_user.lastname %></h2>
 			<div class="data row">
-				<div class="user col-md-6 col-md-pull-6">
+				<div class="user col-md-12">
 					<h3 class="subtitle">Your laundry info:</h3>
 					<ul>
-						<li><span>Lanudry name:</span> <%= @laundry.name %></li>
+						<li><span>Laundry name:</span> <%= @laundry.name %></li>
 						<li><span>Adress</span> <%= @laundry.address %></li>
 						<li><span>Phone:</span><%= @laundry.phone %></li>
 						<li><span></span><%= link_to 'Update', edit_laundry_path(@laundry)%></li>       

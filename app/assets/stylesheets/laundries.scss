@@ -294,6 +294,25 @@
 	}
 }
 
+.dashboard{
+	.admin-container{
+		.laundries-info{
+			.data{
+				padding-top: 20px;
+				.user{
+					padding-right: 15px;
+					tr{
+						&:first-child{
+							&:hover{
+								background-color: transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 /* ================================================
 MEDIA QUERIS
 ==================================================*/
