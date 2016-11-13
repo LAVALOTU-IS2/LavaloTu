@@ -62,6 +62,18 @@ class UsersController < ApplicationController
 	def profile
 	end
 
+	def pre_orders
+		
+	end
+
+	def current_orders
+		
+	end
+
+	def history_orders
+		
+	end
+
 	def update
 		puts user_params
 		@user = User.find(params[:id])
