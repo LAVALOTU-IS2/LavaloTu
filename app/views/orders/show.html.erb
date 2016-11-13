@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+	<%= render 'users/menu' %>
+	<div id="laundries-container">
+		<h1>Order details</h1>
+		<table>
+			<tr>
+				<th>Garment</th>
+				<th>Service</th>
+				<th>Quantity</th>
+				<th>Cost</th>
+				<th class="main" colspan="3"></th>
+			</tr>
+			<% @details.each do |detail| %>
+			<tr>
+
+				<td><%= detail.garment.name %></td>
+				<td><%= detail.service_name %></td>
+				<td><%= detail.quantity %></td>
+				<td><%= detail.cost %></td>
+			</tr>
+			<% end %>
+		</table>
+		<% if @order.status == "In Progress" %>
+			<%= link_to 'Back', current_orders_path %>
+		<% elsif @order.status == "Completed" %>
+			<%= link_to 'Back', history_orders_path %>
+		<% end %>
+	</div>
+</section>

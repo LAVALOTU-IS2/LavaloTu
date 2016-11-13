@@ -1,9 +1,8 @@
 class CreateOrders < ActiveRecord::Migration[5.0]
   def change
     create_table :orders do |t|
-      t.datetime :d_created
       t.datetime :d_finished
-      t.string :state
+      t.string :status
       t.integer :score
       t.text :comment
 

@@ -18,7 +18,6 @@
             </tr>
             <% @laundries.each do |laundry| %>
             <tr>
-
               <td><%= laundry.name %></td>
               <td><%= laundry.address %></td>
               <td><%= laundry.phone %></td>
@@ -26,20 +25,20 @@
               <td><%= link_to image_tag('show.png'), laundry_path(laundry) %></td>
               <td><%= link_to image_tag('edit.png'), edit_laundry_path(laundry) %></td>
               <td><%= link_to image_tag('delete.png'), laundry_path(laundry),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
-              <td><%= link_to 'Garments', laundry_garments_path(laundry) %></td>
-            </tr>
-            <% end %>
-          </table>
-          <br>
-          <ul>          
-            <li><%= link_to image_tag('add.png'), new_laundry_path, class: "option" %>  </li>     
-          </ul>
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Garments', laundry_garments_path(laundry) %></td>
+              </tr>
+              <% end %>
+            </table>
+            <br>
+            <ul>          
+              <li><%= link_to image_tag('add.png'), new_laundry_path, class: "option" %>  </li>     
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
-  </div>
-</section>
+      </section>
+    </div>
+  </section>
   
-          
+  
