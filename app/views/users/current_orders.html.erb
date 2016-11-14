@@ -2,7 +2,25 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div id="laundries-container">
-		<h1>Vista de Current orders</h1>
-		   
+		<h1>Your current orders</h1>
+		<table>
+			<tr>
+				<th>Laundry</th>
+				<th>Address</th>
+				<th>Date</th>
+				<th>Cost</th>
+				<th class="main" colspan="3"></th>
+			</tr>
+			<% @orders.each do |order| %>
+			<tr>
+				<td><%= order.laundry.name %></td>
+				<td><%= order.laundry.address %></td>
+				<td><%= order.date_pickup %></td>
+				<td><%= order.total_cost %></td>
+				<td><%= link_to image_tag('show.png'), order_path(order) %></td>
+			</tr>
+			<% end %>
+		</table>
+		<%= link_to 'Back', pre_orders_path %>
 	</div>
 </section>

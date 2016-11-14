@@ -67,11 +67,11 @@ class UsersController < ApplicationController
 	end
 
 	def current_orders
-		
+		@orders = Order.where(user_id: current_user.id, status: "In Progress")
 	end
 
 	def history_orders
-		
+		@orders = Order.where(user_id: current_user.id, status: "Completed")
 	end
 
 	def update

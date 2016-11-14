@@ -1,8 +1,10 @@
+Laundry.delete_all
 l1 = Laundry.create(name: "Lavaexpress", address: "Calle 127 #57-45", phone: "6459122", score: 4.4)
 l2 = Laundry.create(name: "Lavatodo", address: "Carrera 22A este #12-87", phone: "3604117", score: 3.4)
 l3 = Laundry.create(name: "Lavanderia Juanca", address: "Diagonal 91A #27-18 sur", phone: "7836904", score: 4.6)
 l4 = Laundry.create(name: "Lavaseco Angie Express", address: "Calle 151 # 103C-03", phone: "6923994", score: 5.0)
 
+Garment.delete_all
 g1 = Garment.create(name: "Jeans")
 g2 = Garment.create(name: "Dress")
 g3 = Garment.create(name: "Jacket")
@@ -15,6 +17,7 @@ g9 = Garment.create(name: "Tie")
 g10 = Garment.create(name: "Queen Size Quilt")
 g11 = Garment.create(name: "King Size Quilt")
 
+Service.delete_all
 s1 = Service.create(name: "Washed And Dryed", cost: 4000, laundry_id: 1, garment_id: 1)
 s2 = Service.create(name: "Dyed", cost: 14000, laundry_id: 1, garment_id: 1)
 s3 = Service.create(name: "Washed And Dryed", cost: 6000, laundry_id: 1, garment_id: 2)
@@ -73,3 +76,24 @@ s49 = Service.create(name: "Washed And Dryed", cost: 14000, laundry_id: 4, garme
 s50 = Service.create(name: "Washed And Dryed", cost: 1500, laundry_id: 4, garment_id: 9)
 s51 = Service.create(name: "Washed And Dryed", cost: 12000, laundry_id: 4, garment_id: 10)
 s52 = Service.create(name: "Washed And Dryed", cost: 14000, laundry_id: 4, garment_id: 11)
+
+Order.delete_all
+o1 = Order.create(date_pickup: "2016-11-13 13:00", total_cost: 22000, user_id: 1, laundry_id: 1, status: "In Progress")
+o2 = Order.create(date_pickup: "2016-11-13 11:00", total_cost: 47000, user_id: 2, laundry_id: 3, status: "In Progress")
+o3 = Order.create(date_pickup: "2016-11-13 14:00", date_deliver: "2016-11-15 08:00", score: 5, comment: "Excelente servicio", total_cost: 49000, user_id: 1, laundry_id: 2, status: "Completed")
+o4 = Order.create(date_pickup: "2016-10-20 15:00", date_deliver: "2016-11-15 09:00", score: 4, comment: "Buen servicio", total_cost: 19000, user_id: 2, laundry_id: 4, status: "Completed")
+
+OrderDetail.delete_all
+od1 = OrderDetail.create(order_id: 1, garment_id: 1, service_name: "Washed and Dryed", quantity: 1, cost: 4000)
+od2 = OrderDetail.create(order_id: 1, garment_id: 2, service_name: "Washed and Dryed", quantity: 3, cost: 6000)
+
+od3 = OrderDetail.create(order_id: 2, garment_id: 1, service_name: "Washed and Dryed", quantity: 5, cost: 6000)
+od4 = OrderDetail.create(order_id: 2, garment_id: 8, service_name: "Washed and Dryed", quantity: 1, cost: 15000)
+od5 = OrderDetail.create(order_id: 2, garment_id: 9, service_name: "Washed and Dryed", quantity: 2, cost: 2500)
+
+od6 = OrderDetail.create(order_id: 3, garment_id: 2, service_name: "Washed and Dryed", quantity: 3, cost: 7000)
+od7 = OrderDetail.create(order_id: 3, garment_id: 3, service_name: "Washed and Dryed", quantity: 2, cost: 8000)
+od8 = OrderDetail.create(order_id: 3, garment_id: 4, service_name: "Washed and Dryed", quantity: 2, cost: 6000)
+
+od9 = OrderDetail.create(order_id: 4, garment_id: 5, service_name: "Washed and Dryed", quantity: 2, cost: 5000)
+od10 = OrderDetail.create(order_id: 4, garment_id: 6, service_name: "Washed and Dryed", quantity: 2, cost: 4500)

@@ -3,20 +3,9 @@
   <%= render 'users/menu' %>
   <div class="admin-container">
     <p id='notice'><%= notice %></p>
-    <section class="laundries-info">
-      <div class="data row">
-        <div class="user col-md-12">
-          <h3 class="subtitle">Lavalotu's Laundries</h3>  
-          <br>
-          <%= javascript_include_tag :show_laundries %>
-          <br>
-          <ul>          
-            <li><%= link_to image_tag('add.png'), new_laundry_path, class: "option" %>  </li>     
-          </ul>
-        </div>
-      </div>
-    </section>
-  </div>
-</section>
+        
+          <%= javascript_include_tag :show_laundries %>          
+    </div>
+  </section>
   
-          
+  

@@ -94,18 +94,18 @@ ActiveRecord::Schema.define(version: 20161108195145) do
     t.string   "description"
     t.integer  "quantity"
     t.float    "cost"
+    t.string   "service_name"
     t.integer  "order_id"
     t.integer  "garment_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["garment_id"], name: "index_order_details_on_garment_id", using: :btree
     t.index ["order_id"], name: "index_order_details_on_order_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "d_created"
     t.datetime "d_finished"
-    t.string   "state"
+    t.string   "status"
     t.integer  "score"
     t.text     "comment"
     t.datetime "created_at",   null: false

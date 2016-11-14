@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   #  resources :services
   #end
 
+  resources :orders
   resources :laundries do
     resources :garments do
       resources :services
@@ -60,7 +61,6 @@ end
     end
     match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
     resources :laundries
-    resources :orders
     #get 'show_laundry'=>'laundries#show_laundry'
 
   end
