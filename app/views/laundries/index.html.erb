@@ -8,30 +8,7 @@
         <div class="user col-md-12">
           <h3 class="subtitle">Lavalotu's Laundries</h3>  
           <br>
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone</th>
-              <th>Score</th>
-              <th class="main" colspan="3"></th>
-            </tr>
-            <% @laundries.each do |laundry| %>
-            <tr>
-
-              <td><%= laundry.name %></td>
-              <td><%= laundry.address %></td>
-              <td><%= laundry.phone %></td>
-              <td><%= laundry.score %></td>
-              <td><%= link_to image_tag('show.png'), laundry_path(laundry) %></td>
-              <td><%= link_to image_tag('edit.png'), edit_laundry_path(laundry) %></td>
-              <td><%= link_to image_tag('delete.png'), laundry_path(laundry),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
-              <td><%= link_to 'Garments', laundry_garments_path(laundry) %></td>
-            </tr>
-            <% end %>
-          </table>
+          <%= javascript_include_tag :show_laundries %>
           <br>
           <ul>          
             <li><%= link_to image_tag('add.png'), new_laundry_path, class: "option" %>  </li>     

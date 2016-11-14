@@ -22,5 +22,6 @@ Rails.application.config.assets.precompile += %w( app.js )
 Rails.application.config.assets.precompile += %w( dashboard.js )
 Rails.application.config.assets.precompile += %w( laundry.js )
 Rails.application.config.assets.precompile += %w( laundry_order.js )
+Rails.application.config.assets.precompile += %w( show_laundries.js )#Ordena las lavanderias por score y name para admin
 Rails.application.config.assets.precompile += %w( laundries_map.js )
 Rails.application.config.assets.precompile += %w( bootstrap.js )
