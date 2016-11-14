@@ -3,7 +3,7 @@
 
 <h1>Email Confirmation</h1>
  
-<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user)) do |f| %>
+<%= form_for(current_user, as: 'user', url: finish_signup_path(current_user), method: :patch)  do |f| %>
   <% if @show_errors && current_user.errors.any? %>
     <h2>Errores encontrados:</h2>
     <ul>
@@ -14,13 +14,11 @@
   <% end %>
  
   <div class= "field">
-    <%#= f.label :email %>
-
     <%= f.text_field :email, autofocus: true, value: '', placeholder: 'Example: email@me.com' %>
   </div>
  
   <div class="actions">
-    <%= f.submit 'Confirmar'  %>
+    <%= f.submit 'Confirm' , :onclick => "alert('An email will be sent to your email address')" %>
   </div>
  
 <% end %>

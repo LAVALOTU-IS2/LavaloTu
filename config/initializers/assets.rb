@@ -24,3 +24,6 @@ Rails.application.config.assets.precompile += %w( laundry.js )
 Rails.application.config.assets.precompile += %w( laundry_order.js )
 Rails.application.config.assets.precompile += %w( laundries_map.js )
 Rails.application.config.assets.precompile += %w( bootstrap.js )
+Rails.application.config.assets.precompile += %w( map.js )
+Rails.application.config.assets.precompile += %w( markerclusterer.js )
+
