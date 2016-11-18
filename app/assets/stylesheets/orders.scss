@@ -1,3 +1,167 @@
-// Place all the styles related to the Orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice, .alert{
+	display: none;
+} 
+
+.dashboard{
+	position: relative;
+	.menu{
+		background-color: $blue;
+		color: $white;
+		float: left;
+		height: 100vh;	
+		padding: 10px 0;
+		position: fixed;
+		width: 20%;
+		.lavalotu-image{
+			padding: 15px 0;
+			text-align: center;
+			.logo{
+				display: inline-block;
+				width: 60px;
+			}
+			h1{
+				display: inline-block;
+				font-family: $font-LatoS;
+				font-size: 25px;
+				margin: 0;
+				vertical-align: -10%;
+			}
+		}
+		.wrapper-menu{
+			height: 90%;
+			position: relative;
+			.menu-content{
+				.menu-options{
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					li{
+						padding: 0 20px;
+						@include transition(all 0.3s ease-in-out);
+						a{
+							color: $white;
+							display: block;
+							font-family: $font-LatoT;
+							font-size: 22px;
+							font-weight: bold;
+							padding: 10px;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+						&:hover{
+
+						}
+					}
+				}
+			}
+			span{
+				bottom: 25px;
+				font-family: $font-LatoT;
+				font-size: 17px;
+				font-weight: bold;
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	.wrapper{
+		float: right;
+		width: 80%;
+	}
+	.history-orders{
+		padding-top: 30px;
+		position: relative; 
+		.title{
+			color: $dark-gray;
+			font-family: $font-LatoT;
+			text-align: center;
+			.nameUser{
+				color: $blue;
+				font-family: $font-LatoS;
+			}
+		}
+		.histories{
+			font-family: $font-LatoT;
+			margin: 0 auto;
+			padding: 20px 0;
+			width: 90%;
+			.history{
+				.content{
+					background-color: whitesmoke;
+					border: 1px solid #e3e3e3;
+					border-radius: 5px;
+					padding: 12.5px;
+					text-align: center;
+					.subtitle{
+						font-size: 18px;
+						margin: 0;
+						padding-bottom: 10px;
+						padding-left: 5px;
+						position: relative;
+						text-align: left;
+						.see-order{
+							display: inline-block;
+							position: absolute;
+							right: 0;
+							top: 0;
+							img{
+								width: 25px;
+							}
+						}
+					}
+					.detail-history{
+						background-color: $white;
+						border-radius: 3px;
+						font-size: 16px;
+						padding: 15px;
+						.info{
+							.variable, .data{
+								color: $black;
+								float: left;
+								font-family: $font-LatoS;
+								margin: 10px 0 0;
+								text-align: left;
+								width: 50%;
+								h5{
+									margin: 0;
+								}
+							}
+							.data{
+								color: $gray;
+								font-family: $font-LatoT;
+								text-align: right;
+							}
+						}
+					}
+				}	
+			}
+		}
+		.back{
+			color: $blue;
+			font-size: 30px;
+			left: 25px;
+			position: absolute;
+			top: 25px;
+			&:hover, &:active, &:focus{
+				text-decoration: none;
+			}
+		}
+	}
+}

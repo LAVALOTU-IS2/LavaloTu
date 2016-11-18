@@ -15,6 +15,7 @@ Rails.application.config.assets.precompile += %w( static_pages.css )
 Rails.application.config.assets.precompile += %w( static_pages_contact.css )
 Rails.application.config.assets.precompile += %w( registrations.css )
 Rails.application.config.assets.precompile += %w( laundries.css )
+Rails.application.config.assets.precompile += %w( orders.css )
 
 Rails.application.config.assets.precompile += %w( jquery_inview.js )
 Rails.application.config.assets.precompile += %w( polyfill.js )
