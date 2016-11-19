@@ -4,7 +4,7 @@ class CreateDeliverers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :email
       t.string :phone
-      t.references :laundries, foreign_key: true
+      t.references :laundry, foreign_key: true
 
       t.timestamps
     end

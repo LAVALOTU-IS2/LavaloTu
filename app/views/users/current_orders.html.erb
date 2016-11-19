@@ -2,7 +2,7 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div class="history-orders wrapper container">
-		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your past orders</h2>
+		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your current orders</h2>
 		<section class="histories row">
 			<% @orders.each do |order| %>
 			<div class="history col-md-4">
@@ -34,6 +34,22 @@
 							</div>
 							<div class="data">
 								<span><%= order.created_at %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Pickup date:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.pickup_date.strftime("%A %d of %B %Y") %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Pickup Time:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.pickup_date.strftime("%I:%M%p") %></span>
 							</div>
 						</div>
 						<div class="info clearfix">

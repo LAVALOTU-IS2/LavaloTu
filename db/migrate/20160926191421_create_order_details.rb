@@ -5,8 +5,8 @@ class CreateOrderDetails < ActiveRecord::Migration[5.0]
       t.integer :quantity
       t.float :cost
       t.string :service_name
-      t.references :orders, foreign_key: true
-      t.references :garments, foreign_key: true
+      t.references :order, foreign_key: true
+      t.references :garment, foreign_key: true
 
       t.timestamps
     end

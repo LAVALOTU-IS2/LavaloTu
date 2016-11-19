@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   has_one :identity, dependent: :destroy
   has_one :laundry
-  has_many :order
+  has_many :orders
   has_many :places, dependent: :destroy
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}
   validates :name, :lastname, :presence => true
@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
   enum role:{
     "User"  => 0,
     "Admin" => 1,
-    "Laundry" => 2
+    "Laundry" => 2,
+    "Deliverer" => 3
   }
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

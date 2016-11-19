@@ -3,7 +3,7 @@ class CreateAchievements < ActiveRecord::Migration[5.0]
     create_table :achievements do |t|
       t.string :description
       t.string :benefit
-      t.references :users, foreign_key: true
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

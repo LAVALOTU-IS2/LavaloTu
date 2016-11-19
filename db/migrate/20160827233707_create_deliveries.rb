@@ -1,8 +1,10 @@
 class CreateDeliveries < ActiveRecord::Migration[5.0]
   def change
     create_table :deliveries do |t|
-      t.string :name
-      t.string :phone
+      t.integer :direction
+      t.datetime :deliver_date
+      t.references :order, foreign_key: true
+      t.references :deliverer, foreign_key: true
 
       t.timestamps
     end
