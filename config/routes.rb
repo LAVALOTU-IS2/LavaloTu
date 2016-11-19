@@ -18,8 +18,13 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static_pages#about', as: 'about'
   get '/not_authorized', to: 'static_pages#not_authorized', as: 'not_authorized'
-  get "prices" => "users#prices"
-  get "orders" => "users#orders"
+  get "prices"      =>  "users#prices"
+  get "orders"      =>  "users#orders"
+
+  get "pre_orders"  =>  "users#pre_orders"
+  get "current_orders" => "users#current_orders"
+  get "history_orders" => "users#history_orders"
+  
   get 'profile' => "users#profile"
   get 'welcome/index'
   get '/contact', to: 'messages#new', as: 'contact'
@@ -28,6 +33,7 @@ Rails.application.routes.draw do
   #  resources :services
   #end
 
+  resources :orders
   resources :laundries do
     resources :garments do
       resources :services
@@ -55,7 +61,6 @@ end
     end
     match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
     resources :laundries
-    resources :orders
     #get 'show_laundry'=>'laundries#show_laundry'
 
   end

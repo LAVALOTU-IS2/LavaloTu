@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'orders' %>
+<section class="dashboard clearfix">
+	<%= render 'menu' %>
+	<div class="history-orders wrapper container">
+		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your past orders</h2>
+		<section class="histories row">
+			<% @orders.each do |order| %>
+			<div class="history col-md-4">
+				<div class="content">
+					<h4 class="subtitle">
+						Detail Service
+						<%= link_to image_tag('show.png'), order_path(order), :alt => 'See Order', :title => 'See Order', :class => 'see-order img-responsive'%>
+					</h4>
+					<div class="detail-history">
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Laundry:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.laundry.name %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Address:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.laundry.address %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Date Start:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.created_at %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Cost:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.total_cost %></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</section>
+		<%= link_to '', pre_orders_path , :class => 'back fa fa-arrow-left'%>
+	</div>
+</section>

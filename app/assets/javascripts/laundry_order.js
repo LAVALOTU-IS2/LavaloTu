@@ -65,8 +65,6 @@ $(document).ready(function () {
 			for (var i = 0; i < data.laundries.length; i++) {
 				laundries.push(data.laundries[i]);
 			}
-			console.log("Tamano arreglo");
-			console.log(laundries.length);
 			$options.append($search);
 			$('#laundries-container').append($options);
 			OrderLaundries("score_ds");		
