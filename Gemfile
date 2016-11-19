@@ -12,6 +12,7 @@ gem 'font-awesome-sass'
 gem "pundit"
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'geokit-rails'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'rails_12factor', group: :production

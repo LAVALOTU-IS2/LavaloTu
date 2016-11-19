@@ -28,7 +28,11 @@
           <br>
           <ul>          
             <li><%= link_to image_tag("add.png"), new_laundry_garment_path, class: "option" %>  </li> 
-            <%= link_to 'Back', laundries_path, class: "option" %>    
+            <%if policy(current_user).index?%>
+              <%= link_to 'Back', laundries_path, class: "option" %>    
+            <%elsif policy(current_user).laundry?%>
+              <%= link_to 'Back', ladmin_path(current_user), class: "option" %>    
+            <%end%>
           </ul>
         </div>
       </div>

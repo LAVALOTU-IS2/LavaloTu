@@ -82,6 +82,10 @@ GEM
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
     geocoder (1.4.0)
+    geokit (1.10.0)
+    geokit-rails (2.2.0)
+      geokit (~> 1.5)
+      rails (>= 3.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
@@ -265,6 +269,7 @@ DEPENDENCIES
   fb_graph2
   font-awesome-sass
   geocoder
+  geokit-rails
   gmaps4rails
   gon
   jbuilder (~> 2.5)
@@ -290,4 +295,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.1

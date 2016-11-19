@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters , if: :devise_controller?
   
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
-
+  geocode_ip_address
+  
   def after_sign_in_path_for(resource)
-    profile_path
+    if current_user.role == 'Laundry'
+      ladmin_path(current_user)
+    else
+      profile_path
+    end
   end
 private
 	def user_not_authorized
