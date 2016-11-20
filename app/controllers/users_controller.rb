@@ -1,17 +1,18 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
 	geocode_ip_address
-	def finish_signup
-	    if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
-	    	@user = User.find(params[:id])
 
-	    	if @user.update(user_params)
-	    		sign_in(@user, :bypass => true)
-	    		redirect_to profile_path, notice: 'Hemos guardado tu email correctamente.'
-	    	else
-	    		@show_errors = true
-	    	end
-	    end
+	def finish_signup
+		if request.patch? && params[:user] # Revisa si el request es de tipo patch, es decir, llenaron el formulario y lo ingresaron
+			@user = User.find(params[:id])
+
+			if @user.update(user_params)
+				sign_in(@user, :bypass => true)
+				redirect_to profile_path, notice: 'We stored your email correctly.'
+			else
+				@show_errors = true
+			end
+		end
 	end
 
 	def create
@@ -53,7 +54,8 @@ class UsersController < ApplicationController
 	end
 
 	def current_orders
-		@orders = Order.where(user_id: current_user.id, status: "In Progress")
+		#@orders = Order.where(user_id: current_user.id, status: "In Progress")
+		@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "In progress", "Generated")
 	end
 
 	def history_orders
@@ -79,5 +81,5 @@ class UsersController < ApplicationController
 	    accessible = [ :id, :name, :email, :lastname, :phone ] # extend with your own params
 	    accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
 	    params.require(:user).permit(accessible)
+	  end
 	end
-end

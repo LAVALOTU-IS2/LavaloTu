@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20161108195145) do
     t.index ["user_id"], name: "index_achievements_on_user_id", using: :btree
   end
 
-  create_table "bills", force: :cascade do |t|
-    t.float    "total_bill"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "deliverers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -41,15 +35,12 @@ ActiveRecord::Schema.define(version: 20161108195145) do
   end
 
   create_table "deliveries", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
+    t.integer  "direction"
+    t.datetime "deliver_date"
+    t.integer  "order_id"
+    t.integer  "deliverer_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "direction"
-    t.datetime "time_pickup"
-    t.datetime "time_deliver"
-    t.integer  "deliverer_id"
-    t.integer  "order_id"
     t.index ["deliverer_id"], name: "index_deliveries_on_deliverer_id", using: :btree
     t.index ["order_id"], name: "index_deliveries_on_order_id", using: :btree
   end
@@ -104,17 +95,17 @@ ActiveRecord::Schema.define(version: 20161108195145) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "d_finished"
+    t.datetime "pickup_date"
+    t.datetime "deviler_date"
+    t.float    "total_cost"
     t.string   "status"
     t.integer  "score"
+    t.datetime "date_finished"
     t.text     "comment"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.datetime "date_pickup"
-    t.datetime "date_deliver"
-    t.float    "total_cost"
     t.integer  "user_id"
     t.integer  "laundry_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["laundry_id"], name: "index_orders_on_laundry_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
@@ -123,30 +114,21 @@ ActiveRecord::Schema.define(version: 20161108195145) do
     t.string   "name"
     t.string   "address"
     t.integer  "user"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
     t.float    "latitude"
     t.float    "longitude"
     t.index ["user_id"], name: "index_places_on_user_id", using: :btree
-  end
-
-  create_table "scores", force: :cascade do |t|
-    t.string   "comment"
-    t.integer  "grade"
-    t.integer  "laundry_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["laundry_id"], name: "index_scores_on_laundry_id", using: :btree
   end
 
   create_table "services", force: :cascade do |t|
     t.string   "name"
     t.float    "cost"
     t.integer  "garment_id"
+    t.integer  "laundry_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "laundry_id"
     t.index ["garment_id"], name: "index_services_on_garment_id", using: :btree
     t.index ["laundry_id"], name: "index_services_on_laundry_id", using: :btree
   end
@@ -197,7 +179,6 @@ ActiveRecord::Schema.define(version: 20161108195145) do
   add_foreign_key "orders", "laundries"
   add_foreign_key "orders", "users"
   add_foreign_key "places", "users"
-  add_foreign_key "scores", "laundries"
   add_foreign_key "services", "garments"
   add_foreign_key "services", "laundries"
   add_foreign_key "users", "laundries"

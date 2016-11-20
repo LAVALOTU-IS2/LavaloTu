@@ -42,6 +42,22 @@
 						</div>
 						<div class="info clearfix">
 							<div class="variable">
+								<h5>Pickup date:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.pickup_date.strftime("%A %d of %B %Y") %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
+								<h5>Pickup Time:</h5>
+							</div>
+							<div class="data">
+								<span><%= order.pickup_date.strftime("%I:%M%p") %></span>
+							</div>
+						</div>
+						<div class="info clearfix">
+							<div class="variable">
 								<h5>Cost:</h5>
 							</div>
 							<div class="data">
