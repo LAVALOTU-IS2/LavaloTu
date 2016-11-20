@@ -8,6 +8,9 @@ class UserPolicy < ApplicationPolicy
   def laundry?
     user.Laundry?
   end
+  def deliverer?
+    user.Deliverer?
+  end
   class Scope < Scope
     def resolve
       scope
