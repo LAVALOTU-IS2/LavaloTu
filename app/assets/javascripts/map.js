@@ -45,7 +45,7 @@ function success(position) {
 					'<h4 class="name">' + laundries[i].name + '</h4>' +
 					'<span class="address">' + laundries[i].address + '</span>' + '</br>' +
 					'<span class="phone">Phone: ' + String(laundries[i].phone) + '</span>' + '</br>' +
-					'<span class="phone">Service time: ' + laundries[i].opening_time + ' - ' + laundries[i].closing_time '</h5>' +
+					'<span class="phone">Service time: ' + laundries[i].opening_time + ' - ' + laundries[i].closing_time + '</h5>' +
 					'<h5 class="score">Score: ' + String(laundries[i].score) + '</h5>' +
 					'<a class="mask" href="/laundries/' + String(laundries[i].id) + '">' +
 					'See prices </a>' +

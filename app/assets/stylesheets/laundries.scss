@@ -327,11 +327,27 @@
 				font-family: $font-LatoS;
 				font-size: 23px;
 			}
-			.details{
+			.details, .date-hour{
+				float: left;
 				padding: 0 20px;
+				width: 50%;
 				span{
 					display: block;
 					font-size: 19px;
+				}
+			}
+			.date-hour{
+				padding-top: 15px;
+				text-align: center;
+				select{
+					display: inline-block;
+					margin-right: 5%;
+				}
+				.days{
+					width: 55%;
+				}
+				.hours{
+					width: 30%;
 				}
 			}
 		}
