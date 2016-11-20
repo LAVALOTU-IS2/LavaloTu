@@ -55,7 +55,13 @@ function verifyOrder(){
 		$details.append('<span class="laundry-address">Address: ' + laundry_services.laundry.address +'</span>');
 		$details.append('<span class="laundry-phone">Phone: ' + laundry_services.laundry.phone +'</span>');
 		$details.append('<span class="laundry-phone">Service time: ' + laundry_services.laundry.opening_time + ' - ' + laundry_services.laundry.closing_time + '</span>');
-		
+
+		var time_pickup = new Date();
+		var hours = time_pickup.getHours();
+		var minutes = time_pickup.getMinutes();
+
+		console.log( hours + ':' + minutes );
+
 		$laundry_detail.append($details);
 
 		$bill.append($order_title);
