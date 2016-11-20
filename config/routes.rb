@@ -41,6 +41,12 @@ Rails.application.routes.draw do
 
   scope 'Laundry' do
     get '/laundry_admin/:id', to: 'laundries#laundry_admin', as: 'ladmin'
+    get '/laundry_deliverers/:id', to: 'laundries#laundry_deliverers', as: 'ladeliverers'
+    #get '/deliverers_laundry/:id', to: 'deliverers#index', as: 'ladeliverers'
+  end
+  resources :laundries do
+     resources :deliverers
+      #get '/laundry_deliverers/:id', to: 'deliverers#index', as: 'ladeliverers'
   end
   scope 'User' do
   resources :users do

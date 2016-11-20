@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108195145) do
+ActiveRecord::Schema.define(version: 20161120020936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,8 +164,10 @@ ActiveRecord::Schema.define(version: 20161108195145) do
     t.integer  "role",                   default: 0
     t.integer  "orders"
     t.integer  "laundry_id"
+    t.integer  "deliverers_id"
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["deliverers_id"], name: "index_users_on_deliverers_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["laundry_id"], name: "index_users_on_laundry_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -183,5 +185,6 @@ ActiveRecord::Schema.define(version: 20161108195145) do
   add_foreign_key "places", "users"
   add_foreign_key "services", "garments"
   add_foreign_key "services", "laundries"
+  add_foreign_key "users", "deliverers", column: "deliverers_id"
   add_foreign_key "users", "laundries"
 end
