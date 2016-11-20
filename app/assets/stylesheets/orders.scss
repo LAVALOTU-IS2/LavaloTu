@@ -97,6 +97,31 @@
 				font-family: $font-LatoS;
 			}
 		}
+		.options{
+			background-color: whitesmoke;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+			padding: 0;
+			position: fixed;
+			right: 0;
+			top: 42%;
+			li{
+				padding: 10px;
+				list-style: none;
+				.new, .record{
+					color: $green;
+					font-size: 30px;
+					min-width: 30px;
+					text-align: center;
+					&:hover, &:focus, &:active{
+						text-decoration: none;
+					}
+				}
+				.record{
+					color: $blue-facebook;
+				}
+			}
+		}
 		.histories{
 			font-family: $font-LatoT;
 			margin: 0 auto;

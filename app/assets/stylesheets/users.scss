@@ -325,6 +325,7 @@
 	#laundries-container{
 		float: right;
 		padding-top: 30px;
+		position: relative;
 		text-align: center;
 		width: 80%;
 		.options{
@@ -346,7 +347,6 @@
 				}
 			}
 		}
-
 		.laundries-info{
 			display: inline-block;
 			font-family: $font-LatoT;
@@ -424,6 +424,16 @@
 						}
 					}
 				}
+			}
+		}
+		.back{
+			color: $blue;
+			font-size: 30px;
+			left: 25px;
+			position: absolute;
+			top: 25px;
+			&:hover, &:active, &:focus{
+				text-decoration: none;
 			}
 		}
 	}

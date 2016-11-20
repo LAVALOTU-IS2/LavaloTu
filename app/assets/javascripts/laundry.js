@@ -43,6 +43,72 @@ function resetCalculator(){
 	result.innerHTML = 0;
 }
 
+function verifyOrder(){
+	var total = document.getElementById("result");
+	if (total.innerHTML != '0'){
+		var $bill = $('<div id="bill" class="bill"></div>');
+		var $order_title = $('<h2 class="order-title">Details of your order</h2>');
+
+		var $laundry_detail = $('<section class="laundry-detail"><h3 class="subtitle">Laundry info:</h3></section>');
+		var $details = $('<div class="details"></div>')
+		$details.append('<span class="laundry-name">Name: ' + laundry_services.laundry.name +'</span>');
+		$details.append('<span class="laundry-address">Address: ' + laundry_services.laundry.address +'</span>');
+		$details.append('<span class="laundry-phone">Phone: ' + laundry_services.laundry.phone +'</span>');
+		
+		$laundry_detail.append($details);
+
+		$bill.append($order_title);
+		$bill.append($laundry_detail);
+
+		var $bill_details = $('<section class="bill-details"></section>');
+		var $garments_details = $('<table class="garments-details"></table>');
+
+		$garments_details.append('<tr class="variables"><td>Quantity</td><td>Service</td><td>Garment</td><td>Unit Price</td><td>Total Price</td></tr>');
+		var final_total = 0;
+
+		for(var service in laundry_services){
+			if( service != 'laundry' ){
+				for( var garment in laundry_services[service]){
+					if(laundry_services[service][garment][1] > 0){
+						var total = laundry_services[service][garment][1] * laundry_services[service][garment][0];
+						final_total = final_total + total;
+						$garments_details.append('<tr><td>'+ laundry_services[service][garment][1] +'</td><td>'+ service +'</td><td>'+ garment +'</td><td>'+ laundry_services[service][garment][0] +'</td><td>'+ total +'</td</tr>');
+					}
+				}
+			}
+		}
+
+		$bill_details.append($garments_details);
+		$bill_details.append('<div class="total-order"><h1 class="total">'+ final_total +'</h1></div>');
+
+		$bill.append($bill_details);
+
+		var $payment_method = $('<section class="payment-method"></section>');
+		var $method = $('<div class="method"><h4>Select your payment method</h4></div>')
+		$method.append('<label for="credit_card">Credit Card</label><input type="radio" name="payment-method" id="credit_card" value="credit_card" checked="checked">');
+		$method.append('<label for="debit_card">Debit Card</label><input type="radio" name="payment-method" id="debit_card" value="debit_card">');
+
+		var $actions = $('<div class="actions"></div>');
+		$actions.append('<div id="back"><span>Back</span></div>');
+		$actions.append('<div id="continue"><span>Confirm</span></div>');
+
+		$payment_method.append($method);
+		$payment_method.append($actions);
+
+		$bill.append($payment_method);
+
+		$("#laundries-container").hide();
+		$('.laundry').append($bill);
+	} 
+	else {
+		console.log("No tienes prendas escogidas!");
+	}
+	$('#back, #back span').click(function(){
+		$('#bill').remove();
+		$("#laundries-container").show();
+	});
+}
+
 function renderGarments( service ){
 	$("#laundry_garments").remove();
 	var $garments = $('<div id="laundry_garments" class="content row"></div>');
@@ -70,17 +136,26 @@ $(document).ready(function () {
 		dataType: "json",
 		url: '/api/v1/laundries/'+ laundry_id,
 		success: function(data){
+			console.log(data);
 			var $laundry_info = $('<div class="laundry_info"></div>');
 			$laundry_info.append('<h1 class="title">'+ data.laundry.name +'</h1>');
 			$laundry_info.append('<span class="detail-cost">Here you&#39ll find all our services and prices</span>')
 			$('#laundries-container').append($laundry_info);
 			var $calculator = $('<div class="calculator"></div>');
 			var $result = $('<div id="result">0</div>');
-			var $reset = $('<div id="reset" onclick="resetCalculator()">Reset Calculator</div>');
+			var $reset = $('<div id="reset" onclick="resetCalculator()">Reset Order</div>');
+			var $checkout = $('<div class="continue" onclick="verifyOrder()">Continue</div>')
 			$calculator.append($result);
 			$calculator.append($reset);
+			$calculator.append($checkout);
 			var $options = $('<div class="options form-group"><label for="service">Select the service you are looking for and then just click on each Garment to add it to our price calculator.</label></div>');
 			var $services = $('<select class="form-control" onchange="renderGarments(this.value);"></select>');
+
+			laundry_services['laundry'] = new Object();
+			laundry_services['laundry']['name'] = data.laundry.name;
+			laundry_services['laundry']['address'] = data.laundry.address;
+			laundry_services['laundry']['phone'] = data.laundry.phone;
+
 			for( var j = 0; j < data.laundry.services.length; j++){
 				var service_name = data.laundry.services[j].name;
 				var garment_name = data.laundry.services[j].garment.name;

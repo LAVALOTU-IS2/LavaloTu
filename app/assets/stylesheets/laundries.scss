@@ -292,6 +292,140 @@
 			}
 		}
 	}
+	#bill{
+		color: $dark-gray;
+		float: right;
+		font-family: $font-LatoT;
+		font-size: 24px;
+		overflow-y: scroll;
+		padding: 25px;
+		width: 80%;
+		.order-title{
+			color: $blue;
+			font-family: $font-LatoS;
+		}
+		.laundry-detail{
+			padding: 20px 30px 10px;
+			.subtitle{
+				font-family: $font-LatoS;
+				font-size: 23px;
+			}
+			.details{
+				padding: 0 20px;
+				span{
+					display: block;
+					font-size: 19px;
+				}
+			}
+		}
+		.bill-details{
+			padding: 30px;
+			text-align: center;
+			.garments-details{
+				display: inline-block;
+				width: 80%;
+				tbody{
+					tr{
+						border-left: 1px solid $dark-gray;
+						border-right: 1px solid $dark-gray; 
+						td{
+							padding: 5px 10px;
+							text-align: center;
+							width: 22%;
+						}
+						&:last-child{
+							border-bottom: 1px solid $dark-gray;
+						}
+					}
+					.variables{
+						background-color: $dark-gray;
+						border: 1px solid $dark-gray;
+						color: $white;
+						font-family: $font-LatoS;
+						font-size: 19px;
+					}
+				}
+			}
+			.total-order{
+				margin: 0 auto;
+				width: 80%;
+				text-align: right;
+				.total{
+					display: inline-block;
+					font-family: $font-LatoS;
+					font-size: 30px;
+					margin: 0;
+					padding: 15px;
+					position: relative;
+					width: 20%;
+					&::before{
+						content: 'Total:';
+						color: $dark-gray;
+						font-family: $font-LatoT;
+						font-size: 33px;
+						height: 100%;
+						left: -130px;
+						padding: 10px;
+						position: absolute;
+						top: 0;
+						width: 100%;
+					}
+				}
+			}
+		}
+		.payment-method{
+			padding: 30px;
+			.method{
+				display: inline-block;
+				width: 50%;
+				h4{
+					font-family: $font-LatoS;
+					font-size: 23px;
+				}
+				label{
+					font-size: 18px;
+					font-weight: normal;
+					margin: 0;
+					padding-left: 20px;
+				}
+				input{
+					margin: 7px 10px 0;
+					vertical-align: top;
+				}
+			}
+			.actions{
+				display: inline-block;
+				padding: 15px 0;
+				text-align: right;
+				width: 40%;
+				#back, #continue{
+					border-radius: 5px;
+					color: $white;
+					cursor: pointer;
+					display: inline-block;
+					font-family: $font-LatoS;
+					font-size: 21px;
+					min-width: 130px;
+					margin: 0 10px;
+					padding: 6px;
+					text-align: center;
+					@include transition(all 0.25s ease-in-out);
+				}
+				#back{
+					background-color: $pinky;
+					&:hover{
+						background-color: rgba(255, 87, 107, 0.8);
+					}
+				}
+				#continue{
+					background-color: $green;
+					&:hover{
+						background-color: $dark-green;
+					}
+				}
+			}
+		}
+	}
 }
 
 .dashboard{
