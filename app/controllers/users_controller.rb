@@ -55,7 +55,12 @@ class UsersController < ApplicationController
 
 	def current_orders
 		#@orders = Order.where(user_id: current_user.id, status: "In Progress")
-		@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "In progress", "Generated")
+		
+		if policy(current_user).deliverer?
+			@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "Assigned pickup", "Picked up", "In house","In delivery","Delivered")
+		else
+			@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "In progress", "Generated")
+		end
 	end
 
 	def history_orders

@@ -1,7 +1,7 @@
 class LaundriesController < ApplicationController
 
  #before_action :authenticate_user!
- def index
+def index
   redirect_to not_authorized_path if !current_user.try(:Admin?)
   @laundries = Laundry.all
 end
@@ -57,6 +57,11 @@ end
   end
 
   def laundry_admin
+    @user = User.find(params[:id])
+    @laundry = Laundry.find(@user.laundry_id)
+  end
+
+  def laundry_deliverers
     @user = User.find(params[:id])
     @laundry = Laundry.find(@user.laundry_id)
   end

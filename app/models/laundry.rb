@@ -5,4 +5,5 @@ class Laundry < ApplicationRecord
 	has_many :orders
 	has_many :services, dependent: :destroy
 	has_many :garments, through: :services
+	has_many :deliverers, dependent: :destroy
 end

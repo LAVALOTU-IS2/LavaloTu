@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+	<%= render 'users/menu' %>
+	<div id="profile-container">
+		<section class="user-info">
+			<div class="data row">
+				<div class="user col-md-12">
+					<h3 class="subtitle">Deliverer info:</h3>
+					<ul>
+						<li><span>Name:</span> <%= @deliverer.name %></li>
+						<li><span>Email:</span> <%= @deliverer.email %></li>
+						<li><span>Phone:</span><%= @deliverer.phone %></li>      
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>

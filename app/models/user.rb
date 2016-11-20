@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   
   has_one :identity, dependent: :destroy
   has_one :laundry
+  has_one :deliverers
   has_many :orders
   has_many :places, dependent: :destroy
   validates :phone, :presence => true, :length => { :minimum => 7 }, format: { with: /\d/, message: "Debe ingresar un numero"}
