@@ -90,8 +90,7 @@
 		padding-top: 30px;
 		position: relative;
 		text-align: center;
-		width: 80%;
-		
+		width: 80%;		
 		.laundry_info{
 			display: block;
 			font-family: $font-LatoT;
@@ -113,7 +112,7 @@
 			position: absolute;
 			right: 10%;
 			text-align: center;
-			top: 150px;
+			top: 100px;
 			#result{
 				color: #333;
 				font-family: $font-LatoS;
@@ -121,7 +120,7 @@
 				letter-spacing: 2px;
 				text-align: center;
 			}
-			#reset{
+			#reset, .continue{
 				border: 1px solid #333;
 				color: #333;
 				cursor: pointer;
@@ -158,6 +157,24 @@
 				}
 				&:hover{
 					border: 1px solid $blue;
+					color: $white;
+					&::before{
+						border-width: 135px 0 0 135px;
+					}
+					&::after{
+						border-width: 0 135px 135px 0;
+					}
+				}
+			}
+			.continue{
+				&::before{
+					border-color: transparent transparent transparent $green;
+				}
+				&::after{
+					border-color: transparent $green transparent transparent;
+				}
+				&:hover{
+					border: 1px solid $green;
 					color: $white;
 					&::before{
 						border-width: 135px 0 0 135px;
