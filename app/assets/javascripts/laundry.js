@@ -54,6 +54,7 @@ function verifyOrder(){
 		$details.append('<span class="laundry-name">Name: ' + laundry_services.laundry.name +'</span>');
 		$details.append('<span class="laundry-address">Address: ' + laundry_services.laundry.address +'</span>');
 		$details.append('<span class="laundry-phone">Phone: ' + laundry_services.laundry.phone +'</span>');
+		$details.append('<span class="laundry-phone">Service time: ' + laundry_services.laundry.opening_time + ' - ' + laundry_services.laundry.closing_time + '</span>');
 		
 		$laundry_detail.append($details);
 
@@ -155,6 +156,8 @@ $(document).ready(function () {
 			laundry_services['laundry']['name'] = data.laundry.name;
 			laundry_services['laundry']['address'] = data.laundry.address;
 			laundry_services['laundry']['phone'] = data.laundry.phone;
+			laundry_services['laundry']['opening_time'] = data.laundry.opening_time;
+			laundry_services['laundry']['closing_time'] = data.laundry.closing_time;
 
 			for( var j = 0; j < data.laundry.services.length; j++){
 				var service_name = data.laundry.services[j].name;

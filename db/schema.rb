@@ -66,9 +66,11 @@ ActiveRecord::Schema.define(version: 20161108195145) do
     t.string   "name"
     t.string   "address"
     t.string   "phone"
+    t.string   "opening_time"
+    t.string   "closing_time"
     t.float    "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "latitude"
     t.float    "longitude"
   end

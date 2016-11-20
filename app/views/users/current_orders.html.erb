@@ -37,7 +37,7 @@
 								<h5>Date Start:</h5>
 							</div>
 							<div class="data">
-								<span><%= order.created_at %></span>
+								<span><%= order.created_at.strftime("%B %d %Y, %l:%M %p") %></span>
 							</div>
 						</div>
 						<div class="info clearfix">
@@ -53,7 +53,7 @@
 								<h5>Pickup Time:</h5>
 							</div>
 							<div class="data">
-								<span><%= order.pickup_date.strftime("%I:%M%p") %></span>
+								<span><%= order.pickup_date.strftime("%I:%M %p") %></span>
 							</div>
 						</div>
 						<div class="info clearfix">
