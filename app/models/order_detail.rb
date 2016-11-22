@@ -1,4 +1,5 @@
 class OrderDetail < ApplicationRecord
-  belongs_to :order
-  belongs_to :garment
+	validates :unit_cost, :cost, :quantity, presence: true
+	belongs_to :order
+	belongs_to :garment
 end

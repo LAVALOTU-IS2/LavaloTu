@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20161120020936) do
     t.string   "description"
     t.integer  "quantity"
     t.float    "cost"
+    t.float    "unit_cost"
     t.string   "service_name"
     t.integer  "order_id"
     t.integer  "garment_id"

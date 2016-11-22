@@ -77,8 +77,6 @@ function verifyOrder(){
 		var laundry_close = parseInt(laundry_services.laundry.closing_time.substring(0,2));
 		var laundry_open = parseInt(laundry_services.laundry.opening_time.substring(0,2));
 
-		console.log(laundry_close - hours);
-
 		/*-- Validamos los minutos para asignar o no la siguiente hora --*/
 		if(minutes > 30) hours++;
 		var remaining_hours = laundry_close - hours;
@@ -86,7 +84,6 @@ function verifyOrder(){
 		/*-- Asignación de día de acuerdo a las horas que quedan para cerrar la lavandería --*/
 		if( remaining_hours >= 2 ){
 			if(hours < laundry_open){
-				console.log("Es hoy pero esta cerrado");
 				while(available_days.length < 7){
 					if(day_week != 0 ){
 						available_days.push([days[day_week] + ' ' + day + " of " + months[month], year + '-' + (month + 1) + '-' + day]);
@@ -99,7 +96,6 @@ function verifyOrder(){
 				}
 			}
 			else{
-				console.log("Está abierto");
 				available_hours.push([]);
 				while ( hours < (laundry_close -1)){
 					hours = hours + 1;
@@ -118,7 +114,6 @@ function verifyOrder(){
 			}
 		}
 		else{
-			console.log("Está cerrado");
 			while(available_days.length < 7){
 				currentDate = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000);
 				month = currentDate.getMonth();
@@ -171,10 +166,6 @@ function verifyOrder(){
 			}
 		}
 
-		console.log(available_days);
-		console.log(available_hours);
-		console.log(available_hours.length);
-
 		$laundry_detail.append($details);
 
 		var $date_hour = $('<div class="date-hour"></div>');
@@ -206,7 +197,7 @@ function verifyOrder(){
 		}
 
 		$bill_details.append($garments_details);
-		$bill_details.append('<div class="total-order"><h1 class="total">'+ final_total +'</h1></div>');
+		$bill_details.append('<div class="total-order"><h1 id="total">'+ final_total +'</h1></div>');
 
 		$bill.append($bill_details);
 
@@ -217,7 +208,8 @@ function verifyOrder(){
 
 		var $actions = $('<div class="actions"></div>');
 		$actions.append('<div id="back"><span>Back</span></div>');
-		$actions.append('<div id="continue"><span>Confirm</span></div>');
+		var $date_formatted =  +
+		$actions.append('<div id="continue" onclick="createOrder()"><span>Confirm</span></div>');
 
 		$payment_method.append($method);
 		$payment_method.append($actions);
@@ -228,7 +220,7 @@ function verifyOrder(){
 		$('.laundry').append($bill);
 	} 
 	else {
-		console.log("No tienes prendas escogidas!");
+		alert("You haven't selected any service");
 	}
 	$('#back, #back span').click(function(){
 		$('#bill').remove();
@@ -236,9 +228,48 @@ function verifyOrder(){
 	});
 }
 
-function renderHours(index){
+function createOrder(){
+	var option_date = document.getElementsByClassName('days');
+	var selected_date = option_date[0].options[option_date[0].selectedIndex].value;
+	option_date = document.getElementsByClassName('hours');
+	var selected_time = option_date[0].options[option_date[0].selectedIndex].value;
+	var pickup_date = selected_date + ' ' + selected_time;
+	var option_total = document.getElementById('total');
+	var total_cost = option_total.innerHTML;
+	
+	var details = new Object();
+	var counter = 0;
+	for(var service in laundry_services){
+		if( service != 'laundry' ){
+			for( var garment in laundry_services[service]){
+				if(laundry_services[service][garment][1] > 0){
+					details[counter] = new Object();
+					var total = laundry_services[service][garment][1] * laundry_services[service][garment][0];
+					details[counter]['garment'] = garment;
+					details[counter]['service'] = service;
+					details[counter]['quantity'] = laundry_services[service][garment][1];
+					details[counter]['unit_cost'] = laundry_services[service][garment][0];
+					details[counter]['cost'] = total;
+					counter++;
+				}
+			}
+		}
+	}
 
-	console.log(index);
+	$.ajax({
+		data: { 'order': {'laundry_id' : laundry_services.laundry.id, 'pickup_date' : pickup_date, 'total_cost' :  total_cost},
+		details },
+	type: 'POST',
+	url: '/orders',
+	success: function(data){
+	},
+	error: function (response) {
+		console.log("Invalid request");
+	}
+});
+}
+
+function renderHours(index){
 
 	var laundry_close = parseInt(laundry_services.laundry.closing_time.substring(0,2));
 	var laundry_open = parseInt(laundry_services.laundry.opening_time.substring(0,2));
@@ -266,16 +297,12 @@ function renderHours(index){
 		for (var i = 0; i < available_hours[0].length; i++){
 			$new_time.append('<option value="'+ available_hours[0][i] +'">'+ available_hours[0][i] +'</option>');
 		}
-		console.log("hoy");
-		console.log($new_time);
 	}
 	else{
 		var $new_time = $('#bill .laundry-detail .date-hour .hours').html('');
 		for (var i = laundry_open; i < laundry_close; i++){
 			$new_time.append('<option value="'+ i +':00">'+ i +':00</option>');
 		}
-		console.log("Otro dia");
-		console.log($new_time);
 	}
 }
 
@@ -321,6 +348,7 @@ $(document).ready(function () {
 			var $services = $('<select class="form-control" onchange="renderGarments(this.value);"></select>');
 
 			laundry_services['laundry'] = new Object();
+			laundry_services['laundry']['id'] = data.laundry.id;
 			laundry_services['laundry']['name'] = data.laundry.name;
 			laundry_services['laundry']['address'] = data.laundry.address;
 			laundry_services['laundry']['phone'] = data.laundry.phone;
