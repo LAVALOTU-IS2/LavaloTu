@@ -1,7 +1,7 @@
 class LaundriesController < ApplicationController
 
  #before_action :authenticate_user!
-def index
+ def index
   redirect_to not_authorized_path if !current_user.try(:Admin?)
   @laundries = Laundry.all
 end
@@ -34,6 +34,11 @@ def show_laundry
   gon.laundry_id = params[:id]
 end
 
+def generated_orders
+  @laundry = Laundry.find(current_user.laundry_id)
+  @orders = Order.where("laundry_id = ? AND status = ?", @laundry.id, "Generated")
+end
+
 def edit
   @laundry = Laundry.find(params[:id])
 end
@@ -51,25 +56,25 @@ def update
   end
 end
 
-  def calculator
-    @laundry = Laundry.find(params[:id])
-    @services = @laundry.services
-  end
+def calculator
+  @laundry = Laundry.find(params[:id])
+  @services = @laundry.services
+end
 
-  def laundry_admin
-    @user = User.find(params[:id])
-    @laundry = Laundry.find(@user.laundry_id)
-  end
+def laundry_admin
+  @user = User.find(params[:id])
+  @laundry = Laundry.find(@user.laundry_id)
+end
 
-  def laundry_deliverers
-    @user = User.find(params[:id])
-    @laundry = Laundry.find(@user.laundry_id)
-  end
+def laundry_deliverers
+  @user = User.find(params[:id])
+  @laundry = Laundry.find(@user.laundry_id)
+end
 
-  private
+private
 
-  def laundry_params
-    params.require(:laundry).permit(:name, :address, :phone, :score)
-  end
+def laundry_params
+  params.require(:laundry).permit(:name, :address, :phone, :score)
+end
 
 end

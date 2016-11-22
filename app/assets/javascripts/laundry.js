@@ -259,14 +259,14 @@ function createOrder(){
 	$.ajax({
 		data: { 'order': {'laundry_id' : laundry_services.laundry.id, 'pickup_date' : pickup_date, 'total_cost' :  total_cost},
 		details },
-	type: 'POST',
-	url: '/orders',
-	success: function(data){
-	},
-	error: function (response) {
-		console.log("Invalid request");
-	}
-});
+		type: 'POST',
+		url: '/orders',
+		success: function(data){
+		},
+		error: function (response) {
+			console.log("Invalid request");
+		}
+	});
 }
 
 function renderHours(index){
@@ -374,6 +374,18 @@ $(document).ready(function () {
 			$('#laundries-container').append($options);
 			$('#laundries-container').append($calculator);
 			renderGarments("Washed And Dryed");
+		}
+	});
+	$.ajax({
+		type:"GET",
+		url:"/User/users/1/places",
+		dataType:"json",
+		success:function(result){
+			laundry_services['places'] = new Object();
+			for( var j = 0; j < result.places.length; j++){
+				laundry_services['places'][result.places[j].id] = [result.places[j].name, result.places[j].address];
+			}
+			console.log(laundry_services);
 		}
 	});
 });

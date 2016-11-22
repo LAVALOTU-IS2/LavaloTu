@@ -24,7 +24,7 @@
 					<li><%= link_to "Profile", ladmin_path(current_user)%></li>
 					<li><%= link_to "Garments", laundry_garments_path(@laundry) %><li>
 					<li><%= link_to "Deliverers", laundry_deliverers_path(@laundry) %><li>
-					<li><%= link_to "Orders", current_orders_path %><li>
+					<li><%= link_to "Orders", generated_orders_path %><li>
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 				<% elsif policy(current_user).deliverer? %>
 					<li><%= link_to "Profile", ladmin_path(current_user)%></li>
