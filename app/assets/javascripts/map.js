@@ -40,7 +40,7 @@ function success(position) {
 	    
 	    content = 	'<div class="content">' +
 					'<div class="image" align="center">' +
-					'<img alt="Laundry Icon" title="Laundry Icon" class="img-responsive" src="/assets/ironing-board.png" />' +
+					'<img alt="Laundry Icon" title="Laundry Icon" class="img-responsive" src="/assets/'+i+'.jpg"/>' +
 					'</div>' +
 					'<h4 class="name">' + laundries[i].name + '</h4>' +
 					'<span class="address">' + laundries[i].address + '</span>' + '</br>' +
