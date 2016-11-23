@@ -3,4 +3,5 @@ class Place < ApplicationRecord
 	after_validation :geocode
 	validates :name , :address, presence: true
 	belongs_to :user
+	has_many :deliveries
 end

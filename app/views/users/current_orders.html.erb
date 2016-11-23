@@ -2,7 +2,7 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div class="history-orders wrapper container">
-		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your past orders</h2>
+		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your current orders</h2>
 		<ul class="options">
 			<li><%= link_to '', orders_path , :class => 'new fa fa-plus-circle', :alt => 'New Order', :title => 'New Order'%></li>
 			<li><%= link_to '', history_orders_path , :class => 'record fa fa-list-alt', :alt => 'Previous Orders', :title => 'Previous Orders'%></li> 
