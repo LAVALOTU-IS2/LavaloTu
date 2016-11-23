@@ -35,21 +35,28 @@ $(document).ready(function () {
 					var service_name = data.laundries[i].services[j].name;
 					var garment_name = data.laundries[i].services[j].garment.name;
 					var service_cost = data.laundries[i].services[j].cost;
+					
+					
 					if(!(service_name in garments_services)){
 						garments_services[service_name] = new Object();
-						$services.append('<option value="'+ service_name +'">'+ service_name +'</option>');
+						$services.append('<option value="'+ service_name +'">'+ service_name +'</option>');		
 					}
-					else{
+					else{					
 						if(!(garment_name in garments_services[service_name])){
 							garments_services[service_name][garment_name] = [service_cost, service_cost];
+
 						}
 						else{
 							if(garments_services[service_name][garment_name][0] > service_cost){
 								garments_services[service_name][garment_name][0] = service_cost;
+								//console.log("mayor",service_name,garment_name,service_cost,garments_services[service_name][garment_name][0])
 							}
 							else if(garments_services[service_name][garment_name][1] < service_cost){
 								garments_services[service_name][garment_name][1] = service_cost;
+								//console.log("menor",service_name,garment_name,service_cost,garments_services[service_name][garment_name][1])
 							}
+							
+							
 						}
 					}
 				}
