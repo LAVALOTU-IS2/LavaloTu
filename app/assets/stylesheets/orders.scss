@@ -150,6 +150,15 @@
 								width: 25px;
 							}
 						}
+						.delete-order{
+							display: inline-block;
+							position: absolute;
+							right: 35px;
+							top: 0;
+							img{
+								width: 25px;
+							}
+						}
 					}
 					.detail-history{
 						background-color: $white;
