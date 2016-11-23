@@ -2,11 +2,16 @@
 <section class="dashboard clearfix">
 	<%= render 'menu' %>
 	<div id="laundries-container">
-		<h1>Laundries</h1>
+		<h1 class="title">Laundries</h1>
 		<% if policy(current_user).index? %>
 			<%= javascript_include_tag :laundry_order %>
 		<% else %>
-			<section class="laundries-info">
+			<section class="detail-map">
+				<ol class="steps">
+					<li class="step">Choose your laundry.</li>
+					<li class="step">Calculate your order.</li>
+					<li class="step">Choose your delivery date.</li>
+				</ol>
 			    <div id="map"></div>
 			    <%= javascript_include_tag :map %>
 			    <%= javascript_include_tag :markerclusterer %>

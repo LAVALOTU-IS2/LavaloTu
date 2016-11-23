@@ -188,5 +188,40 @@
 				text-decoration: none;
 			}
 		}
+		.details{
+			padding: 20px 0;
+			position: relative;
+			text-align: center;
+			.garments-details{
+				font-family: $font-LatoT;
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				top: 20px;
+				width: 70%;
+				tbody{
+					tr{
+						border-left: 1px solid $dark-gray;
+						border-right: 1px solid $dark-gray; 
+						td{
+							padding: 5px 10px;
+							text-align: center;
+							width: 22%;
+						}
+						&:last-child{
+							border-bottom: 1px solid $dark-gray;
+						}
+					}
+					.variables{
+						background-color: $dark-gray;
+						border: 1px solid $dark-gray;
+						color: $white;
+						font-family: $font-LatoS;
+						font-size: 19px;
+					}
+				}
+			}
+		}
 	}
 }
