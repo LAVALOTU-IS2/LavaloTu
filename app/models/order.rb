@@ -1,8 +1,10 @@
 class Order < ApplicationRecord
-	validates :d_created, :d_finished, :state, presence: true
-	validates :score, numericality: true
-	has_one :bill
+	validates :pickup_date, :total_cost, :status, presence: true
+	#validates :score, numericality: true
 	belongs_to :user
-	has_many :delivery
-	has_many :garment
+	belongs_to :laundry
+	has_many :order_details, dependent: :destroy
+	has_many :deliveries, dependent: :destroy
+	has_many :garments, through: :order_details
+	has_many :deliverers, through: :deliveries
 end

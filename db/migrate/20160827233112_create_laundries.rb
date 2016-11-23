@@ -4,6 +4,8 @@ class CreateLaundries < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :address
       t.string :phone
+      t.string :opening_time
+      t.string :closing_time
       t.float :score
 
       t.timestamps

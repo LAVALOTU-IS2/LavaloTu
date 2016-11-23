@@ -4,6 +4,8 @@ class CreateServices < ActiveRecord::Migration[5.0]
       t.string :name
       t.float :cost
       t.references :garment, foreign_key: true
+      t.references :laundry, foreign_key: true
+      
       t.timestamps
     end
   end

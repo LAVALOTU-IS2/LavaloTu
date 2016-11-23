@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  	</head>
+  	<body style="color: #333; font-family: 'Lato', sans-serif; font-weight: 400">
+		<div id="laundries-container">
+			<h1 style="color: #72e2fd; font-family: 'Lato', sans-serif; font-weight: 400; margin-bottom: 25px">Thank you for prefering us <%= @user.name %></h1>
+
+			<p style="margin-bottom: 15px"><%= @laundry.name %> has confirmed your order and it has been assigned to <%= @deliverer.name%>. If you wish to contact him/her, the contact phone number is <%=@deliverer.phone%>.</p>
+			</br>
+			<p style="margin-bottom: 15px">Your garments will be picked up at the address <%= @place.address%> on <%= @order.pickup_date.strftime("%A %d of %B at %I:%M %p")%>. Remember to ask your deliverer for his/her LavaloTu's ID card.</p>
+			</br>
+			<p style="margin-bottom: 15px">The service details of your order:</p>
+			<table>
+				<tr>
+					<th style="font-family: 'Lato', sans-serif; font-weight: 700;">Garment</th>
+					<th style="font-family: 'Lato', sans-serif; font-weight: 700;">Service</th>
+					<th style="font-family: 'Lato', sans-serif; font-weight: 700;">Quantity</th>
+					<th style="font-family: 'Lato', sans-serif; font-weight: 700;">Cost</th>
+					<th class="main" colspan="3"></th>
+				</tr>
+				<% @details.each do |detail| %>
+				<tr>
+
+					<td><%= detail.garment.name %></td>
+					<td><%= detail.service_name %></td>
+					<td><%= detail.quantity %></td>
+					<td><%= detail.cost %></td>
+				</tr>
+				<% end %>
+			</table>
+		</div>
+</html>

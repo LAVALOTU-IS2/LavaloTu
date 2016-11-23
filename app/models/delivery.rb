@@ -1,7 +1,6 @@
 class Delivery < ApplicationRecord
-	validates :name, presence: true
-	validates :name, length: { maximum: 20 }
-	validates :phone, presence: true
-	validates :phone, numericality: true
-	belongs_to :order
+	validates :direction, presence: true, numericality: true 
+	belongs_to :order 
+	belongs_to :deliverer
+	belongs_to :place 
 end

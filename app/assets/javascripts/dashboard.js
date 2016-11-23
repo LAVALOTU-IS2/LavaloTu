@@ -10,7 +10,12 @@ function renderGarments( service ){
 		var $garment_image = $('<div class="image '+ k.toLowerCase() +'"></div>');	
 		//var $garment_image = $('<div class="image"><%= asset_path "garments/'+ k.toLowerCase() +'.png", :alt => "'+ k +'", :title => "'+ k +'", :class=> "img-responsive" %></div>');
 		var $garment_name = $('<span class="name">'+ k +'</span>');
-		var $price = $('<span>From: $ '+ garments_services[service][k][0] +' To: $ ' + garments_services[service][k][1] + '</span>')
+		if(garments_services[service][k][0] != garments_services[service][k][1]){
+			var $price = $('<span>From: $ '+ garments_services[service][k][0] +' To: $ ' + garments_services[service][k][1] + '</span>');
+		}else{
+			var $price = $('<span>$ '+ garments_services[service][k][0] + '</span>');
+		}
+
 
 		$garment.append($garment_image);
 		$garment.append($garment_name);
@@ -38,6 +43,7 @@ $(document).ready(function () {
 					if(!(service_name in garments_services)){
 						garments_services[service_name] = new Object();
 						$services.append('<option value="'+ service_name +'">'+ service_name +'</option>');
+						garments_services[service_name][garment_name] = [service_cost, service_cost];
 					}
 					else{
 						if(!(garment_name in garments_services[service_name])){

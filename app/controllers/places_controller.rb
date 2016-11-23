@@ -2,9 +2,13 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!
   def new
   end
+
   def index
-    @user = User.find(params[:user_id])
-    @place = @user.places.all
+    @user = User.find(current_user.id)
+    @places = @user.places.all
+    if request.xhr? # test if the request is an AJAX call
+      render json: @places
+    end
   end
 
   def create
@@ -29,7 +33,7 @@ class PlacesController < ApplicationController
   end
 
   private
-    def place_params
-      params.require(:place).permit(:name, :address)
-    end
+  def place_params
+    params.require(:place).permit(:name, :address)
+  end
 end

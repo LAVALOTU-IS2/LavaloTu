@@ -14,14 +14,26 @@
 		<span><%= current_user.name+" "+current_user.lastname %></span> 
 		<div class="menu-content navbar-collapse collapse">
 			<ul class="menu-options">
-				<li><%= link_to "Profile", profile_path%></li>
 				<% if policy(current_user).index? %>
+					<li><%= link_to "Profile", profile_path%></li>
 					<li><%= link_to "Users", users_path %></li>
 					<li><%= link_to "Laundries", laundries_path %></li>
+					<li><%= link_to "Orders", current_orders_path %></li> 
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-				<% else %> 
+				<% elsif policy(current_user).laundry? %>
+					<li><%= link_to "Profile", ladmin_path(current_user)%></li>
+					<li><%= link_to "Garments", laundry_garments_path(@laundry) %><li>
+					<li><%= link_to "Deliverers", laundry_deliverers_path(@laundry) %><li>
+					<li><%= link_to "Orders", generated_orders_path %><li>
+					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+				<% elsif policy(current_user).deliverer? %>
+					<li><%= link_to "Profile", ladmin_path(current_user)%></li>
+					<li><%= link_to "Orders", current_orders_path %></li> 
+					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+				<% else %>
+					<li><%= link_to "Profile", profile_path%></li>
 					<li><%= link_to "Prices", prices_path%></li>
-					<li><%= link_to "Orders", orders_path %></li> 
+					<li><%= link_to "Orders", current_orders_path %></li> 
 					<li><a href="#">Donate</a></li> 
 					<li><%= link_to "Contact us", contact_path %></li>
 					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>

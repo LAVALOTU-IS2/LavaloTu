@@ -1,0 +1,37 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+  <%= render 'users/menu' %>
+  <div id="profile-container">
+    <section class="user-info">
+      <h1 class="title">Laundry</h1>
+      <h2 class="user-name"><%= @laundry.name%></h2>
+      <div class="data row">
+        <div class="user address col-md-12">
+          <h3 class="subtitle">Deliverers:</h3>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th class="main" colspan="3"></th>
+            </tr>
+            <% @laundry.deliverers.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.email %></td>
+               <td><%= p.phone %></td>
+               <td><%= link_to image_tag("show.png"), laundry_deliverer_path(@laundry,p)%> </td>
+              <td><%= link_to image_tag("edit.png"), edit_laundry_deliverer_path(@laundry,p) %></td>
+              <td><%= link_to image_tag("delete.png"), laundry_deliverer_path(@laundry,p),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+            <% end %>
+          </table>
+          <h5 class="subtitle"><%= link_to image_tag('add.png'), new_laundry_deliverer_path(@laundry) %></h5>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</section>

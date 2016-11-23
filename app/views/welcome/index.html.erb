@@ -110,5 +110,9 @@
 	<%= javascript_include_tag :app %>
 	<!--<%= link_to "Signout", destroy_user_session_path, method: :delete %>-->
 <% else %>
-	<% controller.redirect_to profile_path%>
+	<% if policy(current_user).laundry?%>
+		<% controller.redirect_to ladmin_path(current_user)%>
+	<% else %>
+		<% controller.redirect_to profile_path%>
+	<% end %>
 <% end %>

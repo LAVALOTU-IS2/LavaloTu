@@ -1,0 +1,252 @@
+/*Importamos Fuentes, Mixins y Variables*/
+@import "fonts";
+@import "mixin";
+@import "variables";
+/*Importamos Bootstrap*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+/*Importamos Font-Awesome*/
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.notice, .alert{
+	display: none;
+} 
+
+.dashboard{
+	position: relative;
+	.menu{
+		background-color: $blue;
+		color: $white;
+		float: left;
+		height: 100vh;	
+		padding: 10px 0;
+		position: fixed;
+		width: 20%;
+		.lavalotu-image{
+			padding: 15px 0;
+			text-align: center;
+			.logo{
+				display: inline-block;
+				width: 60px;
+			}
+			h1{
+				display: inline-block;
+				font-family: $font-LatoS;
+				font-size: 25px;
+				margin: 0;
+				vertical-align: -10%;
+			}
+		}
+		.wrapper-menu{
+			height: 90%;
+			position: relative;
+			.menu-content{
+				.menu-options{
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					position: relative;
+					li{
+						padding: 0 20px;
+						@include transition(all 0.3s ease-in-out);
+						a{
+							color: $white;
+							display: block;
+							font-family: $font-LatoT;
+							font-size: 22px;
+							font-weight: bold;
+							padding: 10px;
+							&:hover{
+								text-decoration: none;
+							}
+						}
+						&:hover{
+
+						}
+					}
+				}
+			}
+			span{
+				bottom: 25px;
+				font-family: $font-LatoT;
+				font-size: 17px;
+				font-weight: bold;
+				left: 0;
+				margin: 0 auto;
+				position: absolute;
+				right: 0;
+				text-align: center;
+				width: 100%;
+			}
+		}
+	}
+	.wrapper{
+		float: right;
+		width: 80%;
+	}
+	.history-orders{
+		padding-top: 30px;
+		position: relative; 
+		.title{
+			color: $dark-gray;
+			font-family: $font-LatoT;
+			text-align: center;
+			.nameUser{
+				color: $blue;
+				font-family: $font-LatoS;
+			}
+		}
+		.options{
+			background-color: whitesmoke;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+			padding: 0;
+			position: fixed;
+			right: 0;
+			top: 42%;
+			li{
+				padding: 10px;
+				list-style: none;
+				.new, .record{
+					color: $green;
+					font-size: 30px;
+					min-width: 30px;
+					text-align: center;
+					&:hover, &:focus, &:active{
+						text-decoration: none;
+					}
+				}
+				.record{
+					color: $blue-facebook;
+				}
+			}
+		}
+		.histories{
+			font-family: $font-LatoT;
+			margin: 0 auto;
+			padding: 20px 0;
+			width: 90%;
+			.text{
+				padding-left: 20px;
+			}
+			.history{
+				.content{
+					background-color: whitesmoke;
+					border: 1px solid #e3e3e3;
+					border-radius: 5px;
+					padding: 12.5px;
+					text-align: center;
+					.subtitle{
+						font-size: 18px;
+						margin: 0;
+						padding-bottom: 10px;
+						padding-left: 5px;
+						position: relative;
+						text-align: left;
+						.see-order{
+							display: inline-block;
+							position: absolute;
+							right: 0;
+							top: 0;
+							img{
+								width: 25px;
+							}
+						}
+						.select-deliver, .delete-order{
+							display: inline-block;
+							position: absolute;
+							right: 35px;
+							top: 0;
+							img{
+								width: 25px;
+							}
+						}
+					}
+					.detail-history{
+						background-color: $white;
+						border-radius: 3px;
+						font-size: 16px;
+						padding: 15px;
+						.info{
+							.variable, .data{
+								color: $black;
+								float: left;
+								font-family: $font-LatoS;
+								margin: 10px 0 0;
+								text-align: left;
+								width: 50%;
+								h5{
+									margin: 0;
+								}
+							}
+							.data{
+								color: $gray;
+								font-family: $font-LatoT;
+								text-align: right;
+							}
+						}
+					}
+				}	
+			}
+		}
+		.back{
+			color: $blue;
+			font-size: 30px;
+			left: 25px;
+			position: absolute;
+			top: 25px;
+			&:hover, &:active, &:focus{
+				text-decoration: none;
+			}
+		}
+		.garments-details{
+			font-family: $font-LatoT;
+			left: unset;
+			margin: 25px auto;
+			position: relative;
+			right: unset;
+			top: unset;
+			width: 70%;
+			tbody{
+				tr{
+					border-left: 1px solid $dark-gray;
+					border-right: 1px solid $dark-gray; 
+					td{
+						padding: 5px 10px;
+						text-align: center;
+						width: 22%;
+					}
+					&:last-child{
+						border-bottom: 1px solid $dark-gray;
+					}
+				}
+				.variables{
+					background-color: $dark-gray;
+					border: 1px solid $dark-gray;
+					color: $white;
+					font-family: $font-LatoS;
+					font-size: 19px;
+				}
+			}
+		}
+		.deliverer_access{
+			text-align: center;
+			a{
+				background-color: transparent;
+				border: 1px solid $dark-gray;
+				color: $dark-gray;
+				display: inline-block;
+				font-family: $font-LatoS;
+				font-size: 18px;
+				padding: 7px 15px 10px;
+				@include transition(all 0.3s ease-in-out);
+				&:hover, &:active, &:focus{
+					background-color: $dark-gray;
+					color: $white;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}

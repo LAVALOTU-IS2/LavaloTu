@@ -1,0 +1,45 @@
+<%= stylesheet_link_tag 'orders' %>
+<section class="dashboard clearfix">
+	<%= render 'users/menu' %>
+	<div class="history-orders wrapper container">
+		<h2 class="title">Order details</h2>
+		<table class="garments-details">
+			<tr class="variables">
+				<td>Garment</td>
+				<td>Service</td>
+				<td>Quantity</td>
+				<td>Unit Cost</td>
+				<td>Cost</td>
+			</tr>
+			<% @details.each do |detail| %>
+			<tr>
+				<td><%= detail.garment.name %></td>
+				<td><%= detail.service_name %></td>
+				<td><%= detail.quantity %></td>
+				<td><%= detail.unit_cost %></td>
+				<td><%= detail.cost %></td>
+			</tr>
+			<% end %>
+		</table>
+		<!--<% if @order.status == "Assigned pickup" %>
+			<section class="deliverer_access">
+				<%= link_to 'See deliverer', laundry_deliverer_path(@order.deliveries[0].deliverer_id) %>
+			</section>
+		<% end %>-->
+		<% if policy(current_user).laundry? %>
+			<% if @order.status == "Generated" %>
+				<%= link_to '', generated_orders_path, :class => 'back fa fa-arrow-left' %>
+			<% elsif @order.status == "Completed" %>
+				
+			<% end %>
+		<% elsif policy(current_user).index? %> 
+				
+		<% else %>
+			<% if @order.status == "Generated" or @order.status == "Assigned pickup"%>
+					<%= link_to '', current_orders_path, :class => 'back fa fa-arrow-left' %>
+				<% elsif @order.status == "Completed" %>
+					<%= link_to '', history_orders_path, :class => 'back fa fa-arrow-left' %>
+				<% end %>		
+		<% end %>
+	</div>
+</section>

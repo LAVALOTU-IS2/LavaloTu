@@ -204,6 +204,11 @@
 					.subtitle{
 						padding-bottom: 15px;
 						text-align: left;
+						a{
+							img{
+								width: 30px;
+							}
+						}
 					}
 					ul{
 						padding-left: 10px;
@@ -226,6 +231,11 @@
 						padding: 8px;
 						text-align: left;
 						border-bottom: 1px solid #ddd;
+						a{
+							img{
+								width: 30px;
+							}
+						}
 					}
 
 					tr:hover{background-color:#f5f5f5}
@@ -325,8 +335,32 @@
 	#laundries-container{
 		float: right;
 		padding-top: 30px;
+		position: relative;
 		text-align: center;
 		width: 80%;
+		.title{
+			color: $blue;
+			font-family: $font-LatoS;
+		}
+		.options{
+			font-family: $font-LatoT;
+			padding: 20px 30px 10px;
+			text-align: left;
+			label{
+				font-family: $font-LatoT;
+				font-size: 20px;
+				padding-bottom: 10px;
+				width: 500px;
+			}
+			select{
+				text-transform: capitalize;
+				width: 300px;
+				option{
+					padding: 10px;
+					text-transform: capitalize;
+				}
+			}
+		}
 		.laundries-info{
 			display: inline-block;
 			font-family: $font-LatoT;
@@ -336,6 +370,9 @@
 				color: $blue;
 				font-family: $font-LatoS;
 				text-align: center;
+			}
+			.detail-title{
+				font-size: 24px;
 			}
 			.data{
 				margin: 20px 0;
@@ -403,6 +440,46 @@
 				}
 			}
 		}
+		.detail-map{
+			display: inline-block;
+			font-family: $font-LatoT;
+			margin: 0 auto;
+			margin-top: 25px;
+			.steps{
+				display: block;
+				font-size: 19px;
+				text-align: left;
+				margin: 0 0 2em;
+				padding: 0;
+				counter-reset: item;
+				.step{
+					margin: 0;
+					padding: 0 0 0 2em;
+					text-indent: -1.5em;
+					list-style-type: none;
+					counter-increment: item;
+					&::before{
+						color: $dark-gray;
+						display: inline-block;
+						width: 1em;
+						padding-right: 0.5em;
+						font-family: $font-LatoS;
+						text-align: right;
+						content: counter(item) ".";
+					}
+				}
+			}
+		}
+		.back{
+			color: $blue;
+			font-size: 30px;
+			left: 25px;
+			position: absolute;
+			top: 25px;
+			&:hover, &:active, &:focus{
+				text-decoration: none;
+			}
+		}
 	}
 	.wrapper{
 		float: right;
@@ -461,6 +538,7 @@
 						padding: 8px;
 						text-align: left;
 						border-bottom: 1px solid #ddd;
+						cursor: pointer;
 					}
 
 					tr:hover{background-color:#f5f5f5}
@@ -469,8 +547,69 @@
 			}
 		}
 	}
+
 }
 
+.garmnet-info{
+	font-family: $font-LatoT;
+	padding-top: 20px;
+	.detail{
+		text-align: center;
+		.subtitle{
+			font-family: $font-LatoS;
+			text-align: left;
+		}
+		p{
+			padding-left: 15px;
+			text-align: left;
+		}
+		.description{
+			display: none;
+		}
+		.service{
+			font-size: 20px;
+			padding-top: 20px;
+			text-align: left;
+		}
+		.laundry{
+			padding-bottom: 15px;
+			.laundries-info{
+				float: left;
+				width: 33.33333%;
+				.data{
+					padding-top: 20px;
+					.laundry-name{
+						display: none;
+					}
+					p, a{
+						display: block;
+						text-align: left;
+					}
+					a{
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+		.data{
+			padding-top: 15px
+		}
+		.option{
+			display: inline-block;
+			font-size: 25px;
+			padding: 30px 25px 20px;
+			&:hover{
+				text-decoration: none;
+			}
+		}
+		.home{
+			color: $blue;
+		}
+		.back{
+			color: $dark-gray;
+		}
+	}
+}
 /* ================================================
 MEDIA QUERIS
 ==================================================*/

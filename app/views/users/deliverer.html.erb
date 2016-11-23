@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+	<%= render 'menu' %>
+	<div id="profile-container">
+		<section class="user-info">
+			<h1 class="title">Welcome to Lavalotu!</h1>
+			<h2 class="user-name"><%= current_user.name+" "+current_user.lastname %></h2>
+			<div class="data row">
+				<div class="user col-md-12">
+					<h3 class="subtitle">Your info:</h3>
+					<ul>
+						<li><span>Name:</span> <%= current_user.name %></li>
+						<li><span>Adress</span> <%= current_user.address %></li>
+						<li><span>Phone:</span><%= current_user.phone %></li>
+						<li><span></span><%= link_to 'Update', edit_laundry_path(@laundry)%></li>       
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>

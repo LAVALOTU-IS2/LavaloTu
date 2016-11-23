@@ -1,24 +1,25 @@
 <%= stylesheet_link_tag 'users' %>
 <section class="dashboard clearfix">
-	<%= render 'menu' %>
+	<%= render 'users/menu' %>
 	<div id="laundries-container">
-		<section class="laundries-info">
-			<div class="data row">
-				<% @laundries.each do |laundry| %>
-				<div class="laundry col-md-4">
-					<div class="content">
-						<div class="image">
-							<%= image_tag("ironing-board.png", :alt => "Laundry Icon", :title => "Laundry Icon", :class=> "img-responsive") %>
-						</div>
-						<h3 class="name"><%= laundry.name %></h3>
-						<span class="address"><%= laundry.address %></span>
-						<span class="phone">Phone: <%= laundry.phone %></span>
-						<h4 class="score">Score: <%= laundry.score %></h4>
-						<%= link_to '', laundry_path(laundry) , class: "mask"%>
-					</div>
-				</div>
-				<% end %>
-			</div>
-		</section>
+		<h1 class="title">Laundries</h1>
+		<% if policy(current_user).index? %>
+			<%= javascript_include_tag :laundry_order %>
+		<% else %>
+			<section class="detail-map">
+				<ol class="steps">
+					<li class="step">Choose your laundry.</li>
+					<li class="step">Calculate your order.</li>
+					<li class="step">Choose your delivery date.</li>
+				</ol>
+			    <div id="map"></div>
+			    <%= javascript_include_tag :map %>
+			    <%= javascript_include_tag :markerclusterer %>
+	    	</section>
+		<% end %>
 	</div>
 </section>
+
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmIRM4Q4dNNyEG1_AlXtUiPUQdHeb0rBY&callback=initMap">
+</script>

@@ -10,7 +10,9 @@ gem 'fb_graph2'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass'
 gem "pundit"
-
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'geokit-rails'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'rails_12factor', group: :production

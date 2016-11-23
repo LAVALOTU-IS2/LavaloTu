@@ -1,0 +1,30 @@
+<%= stylesheet_link_tag 'users' %>
+<section class="dashboard clearfix">
+  <%= render 'users/menu' %>
+  <div id="profile-container">
+    <section class="user-info">
+      <h2 class="user-name"> Select the deliverer</h2>
+      <div class="data row">
+        <div class="user address col-md-12">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th class="main" colspan="3"></th>
+            </tr>
+            <% @laundry.deliverers.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.email %></td>
+               <td><%= p.phone %></td>
+               <td><%= link_to image_tag("user-m.svg"), send_order_mail_path(id: @order.id,deliverer: p), :onclick => "confirm('Select this deliverer?')"%> </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</section>

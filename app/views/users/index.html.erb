@@ -30,9 +30,9 @@
               <td><%= user.name %></td>
               <td><%= user.email %></td>
               <td><%= user.role %></td>
-              <td><%= link_to 'Show', user_path(user) %></td>
-              <td><%= link_to 'Update', user_path(user) %></td>
-              <td><%= link_to 'Destroy', destroy_path(user), method: :delete,
+              <td><%= link_to image_tag('show.png'), user_path(user) %></td>
+              <td><%= link_to image_tag('edit.png'), user_path(user) %></td>
+              <td><%= link_to image_tag('delete.png'), destroy_path(user), method: :delete,
                  data: { confirm: 'Are you sure?' } %></td>
 
             </tr>

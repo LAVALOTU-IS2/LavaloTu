@@ -1,0 +1,147 @@
+<%= stylesheet_link_tag 'orders' %>
+<section class="dashboard clearfix">
+	<%= render 'menu' %>
+	<div class="history-orders wrapper container">
+		<h2 class="title"><span class="nameUser"><%= current_user.name %>,</span> Your current orders</h2>
+		<ul class="options">
+			<li><%= link_to '', orders_path , :class => 'new fa fa-plus-circle', :alt => 'New Order', :title => 'New Order'%></li>
+			<li><%= link_to '', history_orders_path , :class => 'record fa fa-list-alt', :alt => 'Previous Orders', :title => 'Previous Orders'%></li> 
+		</ul>
+		<section class="histories row">
+			<h2 class="service_type">Pending Orders</h2>
+			<% if @orders_generated.empty? %>
+				<span class="text">You don't have any pending orders.</span>
+			<% else %>
+				<% @orders_generated.each do |order| %>
+					<div class="history col-md-4">
+						<div class="content">
+							<h4 class="subtitle">
+								Detail Service
+								<%= link_to image_tag('show.png'), order_path(order), :alt => 'See Order', :title => 'See Order', :class => 'see-order img-responsive'%>
+								<%= link_to image_tag('delete.png'), order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, :alt => 'Delete Order', :title => 'Delete Order', :class => 'delete-order img-responsive'%>
+
+							</h4>
+							<div class="detail-history">
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Laundry:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.laundry.name %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Address:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.laundry.address %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Date Start:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.created_at.strftime("%B %d %Y, %l:%M %p") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Pickup date:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.pickup_date.strftime("%A %d of %B %Y") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Pickup Time:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.pickup_date.strftime("%I:%M %p") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Cost:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.total_cost %></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</section>
+		<section class="histories row">
+			<h2 class="service_type">Confirmed Orders</h2>
+			<% if @orders_assigned_pickup.empty? %>
+				<span class="notice">You don't have any confirmed orders.</span>
+			<% else %>
+				<% @orders_assigned_pickup.each do |order| %>
+					<div class="history col-md-4">
+						<div class="content">
+							<h4 class="subtitle">
+								Detail Service
+								<%= link_to image_tag('show.png'), order_path(order), :alt => 'See Order', :title => 'See Order', :class => 'see-order img-responsive'%>
+							</h4>
+							<div class="detail-history">
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Laundry:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.laundry.name %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Address:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.laundry.address %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Date Start:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.created_at.strftime("%B %d %Y, %l:%M %p") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Pickup date:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.pickup_date.strftime("%A %d of %B %Y") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Pickup Time:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.pickup_date.strftime("%I:%M %p") %></span>
+									</div>
+								</div>
+								<div class="info clearfix">
+									<div class="variable">
+										<h5>Cost:</h5>
+									</div>
+									<div class="data">
+										<span><%= order.total_cost %></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</section>
+	</div>
+</section>

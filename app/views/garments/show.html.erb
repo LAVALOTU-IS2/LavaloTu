@@ -1,21 +1,28 @@
+<%= stylesheet_link_tag 'users' %>
+<div class="garmnet-info container" >
+	<div class="detail col-md-12" >
+		<h3 class="subtitle">Garment</h3>  
+		<p class="name">
+			<strong>Name:</strong>
+			<%= @garment.name %>
+		</p>
+		<p class="description">
+			<strong>Description:</strong>
+			<%= @garment.description %>
+		</p>
 
-<p>
-	<strong>Name:</strong>
-	<%= @garment.name %>
-</p>
+		<h3 class="subtitle service">Services</h3>
 
-<p>
-	<strong>Description:</strong>
-	<%= @garment.description %>
-</p>
-
-<h2>Services</h2>
-<%= render @garment.services %>
+		<div class="laundry clearfix">
+			<%= render @service_laundry %>	
+		</div>
+		<%= render 'services/form' %>
+		<%= link_to ' Back', laundry_garments_path , :class => "fa fa-chevron-left option back"%>
+		<%= link_to ' Home', root_path , :class => "fa fa-home option home"%>
+	</div>
+</div>
 
 
-<h2>Add a service:</h2>
-<%= render 'services/form' %>
 
-<%= link_to 'Back', garments_path , class: "option"%>
-<%= link_to 'Home', root_path , class: "option"%>	
+
 

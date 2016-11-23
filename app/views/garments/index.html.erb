@@ -1,4 +1,5 @@
 <%= stylesheet_link_tag 'users' %>
+<%= stylesheet_link_tag 'laundries' %>
 <section class="dashboard clearfix">
   <%= render 'users/menu' %>
   <div class="admin-container">
@@ -6,16 +7,7 @@
     <section class="laundries-info">
       <div class="data row">
         <div class="user col-md-12">
-          <h3 class="subtitle"><%= 'Admin: ' +current_user.name+" "+current_user.lastname %></h3>
-          <ul>
-            <li><%= link_to 'Profile', profile_path, class: "option" %> </li>
-            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        </div>
-      </div>
-      <div class="data row">
-        <div class="user col-md-12">
-          <h3 class="subtitle">Lavalotu's Garments</h3>  
+          <h3 class="subtitle"><%= @laundry.name %> Garments</h3>  
           <br>
           <table>
             <tr>
@@ -25,49 +17,25 @@
             <% @garments.each do |garment| %>
             <tr>
               <td><%= garment.name %></td>
-              <td><%= link_to 'Show', garment_path(garment) , class: "option"%> </td>
-              <td><%= link_to 'Edit', edit_garment_path(garment) %></td>
-              <td><%= link_to 'Destroy', garment_path(garment),
+              <td><%= link_to image_tag("show.png"), laundry_garment_path(@laundry, garment) , class: "option"%> </td>
+              <td><%= link_to image_tag("edit.png"), edit_laundry_garment_path(@laundry,garment) %></td>
+              <td><%= link_to image_tag("delete.png"), laundry_garment_path(@laundry,garment),
                       method: :delete,
-                      data: { confirm: 'Are you sure?' } %></td>
+                      data: { confirm: 'Are you sure?' } %></td-->
             </tr>
             <% end %>
           </table>
           <br>
           <ul>          
-            <li><%= link_to 'New garment', new_garment_path, class: "option" %>  </li> 
-            <%= link_to 'Back', laundries_path, class: "option" %>    
+            <li><%= link_to image_tag("add.png"), new_laundry_garment_path, class: "option" %>  </li> 
+            <%if policy(current_user).index?%>
+              <%= link_to 'Back', laundries_path, class: "option" %>    
+            <%elsif policy(current_user).laundry?%>
+              <%= link_to 'Back', ladmin_path(current_user), class: "option" %>    
+            <%end%>
           </ul>
         </div>
       </div>
     </section>
   </div>
 </section>
-
-
-
-<!--div class="wrapper container">
-  <h1>Lista de garments</h1>
-  <table>
-    <tr>
-      <th class="main">Name</th>
-      <th class="main">Description</th>
-      <th class="main" colspan="3"></th>
-    </tr>
-
-    <% @garments.each do |garment| %>
-    <tr class="content">
-      <td><%= garment.name %></td>
-      <td><%= garment.description %></td>
-      <td class="detail"><%= link_to 'Show', garment_path(garment) %></td>
-      <td class="detail"><%= link_to 'Edit', edit_garment_path(garment) %></td>
-      <td class="detail"><%= link_to 'Destroy', garment_path(garment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-    <% end %>
-  </table>
-  <br>
-  <%= link_to 'New garment', new_garment_path, class: "option" %> 
-  <%= link_to 'Home', root_path, class: "option" %>
-</div-->
-
-
