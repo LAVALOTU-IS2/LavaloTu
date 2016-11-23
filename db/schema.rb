@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(version: 20161120020936) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "user"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

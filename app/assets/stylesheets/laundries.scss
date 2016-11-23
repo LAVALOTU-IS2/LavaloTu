@@ -337,17 +337,38 @@
 				}
 			}
 			.date-hour{
-				padding-top: 15px;
 				text-align: center;
 				select{
 					display: inline-block;
-					margin-right: 5%;
 				}
-				.days{
+				.days, .hours, .places{
+					display: inline-block;
+					margin-right: 2.5%;
+					position: relative;
 					width: 55%;
+					&::before{
+						content: 'Date:';
+						color: $dark-gray;
+						font-family: $font-LatoS;
+						font-size: 16px;
+						position: absolute;
+						left: 0;
+						top: -25px;
+					}
 				}
 				.hours{
 					width: 30%;
+					&::before{
+						content: 'Hour:'
+					}
+				}
+				.places{
+					margin-bottom: 35px;
+					margin-right: 0;
+					width: 90%;
+					&::before{
+						content: 'Place:'
+					}
 				}
 			}
 		}
