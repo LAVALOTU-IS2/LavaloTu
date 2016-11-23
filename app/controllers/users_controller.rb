@@ -46,6 +46,9 @@ class UsersController < ApplicationController
 		gon.laundries = @laundries
 	end
 
+	def deliver
+	end
+
 	def profile
 	end
 

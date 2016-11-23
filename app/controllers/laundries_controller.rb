@@ -56,6 +56,20 @@ def update
   end
 end
 
+def deliver
+  @order = Order.find(params[:id])
+  @laundry = Laundry.find(current_user.laundry_id)
+end
+
+def send_order_mail
+  @order = Order.find(params[:id])
+  #@delivery = Delivery.where(order_id: @order.id)
+  #@delivery.deliverer_id = params[:deliverer]
+  #@delivery.save
+  SendOrderMailer.send_order(@order).deliver
+  redirect_to generated_orders_path
+end
+
 def calculator
   @laundry = Laundry.find(params[:id])
   @services = @laundry.services

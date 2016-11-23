@@ -150,6 +150,15 @@
 								width: 25px;
 							}
 						}
+						.select-deliver{
+							display: inline-block;
+							position: absolute;
+							right: 1;
+							top: 0;
+							img{
+								width: 25px;
+							}
+						}
 					}
 					.detail-history{
 						background-color: $white;

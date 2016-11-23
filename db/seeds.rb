@@ -82,6 +82,14 @@ s50 = Service.create(name: "Washed And Dryed", cost: 1500, laundry_id: 4, garmen
 s51 = Service.create(name: "Washed And Dryed", cost: 12000, laundry_id: 4, garment_id: 10)
 s52 = Service.create(name: "Washed And Dryed", cost: 14000, laundry_id: 4, garment_id: 11)
 
+s38 = Service.create(name: "Washed And Dryed", cost: 3000, laundry_id: 5, garment_id: 1)
+s39 = Service.create(name: "Dyed", cost: 15000, laundry_id: 5, garment_id: 1)
+s40 = Service.create(name: "Washed And Dryed", cost: 5000, laundry_id: 5, garment_id: 2)
+s41 = Service.create(name: "Washed And Dryed", cost: 6000, laundry_id: 5, garment_id: 3)
+s42 = Service.create(name: "Dyed", cost: 18000, laundry_id: 5, garment_id: 3)
+s43 = Service.create(name: "Washed And Dryed", cost: 6000, laundry_id: 5, garment_id: 4)
+
+
 #o1 = Order.create(pickup_date: "2016-11-13 13:00", total_cost: 22000, user_id: 1, laundry_id: 1, status: "Generated")
 #o2 = Order.create(pickup_date: "2016-11-13 11:00", total_cost: 47000, user_id: 1, laundry_id: 3, status: "Generated")
 #o3 = Order.create(date_pickup: "2016-11-13 14:00", date_deliver: "2016-11-15 08:00", score: 5, comment: "Excelente servicio", total_cost: 49000, user_id: 1, laundry_id: 2, status: "Completed")

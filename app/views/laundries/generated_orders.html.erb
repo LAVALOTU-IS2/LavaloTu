@@ -12,6 +12,8 @@
 				<div class="content">
 					<h4 class="subtitle">
 						Detail Service
+						<%= link_to image_tag('user-m.svg'), deliver_path(id: order.id), :alt => 'Select deliver', :title => 'Select deliver', :class => 'select-deliver img-responsive'%>
+
 						<%= link_to image_tag('show.png'), order_path(order), :alt => 'See Order', :title => 'See Order', :class => 'see-order img-responsive'%>
 					</h4>
 					<div class="detail-history">

@@ -33,7 +33,8 @@ Rails.application.routes.draw do
   #resources :garments do
   #  resources :services
   #end
-
+  get 'deliver' => 'laundries#deliver'
+  get 'send_order_mail', to: 'laundries#send_order_mail', as: :send_order_mail
   resources :orders
   resources :laundries do
     resources :garments do
