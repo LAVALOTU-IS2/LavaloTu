@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
 	def show
+		if policy(current_user).laundry?
+			@laundry = Laundry.find(current_user.laundry_id)
+		end
 		@order = Order.find(params[:id])
 		@details = @order.order_details
 	end

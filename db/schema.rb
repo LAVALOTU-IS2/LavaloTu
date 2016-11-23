@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20161120020936) do
     t.datetime "deliver_date"
     t.integer  "order_id"
     t.integer  "deliverer_id"
+    t.integer  "place_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["deliverer_id"], name: "index_deliveries_on_deliverer_id", using: :btree
     t.index ["order_id"], name: "index_deliveries_on_order_id", using: :btree
+    t.index ["place_id"], name: "index_deliveries_on_place_id", using: :btree
   end
 
   create_table "garments", force: :cascade do |t|
@@ -116,7 +118,6 @@ ActiveRecord::Schema.define(version: 20161120020936) do
   create_table "places", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.integer  "user"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -165,10 +166,10 @@ ActiveRecord::Schema.define(version: 20161120020936) do
     t.integer  "role",                   default: 0
     t.integer  "orders"
     t.integer  "laundry_id"
-    t.integer  "deliverers_id"
+    t.integer  "deliverer_id"
     t.index ["auth_token"], name: "index_users_on_auth_token", unique: true, using: :btree
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-    t.index ["deliverers_id"], name: "index_users_on_deliverers_id", using: :btree
+    t.index ["deliverer_id"], name: "index_users_on_deliverer_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["laundry_id"], name: "index_users_on_laundry_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -178,6 +179,7 @@ ActiveRecord::Schema.define(version: 20161120020936) do
   add_foreign_key "deliverers", "laundries"
   add_foreign_key "deliveries", "deliverers"
   add_foreign_key "deliveries", "orders"
+  add_foreign_key "deliveries", "places"
   add_foreign_key "identities", "users"
   add_foreign_key "order_details", "garments"
   add_foreign_key "order_details", "orders"
@@ -186,6 +188,6 @@ ActiveRecord::Schema.define(version: 20161120020936) do
   add_foreign_key "places", "users"
   add_foreign_key "services", "garments"
   add_foreign_key "services", "laundries"
-  add_foreign_key "users", "deliverers", column: "deliverers_id"
+  add_foreign_key "users", "deliverers"
   add_foreign_key "users", "laundries"
 end

@@ -21,10 +21,21 @@
 			</tr>
 			<% end %>
 		</table>
-		<% if @order.status == "In Progress" %>
-			<%= link_to 'Back', current_orders_path %>
-		<% elsif @order.status == "Completed" %>
-			<%= link_to 'Back', history_orders_path %>
+		<% if policy(current_user).laundry? %>
+			<% if @order.status == "Generated" %>
+				<%= link_to 'Back', generated_orders_path %>
+			<% elsif @order.status == "Completed" %>
+				
+			<% end %>
+		<% elsif policy(current_user).admin? %> 
+			<% if @order.status == "Generated" %>
+				<%= link_to 'Back', current_orders_path %>
+			<% elsif @order.status == "Completed" %>
+				<%= link_to 'Back', history_orders_path %>
+			<% end %>
+		<% else %>
+
 		<% end %>
+		
 	</div>
-</section>
+ </section>
