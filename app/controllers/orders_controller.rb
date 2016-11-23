@@ -26,4 +26,9 @@ class OrdersController < ApplicationController
 			redirect_to current_orders_path, notice: 'Parser was successfully created.' 
 		end
 	end
+	def destroy
+		@order = Order.find(params[:id])
+		@order.destroy
+		redirect_to current_orders_path, notice: 'Order successfully deleted'
+	end
 end

@@ -14,6 +14,8 @@
 					<h4 class="subtitle">
 						Detail Service
 						<%= link_to image_tag('show.png'), order_path(order), :alt => 'See Order', :title => 'See Order', :class => 'see-order img-responsive'%>
+						<%= link_to image_tag('delete.png'), order_path(order), method: :delete, data: { confirm: 'Are you sure?' }, :alt => 'Delete Order', :title => 'Delete Order', :class => 'delete-order img-responsive'%>
+
 					</h4>
 					<div class="detail-history">
 						<div class="info clearfix">
