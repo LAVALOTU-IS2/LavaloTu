@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
 				quantity: params[:details][index][:quantity], 
 				unit_cost: params[:details][index][:unit_cost], 
 				cost: params[:details][index][:cost])
+			@order.deliveries.create(direction: 0, place_id: params[:place])
 		end
 		if request.xhr? # test if the request is an AJAX call
 			render js: "document.location = '#{current_orders_path}'", notice: "Your order was successfully created"
