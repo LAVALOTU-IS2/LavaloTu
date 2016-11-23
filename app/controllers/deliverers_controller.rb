@@ -4,7 +4,8 @@ class DeliverersController < ApplicationController
 	end
 
 	def show
-		@laundry = Laundry.find(params[:laundry_id])
+    @order = Order.find(params[:id])
+		@laundry = Laundry.find(@order.laundry_id)
 		@deliverer = @laundry.deliverers.find(params[:id])				
 	end
 

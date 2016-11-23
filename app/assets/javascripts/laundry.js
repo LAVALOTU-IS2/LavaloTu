@@ -280,7 +280,7 @@ function createOrder(){
 
 	$.ajax({
 		data: { 'order': {'laundry_id' : laundry_services.laundry.id, 'pickup_date' : pickup_date, 'total_cost' :  total_cost},
-		details },
+		details, 'place': place_id },
 		type: 'POST',
 		url: '/orders',
 		success: function(data){

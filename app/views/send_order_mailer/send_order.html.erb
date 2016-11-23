@@ -6,13 +6,13 @@
   	</head>
   	<body style="color: #333; font-family: 'Lato', sans-serif; font-weight: 400">
 		<div id="laundries-container">
-			<h1 style="color: #72e2fd; font-family: 'Lato', sans-serif; font-weight: 400; margin-bottom: 25px">Your order detail</h1>
+			<h1 style="color: #72e2fd; font-family: 'Lato', sans-serif; font-weight: 400; margin-bottom: 25px">Thank you for prefering us <%= @user.name %></h1>
 
-			<p style="margin-bottom: 15px"><%= @laundry.name %> ha confirmado tu orden y ha sido asignada a , si deseas contactarte con el, su numero de telefono es .</p>
+			<p style="margin-bottom: 15px"><%= @laundry.name %> has confirmed your order and it has been assigned to <%= @deliverer.name%>. If you wish to contact him/her, the contact phone number is <%=@deliverer.phone%>.</p>
 			</br>
-			<p style="margin-bottom: 15px">Tus prendas seran recogidas en ##. Recuerda solicitar el carnet al repartidor para autenticarlo con Lavalotu</p>
+			<p style="margin-bottom: 15px">Your garments will be picked up at the address <%= @place.address%> on <%= @order.pickup_date.strftime("%A %d of %B at %I:%M %p")%>. Remember to ask your deliverer for his/her LavaloTu's ID card.</p>
 			</br>
-			<p style="margin-bottom: 15px">Los servicios de tu orden</p>
+			<p style="margin-bottom: 15px">The service details of your order:</p>
 			<table>
 				<tr>
 					<th style="font-family: 'Lato', sans-serif; font-weight: 700;">Garment</th>

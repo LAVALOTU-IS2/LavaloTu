@@ -63,9 +63,11 @@ end
 
 def send_order_mail
   @order = Order.find(params[:id])
-  #@delivery = Delivery.where(order_id: @order.id)
-  #@delivery.deliverer_id = params[:deliverer]
-  #@delivery.save
+  @order.status = "Assigned pickup"
+  @order.save
+  @delivery = Delivery.where(order_id: @order.id)
+  @delivery[0].deliverer_id = params[:deliverer]
+  @delivery[0].save
   SendOrderMailer.send_order(@order).deliver
   redirect_to generated_orders_path
 end

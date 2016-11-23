@@ -61,7 +61,8 @@ class UsersController < ApplicationController
 		if policy(current_user).deliverer?
 			@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "Assigned pickup", "Picked up", "In house","In delivery","Delivered")
 		else
-			@orders = Order.where("user_id = ? AND (status = ? OR status = ?)", current_user.id, "In progress", "Generated")
+			@orders_generated = Order.where("user_id = ? AND status = ? ", current_user.id, "Generated")
+			@orders_assigned_pickup = Order.where("user_id = ? AND status = ? ", current_user.id, "Assigned pickup")
 		end
 	end
 

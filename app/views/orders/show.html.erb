@@ -28,7 +28,7 @@
 						<% elsif @order.status == "Completed" %>
 							
 						<% end %>
-					<% elsif policy(current_user).admin? %> 
+					<% elsif policy(current_user).index? %> 
 						<% if @order.status == "Generated" %>
 							<%= link_to 'Back', current_orders_path %>
 						<% elsif @order.status == "Completed" %>
@@ -38,6 +38,10 @@
 			
 			<% end %>
 		</section>
-
+		<% if @order.status == "Assigned pickup" %>
+			<section class="deliverer_access">
+				<%= link_to 'See deliverer', laundry_deliverer_path(@order.deliveries[0].deliverer_id) %>
+			</section>
+		<% end %>
 	</div>
 </section>
