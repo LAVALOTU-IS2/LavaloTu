@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'users' %>
 <section class="dashboard clearfix">
-	<%= render 'menu' %>
+	<%= render 'users/menu' %>
 	<div id="laundries-container">
 		<h1 class="title">Laundries</h1>
 		<% if policy(current_user).index? %>
@@ -17,7 +17,6 @@
 			    <%= javascript_include_tag :markerclusterer %>
 	    	</section>
 		<% end %>
-		<%= link_to '', current_orders_path , :class => 'back fa fa-arrow-left'%>
 	</div>
 </section>
 

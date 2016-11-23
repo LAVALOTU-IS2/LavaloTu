@@ -127,6 +127,9 @@
 			margin: 0 auto;
 			padding: 20px 0;
 			width: 90%;
+			.text{
+				padding-left: 20px;
+			}
 			.history{
 				.content{
 					background-color: whitesmoke;
@@ -197,38 +200,51 @@
 				text-decoration: none;
 			}
 		}
-		.details{
-			padding: 20px 0;
+		.garments-details{
+			font-family: $font-LatoT;
+			left: unset;
+			margin: 25px auto;
 			position: relative;
+			right: unset;
+			top: unset;
+			width: 70%;
+			tbody{
+				tr{
+					border-left: 1px solid $dark-gray;
+					border-right: 1px solid $dark-gray; 
+					td{
+						padding: 5px 10px;
+						text-align: center;
+						width: 22%;
+					}
+					&:last-child{
+						border-bottom: 1px solid $dark-gray;
+					}
+				}
+				.variables{
+					background-color: $dark-gray;
+					border: 1px solid $dark-gray;
+					color: $white;
+					font-family: $font-LatoS;
+					font-size: 19px;
+				}
+			}
+		}
+		.deliverer_access{
 			text-align: center;
-			.garments-details{
-				font-family: $font-LatoT;
-				left: 0;
-				margin: 0 auto;
-				position: absolute;
-				right: 0;
-				top: 20px;
-				width: 70%;
-				tbody{
-					tr{
-						border-left: 1px solid $dark-gray;
-						border-right: 1px solid $dark-gray; 
-						td{
-							padding: 5px 10px;
-							text-align: center;
-							width: 22%;
-						}
-						&:last-child{
-							border-bottom: 1px solid $dark-gray;
-						}
-					}
-					.variables{
-						background-color: $dark-gray;
-						border: 1px solid $dark-gray;
-						color: $white;
-						font-family: $font-LatoS;
-						font-size: 19px;
-					}
+			a{
+				background-color: transparent;
+				border: 1px solid $dark-gray;
+				color: $dark-gray;
+				display: inline-block;
+				font-family: $font-LatoS;
+				font-size: 18px;
+				padding: 7px 15px 10px;
+				@include transition(all 0.3s ease-in-out);
+				&:hover, &:active, &:focus{
+					background-color: $dark-gray;
+					color: $white;
+					text-decoration: none;
 				}
 			}
 		}

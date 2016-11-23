@@ -10,7 +10,7 @@
 		<section class="histories row">
 			<h2 class="service_type">Pending Orders</h2>
 			<% if @orders_generated.empty? %>
-				<span class="notice">You don't have any pending orders.</span>
+				<span class="text">You don't have any pending orders.</span>
 			<% else %>
 				<% @orders_generated.each do |order| %>
 					<div class="history col-md-4">

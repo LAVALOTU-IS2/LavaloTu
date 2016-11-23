@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get "history_orders" => "users#history_orders"
 
   get "generated_orders" => "laundries#generated_orders"
+   get "laundry_history_orders" => "laundries#laundry_history_orders"
   
   get 'profile' => "users#profile"
   get 'welcome/index'

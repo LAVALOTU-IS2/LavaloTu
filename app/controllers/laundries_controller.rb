@@ -39,6 +39,11 @@ def generated_orders
   @orders = Order.where("laundry_id = ? AND status = ?", @laundry.id, "Generated")
 end
 
+def laundry_history_orders
+  @laundry = Laundry.find(current_user.laundry_id)
+  @orders = Order.where("laundry_id = ? AND status = ?", @laundry.id, "Completed")
+end
+
 def edit
   @laundry = Laundry.find(params[:id])
 end
