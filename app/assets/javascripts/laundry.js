@@ -126,9 +126,21 @@ function verifyOrder(){
 			}
 		}
 
+		var $place = $('<div class="places"></div>');
+		var $days = $('<div class="days"></div>');
+		var $hours = $('<div class="hours"></div>');
+
+		var $place_user = $('<select class="form-control place"></select>');
+		for(var p in laundry_services){
+			if ( p == 'places'){
+				for (place in laundry_services[p]){
+					$place_user.append('<option value="'+ place +'">'+ laundry_services[p][place][0] + ' - ' + laundry_services[p][place][1] +'</option>');
+				}
+			}
+		}
 
 		if (available_hours.length == 1){
-			var $available_days = $('<select class="form-control days" onchange="renderHours(this.selectedIndex);""></select>');
+			var $available_days = $('<select class="form-control day" onchange="renderHours(this.selectedIndex);""></select>');
 			for (var i = 0; i < available_days.length; i++){
 				$available_days.append('<option value="'+ available_days[i][1] +'">'+ available_days[i][0] +'</option>');
 			}
@@ -141,13 +153,13 @@ function verifyOrder(){
 				hours = hours + 1;
 			}
 
-			var $available_hours = $('<select class="form-control hours"></select>');
+			var $available_hours = $('<select class="form-control hour"></select>');
 			for (var i = 0; i < available_hours[0].length; i++){
 				$available_hours.append('<option value="'+ available_hours[0][i] +'">'+ available_hours[0][i] +'</option>');
 			}
 		}
 		else{
-			var $available_days = $('<select class="form-control days"></select>');
+			var $available_days = $('<select class="form-control day"></select>');
 			for (var i = 0; i < available_days.length; i++){
 				$available_days.append('<option value="'+ available_days[i][1] +'">'+ available_days[i][0] +'</option>');
 			}
@@ -160,7 +172,7 @@ function verifyOrder(){
 				hours = hours + 1;
 			}
 
-			var $available_hours = $('<select class="form-control hours"></select>');
+			var $available_hours = $('<select class="form-control hour"></select>');
 			for (var i = 0; i < available_hours[0].length; i++){
 				$available_hours.append('<option value="'+ available_hours[0][i] +'">'+ available_hours[0][i] +'</option>');
 			}
@@ -170,8 +182,14 @@ function verifyOrder(){
 
 		var $date_hour = $('<div class="date-hour"></div>');
 
-		$date_hour.append($available_days);
-		$date_hour.append($available_hours);
+		$place.append($place_user);
+		$date_hour.append($place);
+
+		$days.append($available_days)
+		$date_hour.append($days);
+
+		$hours.append($available_hours);
+		$date_hour.append($hours);
 
 		$laundry_detail.append($date_hour);
 
@@ -229,13 +247,17 @@ function verifyOrder(){
 }
 
 function createOrder(){
-	var option_date = document.getElementsByClassName('days');
+	var option_date = document.getElementsByClassName('day');
 	var selected_date = option_date[0].options[option_date[0].selectedIndex].value;
-	option_date = document.getElementsByClassName('hours');
+	option_date = document.getElementsByClassName('hour');
 	var selected_time = option_date[0].options[option_date[0].selectedIndex].value;
 	var pickup_date = selected_date + ' ' + selected_time;
 	var option_total = document.getElementById('total');
 	var total_cost = option_total.innerHTML;
+	var place = document.getElementsByClassName('place');
+	var place_id = place[0].options[place[0].selectedIndex].value;
+
+	console.log("Id Place: " + place_id);
 	
 	var details = new Object();
 	var counter = 0;
@@ -385,7 +407,6 @@ $(document).ready(function () {
 			for( var j = 0; j < result.places.length; j++){
 				laundry_services['places'][result.places[j].id] = [result.places[j].name, result.places[j].address];
 			}
-			console.log(laundry_services);
 		}
 	});
 });

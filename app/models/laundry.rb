@@ -6,4 +6,5 @@ class Laundry < ApplicationRecord
 	has_many :services, dependent: :destroy
 	has_many :garments, through: :services
 	has_many :deliverers, dependent: :destroy
+	belongs_to :user 
 end

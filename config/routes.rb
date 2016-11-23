@@ -1,18 +1,18 @@
 Rails.application.routes.draw do
-  
+
   root "welcome#index"
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-        resources :users, :only => [:show, :index, :create, :update, :destroy] do
-          collection do
-            post 'login', to: :login
-            post 'reloadUser', to: :reloadUser 
-          end
+      resources :users, :only => [:show, :index, :create, :update, :destroy] do
+        collection do
+          post 'login', to: :login
+          post 'reloadUser', to: :reloadUser 
         end
-        resources :garments, :only => [:show, :index, :create, :update, :destroy]
-        resources :laundries, :only => [:show, :index, :create, :update, :destroy]
-        resources :services, :only => [:show, :index, :create, :update, :destroy]
+      end
+      resources :garments, :only => [:show, :index, :create, :update, :destroy]
+      resources :laundries, :only => [:show, :index, :create, :update, :destroy]
+      resources :services, :only => [:show, :index, :create, :update, :destroy]
     end
   end
 
@@ -36,41 +36,43 @@ Rails.application.routes.draw do
   get 'deliver' => 'laundries#deliver'
   get 'send_order_mail', to: 'laundries#send_order_mail', as: :send_order_mail
   resources :orders
+  
   resources :laundries do
     resources :garments do
       resources :services
     end
   end
 
-  scope 'Laundry' do
-    get '/laundry_admin/:id', to: 'laundries#laundry_admin', as: 'ladmin'
-    get '/laundry_deliverers/:id', to: 'laundries#laundry_deliverers', as: 'ladeliverers'
-    #get '/deliverers_laundry/:id', to: 'deliverers#index', as: 'ladeliverers'
-  end
+  
+  get '/laundry_admin/:id', to: 'laundries#laundry_admin', as: 'ladmin'
+  get '/laundry_deliverers/:id', to: 'laundries#laundry_deliverers', as: 'ladeliverers'
+  #get '/deliverers_laundry/:id', to: 'deliverers#index', as: 'ladeliverers'
+
   resources :laundries do
-     resources :deliverers
-      #get '/laundry_deliverers/:id', to: 'deliverers#index', as: 'ladeliverers'
+   resources :deliverers
+    #get '/laundry_deliverers/:id', to: 'deliverers#index', as: 'ladeliverers'
   end
+
   scope 'User' do
-  resources :users do
+    resources :users do
       resources :places
     end
     resources :laundries
 
   end
+
   resource :user, only: [:edit, :update] do
-  collection do
-    patch 'update_password'
+    collection do
+      patch 'update_password'
+    end
   end
-end
   scope 'Admin' do
     resources :users do
       resources :places
     end
     match '/users/:id/destroy', to: 'users#destroyUser',via: [:delete], as: 'destroy'
     resources :laundries
-    #get 'show_laundry'=>'laundries#show_laundry'
-
+    #get 'show_laundry'=>'laundries#show_laundry' 
   end
 
 

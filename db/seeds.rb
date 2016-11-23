@@ -110,7 +110,7 @@ s43 = Service.create(name: "Washed And Dryed", cost: 6000, laundry_id: 5, garmen
 #od9 = OrderDetail.create(order_id: 4, garment_id: 5, service_name: "Washed and Dryed", quantity: 2, cost: 5000)
 #od10 = OrderDetail.create(order_id: 4, garment_id: 6, service_name: "Washed and Dryed", quantity: 2, cost: 4500)
 
-
+d1 = Deliverer.create(name: "Repartidor falso 123", email: "repartidor@falso.com", phone: "3123456543", laundry_id: nil)
 d1 = Deliverer.create(name: "Zulma Hurtado", email: "zehurtadop@gmail.com", phone: "3123456543", laundry_id: 1)
 d2 = Deliverer.create(name: "Julian Garcia", email: "julior@gmail.com", phone: "3125678754", laundry_id: 1)
 d3 = Deliverer.create(name: "Luis Rojas", email: "luro@gmail.com", phone: "3133456543", laundry_id: 1)
