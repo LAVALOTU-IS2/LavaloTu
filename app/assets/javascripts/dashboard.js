@@ -5,10 +5,9 @@ function renderGarments( service ){
 
 	var $garments = $('<div id="garment_pieces" class="content row"></div>');
 	for(var k in garments_services[service]){
-		var name_image = "garments/"+ k.toLowerCase() +".png"; 
+		var name_image = "garments/"+ k.toLowerCase() +".png";
 		var $garment = $('<div class="garment col-md-3"></div>');
-		var $garment_image = $('<div class="image '+ k.toLowerCase() +'"></div>');	
-		//var $garment_image = $('<div class="image"><%= asset_path "garments/'+ k.toLowerCase() +'.png", :alt => "'+ k +'", :title => "'+ k +'", :class=> "img-responsive" %></div>');
+		var $garment_image = $('<div class="image '+ k.toLowerCase() +'"></div>');
 		var $garment_name = $('<span class="name">'+ k +'</span>');
 		if(garments_services[service][k][0] != garments_services[service][k][1]){
 			var $price = $('<span>From: $ '+ garments_services[service][k][0] +' To: $ ' + garments_services[service][k][1] + '</span>');
@@ -19,7 +18,7 @@ function renderGarments( service ){
 
 		$garment.append($garment_image);
 		$garment.append($garment_name);
-		$garment.append($price);	
+		$garment.append($price);
 		$garments.append($garment);
 	}
 
