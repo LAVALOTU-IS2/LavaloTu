@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
-  
+
   has_one :identity, dependent: :destroy
   has_one :laundry
   has_one :deliverer
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   def self.find_for_oauth(auth, signed_in_resource = nil)
     identity=Identity.find_for_oauth(auth)
     user = signed_in_resource ? signed_in_resource : identity.user
- 
+
     if user.nil?
       email = auth.info.email
       user = User.find_by(email: email) if email
@@ -75,12 +75,12 @@ class User < ActiveRecord::Base
       user.skip_confirmation!
       user.save!
     end
- 
+
     if identity.user != user
       identity.user = user
       identity.save!
     end
-    
+
     user
   end
 
@@ -98,9 +98,9 @@ class User < ActiveRecord::Base
   end
 
   def friends
-     @friends ||= Koala::Facebook::API.new(self.acces_token,'bf6979189d4be46172aa81ef9e4ae06a')
-      @friends.get_connections('me',"friends?fields=id,name,picture.type(normal)", api_version: "v2.7") 
-  end 
+     @friends ||= Koala::Facebook::API.new(self.acces_token,'46ec0a9b2b6dc258828332fa2cafd6cc')
+      @friends.get_connections('me',"friends?fields=id,name,picture.type(normal)", api_version: "v2.7")
+  end
   private
     def generate_authentication_token!
       begin
